@@ -1,0 +1,3802 @@
+//Import Style
+@import "../font/fontface";
+@import "common/common";
+@import "common/mixin";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "HLTFont";
+    font-size: 20px;
+    line-height: 1.4;
+    overflow: hidden;
+    cursor: url(../image/icon/icon-mouse.png), auto !important;
+    position: relative;
+
+    &::selection {
+        background-color: transparent;
+    }
+    &::-moz-selection {
+        background-color: transparent;
+    }
+}
+
+area:-webkit-any-link {
+    cursor: url(../image/icon/icon-mouse.png), auto !important;
+}
+
+#section-2 {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+    &.overllay {
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.6);
+        }
+    }
+
+    #imgwrapper {
+        position: relative;
+        height: 100vh;
+        width: calc(100vw - 400px);
+        overflow: hidden;
+
+        #drag {
+            position: relative;
+            z-index: 3 !important;
+
+            #map-bg {
+                display: block;
+                height: 100vh;
+                max-width: unset;
+            }
+            #overlay-wrapper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 3 !important;
+
+                .overlay-gr {
+                    &#gr1 {
+                        .npc {
+                            max-width: 50px;
+                            top: 16%;
+                            left: 11.5%;
+                            position: absolute;
+                        }
+                        .gif {
+                            max-width: 120px;
+                            position: absolute;
+                            top: 14%;
+                            left: 10%;
+                            display: none;
+                        }
+                    }
+
+                    &#gr2 {
+                        .npc {
+                            position: absolute;
+                            top: 44%;
+                            left: 22%;
+                            max-width: 80px;
+                        }
+                        .gif {
+                            max-width: 110px;
+                            position: absolute;
+                            top: 43.25%;
+                            left: 21.65%;
+                            display: none;
+                        }
+                    }
+
+                    &#gr3 {
+                        .gif {
+                            position: absolute;
+                            max-width: 160px;
+                            top: 15.75%;
+                            left: 29.2%;
+                            display: none;
+                        }
+                    }
+
+                    &#gr4 {
+                        .npc {
+                            position: absolute;
+                            max-width: 100px;
+                            top: 10%;
+                            left: 33%;
+                        }
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            width: 125px;
+                            top: 10.25%;
+                            left: 32.5%;
+                            transform: scale(1.2);
+                        }
+                    }
+
+                    &#gr5 {
+                        .npc {
+                            position: absolute;
+                            top: 17.5%;
+                            left: 39.25%;
+                            width: 170px;
+                        }
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            top: 15.5%;
+                            left: 38.75%;
+                            width: 170px;
+                        }
+                    }
+
+                    &#gr6 {
+                        .gif {
+                            display: none;
+                            width: 130px;
+                            top: 30%;
+                            left: 34.75%;
+                            position: absolute;
+                        }
+                    }
+
+                    &#gr7 {
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            width: 150px;
+                            top: 22%;
+                            left: 45.5%;
+                        }
+                    }
+
+                    &#gr8 {
+                        .npc {
+                            position: absolute;
+                            max-width: 90px;
+                            top: 43%;
+                            left: 45%;
+                        }
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            max-width: 150px;
+                            top: 44%;
+                            left: 41.5%;
+                        }
+                    }
+
+                    &#gr9 {
+                        .npc {
+                            position: absolute;
+                            max-width: 90px;
+                            top: 54.5%;
+                            left: 55.5%;
+                        }
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            width: 180px;
+                            top: 48.75%;
+                            left: 54.35%;
+                        }
+                    }
+
+                    &#gr10 {
+                        .npc {
+                            position: absolute;
+                            max-width: 50px;
+                            top: 52%;
+                            left: 70%;
+                        }
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            max-width: 130px;
+                            top: 47.5%;
+                            left: 68.5%;
+                        }
+                    }
+
+                    &#gr11 {
+                        .npc {
+                            position: absolute;
+                            max-width: 50px;
+                            top: 21%;
+                            left: 78.5%;
+                        }
+                        .gif {
+                            display: none;
+                            max-width: 140px;
+                            top: 16%;
+                            left: 75.5%;
+                            position: absolute;
+                        }
+                    }
+
+                    &#gr12 {
+                        .npc {
+                            max-width: 75px;
+                            position: absolute;
+                            top: 1%;
+                            left: 60%;
+                        }
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            max-width: 85px;
+                            top: 0.5%;
+                            left: 59.65%;
+                        }
+                    }
+
+                    &#gr13 {
+                        .npc {
+                            position: absolute;
+                            top: 84.5%;
+                            left: 62%;
+                            max-width: 50px;
+                        }
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            top: 84%;
+                            left: 61%;
+                            max-width: 75px;
+                        }
+                    }
+
+                    &#gr14 {
+                        .npc {
+                            position: absolute;
+                            max-width: 60px;
+                            height: auto;
+                            top: 73%;
+                            left: 46%;
+                        }
+                        .gif {
+                            display: none;
+                            position: absolute;
+                            max-width: 100px;
+                            top: 73%;
+                            left: 45.75%;
+                        }
+                    }
+
+                    &.active {
+                        .npc {
+                            display: none !important;
+                        }
+                        .gif {
+                            display: block !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #tutorial-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        height: 100vh;
+        width: 100vw;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 3;
+        }
+
+        .btnclose {
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            position: absolute;
+            z-index: 3;
+            @include scale(0.8);
+
+            &:hover {
+                @include scale(0.9);
+            }
+        }
+
+        .tutorial-slider {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include translate(-50%, -50%);
+            z-index: 4;
+            width: 700px;
+            max-width: 50vw;
+
+            .swiper-slide {
+                .item {
+                    width: 100%;
+                    display: block;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 10px;
+
+                        &.pc-img {
+                            display: block;
+                        }
+                        &.mb-img {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .swiper-pagination {
+                bottom: 30px;
+
+                span {
+                    width: 50px;
+                    border-radius: 0;
+                    height: 5px;
+
+                    &.swiper-pagination-bullet-active {
+                        background: $green;
+                    }
+                }
+            }
+
+            .tutorial-text {
+                position: absolute;
+                bottom: 30px;
+                left: 30px;
+                width: calc(100% - 60px);
+                @extend %d-flex;
+                z-index: 11;
+
+                button {
+                    background: transparent;
+                    border: none;
+                    font-family: "HLTFont";
+                    font-size: 30px;
+                    color: #666;
+                    &:hover {
+                        color: $green-text;
+                    }
+                }
+
+                li {
+                    &:last-child {
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    #result-wrapper {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: #fff;
+        // z-index: 99;
+        z-index: 3;
+        height: 100vh;
+        max-width: 30vw;
+        width: 400px;
+        @extend %d-flex;
+        // padding: 50px 0;
+        padding: 30px 0;
+        //align-items: center;
+        align-content: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        h3 {
+            font-size: 30px;
+            font-weight: inherit;
+            color: #6c6c6c;
+            margin-bottom: 20px;
+        }
+
+        .result-icon-group {
+            display: flex;
+            width: 100%;
+            margin: 0 30px 40px;
+            justify-content: space-between;
+
+            .group-left {
+                flex: 0 0 50%;
+                h1 {
+                    line-height: 20px;
+                    text-transform: uppercase;
+
+                    a {
+                        color: #777777;
+                    }
+                }
+            }
+            .group-right {
+                flex: 0 0 50%;
+                display: flex;
+                justify-content: flex-end;
+
+                .group-icon {
+                    max-width: 60px;
+                    margin-left: 10px;
+                    flex: 0 0 50%;
+
+                    a {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .result-group {
+            max-height: 60vh;
+            margin-right: 20px;
+
+            ul {
+                margin: 0 30px;
+
+                li {
+                    padding: 15px 20px;
+                    background: #ebebeb;
+                    border-radius: 20px 20px 20px 0;
+                    margin: 0 0 20px 0;
+                    position: relative;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: -10px;
+                        width: 12px;
+                        height: 12px;
+                        background: url("../image/icon/bf-li.png") no-repeat;
+                        opacity: 0.2;
+                        z-index: -1;
+                    }
+
+                    // &:hover {
+                    //   background: #c7c7c7;
+
+                    //   &:before {
+                    //     opacity: 0.5;
+                    //   }
+                    // }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    #result-container {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+
+        .btnclose {
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            position: fixed;
+            z-index: 10;
+            @include scale(0.8);
+
+            &:hover {
+                @include scale(0.9);
+            }
+        }
+    }
+
+    #result-form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
+        z-index: 20;
+        width: 750px;
+        max-width: 60vw;
+        max-height: 45vh;
+        background: #fff6f0;
+        border-radius: 20px;
+        height: 400px;
+
+        .result-form {
+            &-img {
+                background-color: #fff;
+                width: 200px;
+                height: 200px;
+                overflow: hidden;
+                border-radius: 50%;
+                @include translate(30px, -30%);
+            }
+
+            &-content {
+                position: absolute;
+                top: 30px;
+                left: 280px;
+
+                h3 {
+                    color: $green-text;
+                    text-transform: uppercase;
+                    font-weight: inherit;
+                    font-size: 35px;
+                }
+
+                h4 {
+                    color: #b4b4b4;
+                    font-weight: lighter;
+                }
+            }
+        }
+
+        form {
+            position: absolute;
+            max-width: 100%;
+            width: 350px;
+            bottom: 7%;
+            left: 50%;
+            @include translate(-50%, 0);
+
+            input {
+                width: 100%;
+                border: none;
+                background: transparent url("../image/icon/bg-input.png") no-repeat;
+                background-size: 100% 100%;
+                padding: 0 20px;
+                font-family: "HLTFont";
+                font-size: 25px;
+                color: #666;
+                height: 50px;
+            }
+
+            #error-name {
+                margin: 5px 0;
+                font-size: 14px;
+                color: red;
+            }
+
+            button {
+                font-family: "HLTFont";
+                font-size: 20px;
+                margin: 10px auto;
+                background: transparent;
+                color: $green-text;
+                border: none;
+                border-bottom: 1px solid $green-text;
+                display: table;
+            }
+        }
+    }
+}
+
+.preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff6f0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    border: 10px solid $green;
+    z-index: 6;
+
+    header {
+        position: fixed;
+        width: calc(100% - 20px);
+        padding: 20px;
+        top: 10px;
+        left: 10px;
+        @extend %d-flex;
+        align-items: center;
+        justify-content: center;
+
+        .col-left {
+            margin-right: auto;
+
+            h1 {
+                text-transform: uppercase;
+                line-height: 20px;
+                a {
+                    color: #777;
+                }
+            }
+        }
+
+        .col-right {
+            margin-left: auto;
+
+            a {
+                @extend %d-flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+
+                span {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    color: #6c6c6c;
+                }
+            }
+        }
+    }
+
+    #preload-content {
+        @extend %d-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+
+        .preload-content-inner {
+            &-title {
+                text-align: center;
+                font-size: 90px;
+                text-transform: uppercase;
+                color: $green-text;
+                line-height: 1.05;
+                position: relative;
+                margin-bottom: 30px;
+
+                span {
+                    font-size: 140px;
+                    display: block;
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 20px;
+                    left: -80px;
+                    width: 70px;
+                    height: 100px;
+                    background: url("../image/icon/icon-zoom.png") no-repeat;
+                    background-size: 64px auto;
+                }
+            }
+
+            &-icon {
+                max-width: 90px;
+                height: auto;
+                margin: 0 auto;
+                animation-name: rotation;
+                animation-duration: 3s;
+                animation-delay: 0.5s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                animation-direction: normal;
+
+                img {
+                    width: 100%;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@keyframes rotation {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*Responsive*/
+
+// ----------------- 4k screen -----------------------
+
+// 4k screen fullscreen
+@media (max-width: 4096px) and (max-height: 2160px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 20.5%;
+                                left: 12.5%;
+                                transform: scale(2.4);
+                            }
+                            .gif {
+                                top: 18.5%;
+                                left: 12%;
+                                transform: scale(2.7);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 48%;
+                                left: 23%;
+                                transform: scale(2.6);
+                            }
+                            .gif {
+                                top: 48.25%;
+                                left: 23.25%;
+                                transform: scale(2.7);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 22.75%;
+                                left: 31.85%;
+                                transform: scale(2.9);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 16.25%;
+                                left: 35%;
+                                transform: scale(2.5);
+                            }
+                            .gif {
+                                top: 15.95%;
+                                left: 34.75%;
+                                transform: scale(3.2);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 23.5%;
+                                left: 42%;
+                                transform: scale(2.7);
+                            }
+                            .gif {
+                                top: 21.75%;
+                                left: 41.5%;
+                                transform: scale(3);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(2.7);
+                                top: 34%;
+                                left: 36.5%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 28.5%;
+                                left: 47.75%;
+                                transform: scale(3);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 48%;
+                                left: 46%;
+                                transform: scale(2.9);
+                            }
+                            .gif {
+                                top: 51%;
+                                left: 43.75%;
+                                transform: scale(3);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 59.75%;
+                                left: 57%;
+                                transform: scale(3);
+                            }
+                            .gif {
+                                top: 57%;
+                                left: 57.35%;
+                                transform: scale(3);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 55.75%;
+                                left: 70.75%;
+                                transform: scale(2.5);
+                            }
+                            .gif {
+                                top: 53%;
+                                left: 70.25%;
+                                transform: scale(2.8);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 25%;
+                                left: 79.5%;
+                                transform: scale(2.7);
+                            }
+                            .gif {
+                                top: 22%;
+                                left: 77.5%;
+                                transform: scale(2.8);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(2.7);
+                                top: 4%;
+                                left: 60.75%;
+                            }
+                            .gif {
+                                transform: scale(2.8);
+                                top: 4.5%;
+                                left: 61%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(2.8);
+                                top: 87.5%;
+                                left: 62.75%;
+                            }
+                            .gif {
+                                top: 87.25%;
+                                left: 62.25%;
+                                transform: scale(2.8);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 78.25%;
+                                left: 46.75%;
+                                transform: scale(3);
+                            }
+                            .gif {
+                                top: 78%;
+                                left: 47%;
+                                transform: scale(3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 4k screen fullscreen
+
+// 4k no fullscreen
+@media (max-width: 4096px) and (max-height: 2017px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 20.5%;
+                                left: 12.5%;
+                                transform: scale(2.4);
+                            }
+                            .gif {
+                                top: 18.5%;
+                                left: 12%;
+                                transform: scale(2.7);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 48%;
+                                left: 23%;
+                                transform: scale(2.6);
+                            }
+                            .gif {
+                                top: 48.25%;
+                                left: 23.25%;
+                                transform: scale(2.7);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 22.75%;
+                                left: 31.85%;
+                                transform: scale(2.9);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 16.25%;
+                                left: 35%;
+                                transform: scale(2.5);
+                            }
+                            .gif {
+                                top: 15.95%;
+                                left: 34.75%;
+                                transform: scale(3.2);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 23.5%;
+                                left: 42%;
+                                transform: scale(2.7);
+                            }
+                            .gif {
+                                top: 21.75%;
+                                left: 41.5%;
+                                transform: scale(3);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(2.7);
+                                top: 34%;
+                                left: 36.5%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 28.5%;
+                                left: 47.75%;
+                                transform: scale(3);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 48%;
+                                left: 46%;
+                                transform: scale(2.9);
+                            }
+                            .gif {
+                                top: 51%;
+                                left: 43.75%;
+                                transform: scale(3);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 59.75%;
+                                left: 57%;
+                                transform: scale(3);
+                            }
+                            .gif {
+                                top: 57%;
+                                left: 57.35%;
+                                transform: scale(3);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 55.75%;
+                                left: 70.75%;
+                                transform: scale(2.5);
+                            }
+                            .gif {
+                                top: 53%;
+                                left: 70.25%;
+                                transform: scale(2.8);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 25%;
+                                left: 79.5%;
+                                transform: scale(2.7);
+                            }
+                            .gif {
+                                top: 22%;
+                                left: 77.5%;
+                                transform: scale(2.8);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(2.7);
+                                top: 4%;
+                                left: 60.75%;
+                            }
+                            .gif {
+                                transform: scale(2.8);
+                                top: 4.5%;
+                                left: 61%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(2.8);
+                                top: 87.5%;
+                                left: 62.75%;
+                            }
+                            .gif {
+                                top: 87.25%;
+                                left: 62.25%;
+                                transform: scale(2.8);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 78.25%;
+                                left: 46.75%;
+                                transform: scale(3);
+                            }
+                            .gif {
+                                top: 78%;
+                                left: 47%;
+                                transform: scale(3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 4k no fullscreen
+
+// ---------------- 2k screen ------------------------
+
+@media (max-width: 3200px) and (max-height: 1440px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 19.5%;
+                                left: 12.5%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 17%;
+                                left: 11.5%;
+                                transform: scale(1.8);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 47.75%;
+                                left: 22.5%;
+                                transform: scale(1.7);
+                            }
+                            .gif {
+                                top: 47.25%;
+                                left: 22.75%;
+                                transform: scale(1.75);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 20.75%;
+                                left: 31%;
+                                transform: scale(2);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 14.5%;
+                                left: 34.5%;
+                                transform: scale(1.7);
+                            }
+                            .gif {
+                                top: 14.25%;
+                                left: 34%;
+                                transform: scale(2.2);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 22%;
+                                left: 41.25%;
+                                transform: scale(1.8);
+                            }
+                            .gif {
+                                top: 20%;
+                                left: 40.75%;
+                                transform: scale(2);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(1.8);
+                                top: 33%;
+                                left: 35.75%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 26.75%;
+                                left: 47.2%;
+                                transform: scale(2);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 47%;
+                                left: 45.75%;
+                                transform: scale(1.8);
+                            }
+                            .gif {
+                                top: 49.5%;
+                                left: 43%;
+                                transform: scale(2);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 58.5%;
+                                left: 56.5%;
+                                transform: scale(1.8);
+                            }
+                            .gif {
+                                top: 54.5%;
+                                left: 56.5%;
+                                transform: scale(2);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 55%;
+                                left: 70.5%;
+                                transform: scale(1.7);
+                            }
+                            .gif {
+                                top: 51%;
+                                left: 69.5%;
+                                transform: scale(1.9);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 24%;
+                                left: 78.75%;
+                                transform: scale(1.6);
+                            }
+                            .gif {
+                                top: 20%;
+                                left: 77.25%;
+                                transform: scale(1.8);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(1.7);
+                                top: 3%;
+                                left: 60.5%;
+                            }
+                            .gif {
+                                transform: scale(1.75);
+                                top: 3%;
+                                left: 60.5%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(2);
+                                top: 87%;
+                                left: 62.75%;
+                            }
+                            .gif {
+                                top: 86.5%;
+                                left: 62%;
+                                transform: scale(2);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 77%;
+                                left: 46.5%;
+                                transform: scale(2);
+                            }
+                            .gif {
+                                top: 77%;
+                                left: 46.5%;
+                                transform: scale(2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ---------------- 2500px screen ---------------------
+
+// 2500px fullscreen
+@media (max-width: 2500px) and (max-height: 1080px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17.5%;
+                                left: 11.75%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 15.5%;
+                                left: 11%;
+                                transform: scale(1.45);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 45.75%;
+                                left: 22.5%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 45.45%;
+                                left: 22.35%;
+                                transform: scale(1.45);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 18.75%;
+                                left: 30.5%;
+                                transform: scale(1.45);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 13%;
+                                left: 34%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 13.2%;
+                                left: 33.65%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 20%;
+                                left: 40.5%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 18%;
+                                left: 40%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(1.45);
+                                top: 32%;
+                                left: 35.5%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 25%;
+                                left: 46.65%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 46%;
+                                left: 45.25%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 48%;
+                                left: 42.5%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 56.75%;
+                                left: 56.25%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 52.5%;
+                                left: 56%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 53.5%;
+                                left: 70.5%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 50%;
+                                left: 69.5%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 23%;
+                                left: 78.75%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 19%;
+                                left: 76.5%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(1.3);
+                                top: 2.25%;
+                                left: 60.25%;
+                            }
+                            .gif {
+                                transform: scale(1.4);
+                                top: 2%;
+                                left: 60%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(1.5);
+                                top: 86%;
+                                left: 62.5%;
+                            }
+                            .gif {
+                                top: 85.5%;
+                                left: 61.75%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 76%;
+                                left: 46%;
+                                transform: scale(1.55);
+                            }
+                            .gif {
+                                top: 75%;
+                                left: 45.75%;
+                                transform: scale(1.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 2500px fullscreen
+
+// 2500px no fullscreen
+@media (max-width: 2500px) and (max-height: 937px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17.5%;
+                                left: 11.75%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 15%;
+                                left: 10.5%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 45%;
+                                left: 22.25%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 44.5%;
+                                left: 22.1%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 18.05%;
+                                left: 29.85%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 12.5%;
+                                left: 33.75%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 12.25%;
+                                left: 33.25%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 19%;
+                                left: 40.15%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 16.75%;
+                                left: 39.5%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(1.25);
+                                top: 31%;
+                                left: 35.5%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 24%;
+                                left: 46.15%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 45%;
+                                left: 45.25%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 47%;
+                                left: 42.25%;
+                                transform: scale(1.35);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 55.75%;
+                                left: 56%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 51.2%;
+                                left: 55.35%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 53%;
+                                left: 70.5%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 49%;
+                                left: 69%;
+                                transform: scale(1.2);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 22%;
+                                left: 78.75%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 17.5%;
+                                left: 76.25%;
+                                transform: scale(1.25);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(1.2);
+                                top: 2%;
+                                left: 60.25%;
+                            }
+                            .gif {
+                                transform: scale(1.3);
+                                top: 1.25%;
+                                left: 59.75%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(1.3);
+                                top: 85.5%;
+                                left: 62.25%;
+                            }
+                            .gif {
+                                top: 85%;
+                                left: 61.5%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 75%;
+                                left: 46%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 75%;
+                                left: 45.75%;
+                                transform: scale(1.4);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// 2500px no fullscreen
+
+// ------------- 1920px screen -------------------
+
+// 1920px(2) fullscreen
+@media (max-width: 1920px) and (max-height: 1200px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17.75%;
+                                left: 12%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 16%;
+                                left: 11%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 46.25%;
+                                left: 22.5%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 46.25%;
+                                left: 22.5%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 19.5%;
+                                left: 30.75%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 13.75%;
+                                left: 34.25%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 13.5%;
+                                left: 33.75%;
+                                transform: scale(1.8);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 21%;
+                                left: 40.75%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 18.25%;
+                                left: 40.25%;
+                                transform: scale(1.8);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(1.5);
+                                top: 32%;
+                                left: 36%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 25.75%;
+                                left: 46.75%;
+                                transform: scale(1.7);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 46%;
+                                left: 45.25%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 49%;
+                                left: 42.5%;
+                                transform: scale(1.8);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 57.65%;
+                                left: 56.35%;
+                                transform: scale(1.6);
+                            }
+                            .gif {
+                                top: 53.5%;
+                                left: 56.25%;
+                                transform: scale(1.7);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 54%;
+                                left: 70.5%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 50%;
+                                left: 69.5%;
+                                transform: scale(1.7);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 23.5%;
+                                left: 79%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 19.5%;
+                                left: 76.5%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(1.4);
+                                top: 2.5%;
+                                left: 60.25%;
+                            }
+                            .gif {
+                                transform: scale(1.6);
+                                top: 1.75%;
+                                left: 59.75%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(1.7);
+                                top: 86%;
+                                left: 62.5%;
+                            }
+                            .gif {
+                                top: 86%;
+                                left: 61.75%;
+                                transform: scale(1.7);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 76%;
+                                left: 46.25%;
+                                transform: scale(1.8);
+                            }
+                            .gif {
+                                top: 76%;
+                                left: 46.25%;
+                                transform: scale(1.8);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 1920px(2) fullscreen
+
+// 1920px(1) fullscreen
+@media (max-width: 1920px) and (max-height: 1080px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17.5%;
+                                left: 11.75%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 15.5%;
+                                left: 11%;
+                                transform: scale(1.45);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 45.75%;
+                                left: 22.5%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 45.45%;
+                                left: 22.35%;
+                                transform: scale(1.45);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 18.75%;
+                                left: 30.5%;
+                                transform: scale(1.45);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 13%;
+                                left: 34%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 13.2%;
+                                left: 33.65%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 20%;
+                                left: 40.5%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 18%;
+                                left: 40%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(1.45);
+                                top: 32%;
+                                left: 35.5%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 25%;
+                                left: 46.65%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 46%;
+                                left: 45.25%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 48%;
+                                left: 42.5%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 56.75%;
+                                left: 56.25%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 52.5%;
+                                left: 56%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 53.5%;
+                                left: 70.5%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 50%;
+                                left: 69.5%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 23%;
+                                left: 78.75%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 19%;
+                                left: 76.5%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(1.3);
+                                top: 2.25%;
+                                left: 60.25%;
+                            }
+                            .gif {
+                                transform: scale(1.4);
+                                top: 2%;
+                                left: 60%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(1.5);
+                                top: 86%;
+                                left: 62.5%;
+                            }
+                            .gif {
+                                top: 85.5%;
+                                left: 61.75%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 76%;
+                                left: 46%;
+                                transform: scale(1.55);
+                            }
+                            .gif {
+                                top: 75%;
+                                left: 45.75%;
+                                transform: scale(1.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 1920px(1) fullscreen
+
+// 1920px(2) no fullscreen
+@media (max-width: 1920px) and (max-height: 1057px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17.75%;
+                                left: 12%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 16%;
+                                left: 11%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 46.1%;
+                                left: 22.5%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 45.5%;
+                                left: 22.25%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 19.1%;
+                                left: 30.25%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 13%;
+                                left: 34%;
+                                transform: scale(1.25);
+                            }
+                            .gif {
+                                top: 13.15%;
+                                left: 33.65%;
+                                transform: scale(1.7);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 20.15%;
+                                left: 40.5%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 17.5%;
+                                left: 40%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(1.4);
+                                top: 31.5%;
+                                left: 36%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 25%;
+                                left: 46.5%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 45.5%;
+                                left: 45.5%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 48%;
+                                left: 42.5%;
+                                transform: scale(1.6);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 56.25%;
+                                left: 56.2%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 52.5%;
+                                left: 55.75%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 53.5%;
+                                left: 70.75%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 49%;
+                                left: 69.25%;
+                                transform: scale(1.45);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 23.5%;
+                                left: 79%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 18.5%;
+                                left: 76.5%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(1.4);
+                                top: 2.5%;
+                                left: 60.25%;
+                            }
+                            .gif {
+                                transform: scale(1.5);
+                                top: 1.75%;
+                                left: 59.75%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(1.5);
+                                top: 86%;
+                                left: 62.5%;
+                            }
+                            .gif {
+                                top: 85.5%;
+                                left: 61.75%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 76%;
+                                left: 46.25%;
+                                transform: scale(1.65);
+                            }
+                            .gif {
+                                top: 76%;
+                                left: 46.25%;
+                                transform: scale(1.6);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 1920px(2) no fullscreen
+
+// 1920px(1) no fullscreen
+@media (max-width: 1920px) and (max-height: 937px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17.5%;
+                                left: 11.75%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 15%;
+                                left: 10.5%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 45%;
+                                left: 22.25%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 44.5%;
+                                left: 22.1%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 18.05%;
+                                left: 29.85%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 12.5%;
+                                left: 33.75%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 12.25%;
+                                left: 33.25%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 19%;
+                                left: 40.15%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 16.75%;
+                                left: 39.5%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                transform: scale(1.25);
+                                top: 31%;
+                                left: 35.5%;
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 24%;
+                                left: 46.15%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 45%;
+                                left: 45.25%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 47%;
+                                left: 42.25%;
+                                transform: scale(1.35);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 55.75%;
+                                left: 56%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 51.2%;
+                                left: 55.35%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 53%;
+                                left: 70.5%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 49%;
+                                left: 69%;
+                                transform: scale(1.2);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 22%;
+                                left: 78.75%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 17.5%;
+                                left: 76.25%;
+                                transform: scale(1.25);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                transform: scale(1.2);
+                                top: 2%;
+                                left: 60.25%;
+                            }
+                            .gif {
+                                transform: scale(1.3);
+                                top: 1.25%;
+                                left: 59.75%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                transform: scale(1.3);
+                                top: 85.5%;
+                                left: 62.25%;
+                            }
+                            .gif {
+                                top: 85%;
+                                left: 61.5%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 75%;
+                                left: 46%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 75%;
+                                left: 45.75%;
+                                transform: scale(1.4);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 1920px(1) no fullscreen
+
+// ------------------ 1600px + height 900 screen ------------------
+
+// 1600px fullscreen
+@media (max-width: 1600px) and (max-height: 900px) {
+    #section-2 {
+        &.preload {
+            #preload-content {
+                .preload-content-inner-title {
+                    font-size: 80px;
+                    span {
+                        font-size: 120px;
+                    }
+                }
+            }
+        }
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17%;
+                                left: 12%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 15%;
+                                left: 10.5%;
+                                transform: scale(1.2);
+                            }
+                        }
+
+                        &#gr2 {
+                            .npc {
+                                top: 46%;
+                                left: 22%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 44.5%;
+                                left: 22%;
+                                transform: scale(1.2);
+                            }
+                        }
+
+                        &#gr3 {
+                            .gif {
+                                top: 17.5%;
+                                left: 29.85%;
+                                transform: scale(1.25);
+                            }
+                        }
+
+                        &#gr4 {
+                            .npc {
+                                top: 11.85%;
+                                left: 33.75%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 12%;
+                                left: 33.2%;
+                                transform: scale(1.3);
+                            }
+                        }
+
+                        &#gr5 {
+                            .npc {
+                                top: 19.25%;
+                                left: 40%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 16.75%;
+                                left: 39.5%;
+                                transform: scale(1.3);
+                            }
+                        }
+
+                        &#gr6 {
+                            .gif {
+                                top: 30%;
+                                left: 35%;
+                                transform: scale(1.1);
+                            }
+                        }
+
+                        &#gr7 {
+                            .gif {
+                                top: 23.5%;
+                                left: 46%;
+                                transform: scale(1.25);
+                            }
+                        }
+
+                        &#gr8 {
+                            .npc {
+                                top: 44%;
+                                left: 45%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 46%;
+                                left: 42%;
+                                transform: scale(1.2);
+                            }
+                        }
+
+                        &#gr9 {
+                            .npc {
+                                top: 55.75%;
+                                left: 55.75%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 51%;
+                                left: 55.25%;
+                                transform: scale(1.25);
+                            }
+                        }
+
+                        &#gr10 {
+                            .npc {
+                                top: 53%;
+                                left: 70%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 48.25%;
+                                left: 68.5%;
+                                transform: scale(1.2);
+                            }
+                        }
+
+                        &#gr11 {
+                            .npc {
+                                top: 22%;
+                                left: 78.5%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 17%;
+                                left: 75.75%;
+                                transform: scale(1.1);
+                            }
+                        }
+
+                        &#gr12 {
+                            .npc {
+                                top: 1.5%;
+                                left: 60%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 1%;
+                                left: 59.65%;
+                                transform: scale(1.2);
+                            }
+                        }
+
+                        &#gr13 {
+                            .npc {
+                                top: 85.35%;
+                                left: 62.25%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 84.5%;
+                                left: 61.25%;
+                                transform: scale(1.2);
+                            }
+                        }
+
+                        &#gr14 {
+                            .npc {
+                                top: 74%;
+                                left: 46%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 74%;
+                                left: 45.75%;
+                                transform: scale(1.3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 1600px fullscreen
+
+// 1600px no fullscreen
+@media (max-width: 1600px) and (max-height: 800px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 16%;
+                                left: 11.5%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 14%;
+                                left: 10%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr2 {
+                            .npc {
+                                top: 44%;
+                                left: 22%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 43.25%;
+                                left: 21.65%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr3 {
+                            .gif {
+                                top: 15.75%;
+                                left: 29.2%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr4 {
+                            .npc {
+                                top: 10%;
+                                left: 33%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 10.25%;
+                                left: 32.5%;
+                                transform: scale(1.2);
+                            }
+                        }
+
+                        &#gr5 {
+                            .npc {
+                                top: 17.5%;
+                                left: 39.25%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 15.5%;
+                                left: 38.75%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr6 {
+                            .gif {
+                                top: 30%;
+                                left: 34.75%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr7 {
+                            .gif {
+                                top: 22%;
+                                left: 45.5%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr8 {
+                            .npc {
+                                top: 43%;
+                                left: 45%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 44%;
+                                left: 41.5%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr9 {
+                            .npc {
+                                top: 54.5%;
+                                left: 55.5%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 48.75%;
+                                left: 54.35%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr10 {
+                            .npc {
+                                top: 52%;
+                                left: 70%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 47.5%;
+                                left: 68.5%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr11 {
+                            .npc {
+                                top: 21%;
+                                left: 78.5%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 16%;
+                                left: 75.5%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr12 {
+                            .npc {
+                                top: 1%;
+                                left: 60%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 0.5%;
+                                left: 59.65%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr13 {
+                            .npc {
+                                top: 84.5%;
+                                left: 62%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 84%;
+                                left: 61%;
+                                transform: scale(1);
+                            }
+                        }
+
+                        &#gr14 {
+                            .npc {
+                                top: 73%;
+                                left: 46%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 73%;
+                                left: 45.75%;
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 1600px no fullscreen
+
+//  ------------- 1366px screen --------------------
+
+@media (max-width: 1366px) and (max-height: 768px) {
+    .preload {
+        #preload-content {
+            .preload-content-inner-title {
+                font-size: 70px;
+                span {
+                    font-size: 100px;
+                }
+            }
+        }
+    }
+}
+
+// 1366px fullscreen
+@media (max-width: 1366px) and (max-height: 768px) {
+    #section-2 {
+        #result-form {
+            max-height: 55vh;
+        }
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                transform: scale(0.9);
+                                left: 10.75%;
+                            }
+                            .gif {
+                                top: 13%;
+                                left: 9.5%;
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                transform: scale(0.9);
+                                left: 21.75%;
+                                top: 44.75%;
+                            }
+                            .gif {
+                                left: 21.5%;
+                                top: 43.75%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 16%;
+                                left: 29.25%;
+                                transform: scale(1.05);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 10.5%;
+                                left: 33.25%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 10.5%;
+                                left: 32.65%;
+                                transform: scale(1.15);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 18%;
+                                left: 39.25%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 15%;
+                                left: 38.85%;
+                                transform: scale(1.15);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                top: 28%;
+                                left: 34.5%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 22.2%;
+                                left: 45.5%;
+                                transform: scale(1.05);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 43.5%;
+                                left: 44.5%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 44.5%;
+                                left: 41.5%;
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 54.5%;
+                                left: 55.5%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 49.25%;
+                                left: 54.5%;
+                                transform: scale(1.05);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 52%;
+                                left: 70%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 46.5%;
+                                left: 68%;
+                                transform: scale(1.05);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 21.5%;
+                                left: 78%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 16%;
+                                left: 75.5%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                top: 0%;
+                                left: 59.5%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 0%;
+                                left: 59.25%;
+                                transform: scale(1.05);
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                top: 84.5%;
+                                left: 62%;
+                                width: 50px;
+                                transform: scale(1.05);
+                            }
+                            .gif {
+                                top: 83.5%;
+                                left: 60.85%;
+                                transform: scale(1.05);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 73%;
+                                left: 45.5%;
+                                transform: scale(1.05);
+                            }
+                            .gif {
+                                top: 73%;
+                                left: 45%;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 1366px fullscreen
+
+// 1366px no fullscreen
+@media (max-width: 1366px) and (max-height: 650px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                transform: scale(0.7);
+                                left: 10.75%;
+                            }
+                            .gif {
+                                top: 12%;
+                                left: 8.5%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                transform: scale(0.7);
+                                left: 21.25%;
+                            }
+                            .gif {
+                                left: 21%;
+                                top: 42%;
+                                transform: scale(0.8);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 14%;
+                                left: 28.2%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 9%;
+                                left: 32.75%;
+                                transform: scale(0.7);
+                            }
+                            .gif {
+                                top: 9%;
+                                left: 32%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 15.75%;
+                                left: 38.35%;
+                                transform: scale(0.8);
+                            }
+                            .gif {
+                                top: 12.5%;
+                                left: 38%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                top: 27%;
+                                left: 34%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 20%;
+                                left: 44.75%;
+                                transform: scale(0.85);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 41.5%;
+                                left: 44.5%;
+                                transform: scale(0.8);
+                            }
+                            .gif {
+                                top: 42.75%;
+                                left: 40.5%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 52.75%;
+                                left: 55%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 46.5%;
+                                left: 53.65%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 50.5%;
+                                left: 70%;
+                                transform: scale(0.8);
+                            }
+                            .gif {
+                                top: 45%;
+                                left: 68%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 20%;
+                                left: 78%;
+                                transform: scale(0.8);
+                            }
+                            .gif {
+                                top: 14%;
+                                left: 74.5%;
+                                transform: scale(0.8);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                top: 0%;
+                                left: 59.5%;
+                                transform: scale(0.8);
+                            }
+                            .gif {
+                                top: -1%;
+                                left: 59%;
+                                transform: scale(0.8);
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                top: 84%;
+                                left: 62%;
+                                width: 50px;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 83%;
+                                left: 60.85%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 72%;
+                                left: 45%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 71.5%;
+                                left: 44.5%;
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End 1366px no fullscreen
+
+// -------------- square screen ------------------
+
+// square screen fullscreen
+@media (min-width: 1200px) and (max-width: 1300px) and (max-height: 1024px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17.5%;
+                                left: 12%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 15%;
+                                left: 11%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 45.75%;
+                                left: 22.25%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 45.2%;
+                                left: 22.25%;
+                                transform: scale(1.35);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 18.5%;
+                                left: 30.25%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 12.75%;
+                                left: 34%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 12.75%;
+                                left: 33.5%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 20.25%;
+                                left: 40.45%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 18%;
+                                left: 40%;
+                                transform: scale(1.5);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                top: 31%;
+                                left: 35.5%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 25%;
+                                left: 46.5%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 45%;
+                                left: 45%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 47%;
+                                left: 42.5%;
+                                transform: scale(1.45);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 56.5%;
+                                left: 56%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 52%;
+                                left: 55.5%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 53%;
+                                left: 70.5%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 50%;
+                                left: 69%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 23%;
+                                left: 79%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                top: 18.5%;
+                                left: 76.25%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                top: 2%;
+                                left: 60.25%;
+                                transform: scale(1.3);
+                            }
+                            .gif {
+                                transform: scale(1.4);
+                                top: 2%;
+                                left: 60%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                top: 85.75%;
+                                left: 62.45%;
+                                transform: scale(1.4);
+                            }
+                            .gif {
+                                top: 85%;
+                                left: 61.5%;
+                                transform: scale(1.4);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 75%;
+                                left: 46%;
+                                transform: scale(1.5);
+                            }
+                            .gif {
+                                top: 75%;
+                                left: 46%;
+                                transform: scale(1.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End square screen fullscreen
+
+// square screen no fullscreen
+@media (min-width: 1200px) and (max-width: 1300px) and (max-height: 899px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 17%;
+                                left: 11.75%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 14%;
+                                left: 10%;
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 45.75%;
+                                left: 22%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 44.5%;
+                                left: 22%;
+                                transform: scale(1.15);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 17.5%;
+                                left: 29.75%;
+                                transform: scale(1.2);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 12%;
+                                left: 33.75%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 11.75%;
+                                left: 33%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 19%;
+                                left: 40%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 16.75%;
+                                left: 39.5%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr6 {
+                            .gif {
+                                top: 30%;
+                                left: 35%;
+                                transform: scale(1.2);
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 23.5%;
+                                left: 46%;
+                                transform: scale(1.2);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 44%;
+                                left: 45%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 46%;
+                                left: 42%;
+                                transform: scale(1.3);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 55.5%;
+                                left: 55.75%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 50.75%;
+                                left: 55.1%;
+                                transform: scale(1.2);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 52.5%;
+                                left: 70.5%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 49%;
+                                left: 69%;
+                                transform: scale(1.2);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 23%;
+                                left: 79%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 17%;
+                                left: 76%;
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr12 {
+                            .npc {
+                                top: 2%;
+                                left: 60.25%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                transform: scale(1.2);
+                                top: 1.5%;
+                                left: 60%;
+                            }
+                        }
+                        &#gr13 {
+                            .npc {
+                                top: 85.75%;
+                                left: 62.45%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 84.5%;
+                                left: 61.25%;
+                                transform: scale(1.2);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 75%;
+                                left: 46%;
+                                transform: scale(1.2);
+                            }
+                            .gif {
+                                top: 74%;
+                                left: 45.75%;
+                                transform: scale(1.2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// End square screen no fullscreen
+
+// ---------------- mobile ---------------------
+@media (max-width: 767px) {
+    #section-2 {
+        #tutorial-wrapper {
+            .tutorial-slider {
+                width: 75vw;
+                max-width: 500px;
+                height: 75vh;
+                max-height: 600px;
+
+                .swiper-container {
+                    height: 100%;
+
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            width: 100% !important;
+
+                            .item {
+                                height: 100%;
+                                img {
+                                    height: 100%;
+
+                                    &.pc-img {
+                                        display: none;
+                                    }
+                                    &.mb-img {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .swiper-pagination {
+                        span {
+                            width: 40px;
+                        }
+                    }
+                    .tutorial-text {
+                        width: calc(100% - 50px);
+                        li {
+                            button {
+                                font-size: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+            .btnclose {
+                visibility: hidden;
+                &:hover {
+                    @include scale(0.8);
+                }
+            }
+        }
+        #result-wrapper {
+            width: 100vw;
+            max-width: unset;
+            padding: 20px 0;
+            height: 60vh;
+            top: unset;
+            bottom: 0;
+            transform: translateY(50vh);
+            transition: all 0.5s;
+
+            h3 {
+                font-size: 25px;
+            }
+            .result-img {
+                display: none;
+                width: 200px;
+                height: 200px;
+                margin: 30px 0;
+            }
+            .result-group {
+                width: 90%;
+                margin-right: 0;
+            }
+
+            &.collapse {
+                transform: translateY(0);
+                transition: all 0.5s;
+            }
+        }
+        #result-container {
+            #result-form {
+                max-height: 500px;
+                height: 70vh;
+                max-width: 400px;
+                width: 80vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .result-form-img {
+                    transform: none;
+                    width: 150px;
+                    height: 150px;
+                    margin: 0 auto;
+                }
+                .result-form-content {
+                    position: static;
+                    text-align: center;
+                    margin: 20px 0;
+                    padding: 0px 15px;
+
+                    h3 {
+                        font-size: 25px;
+                    }
+                }
+                #form-frame5-submit {
+                    position: static;
+                    transform: none;
+                    padding: 0 15px;
+                }
+            }
+            .btnclose {
+                transform: translateY(-50%) scale(0.6);
+                top: calc(50% - 240px);
+                right: 0;
+                z-index: 21;
+            }
+        }
+        #imgwrapper {
+            width: 100%;
+        }
+    }
+    .preload {
+        header {
+            .col-left {
+                h1 {
+                    font-size: 17px;
+                    line-height: 1;
+                }
+            }
+            .col-right {
+                a {
+                    img {
+                        width: 40px;
+                    }
+                    span {
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        #preload-content {
+            width: 100%;
+            height: 100%;
+
+            .preload-content-inner {
+                .preload-content-inner-title {
+                    font-size: 50px;
+
+                    span {
+                        font-size: 80px;
+                    }
+
+                    &::before {
+                        top: -50px;
+                        left: 50%;
+                        width: 25px;
+                        height: 40px;
+                        background-size: 100% 100%;
+                        transform: translateX(-50%);
+                    }
+                }
+                .preload-content-inner-subtitle {
+                    font-size: 25px;
+                    margin: 15px 0;
+                }
+                .preload-content-inner-icon {
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) and (max-height: 768px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 16.5%;
+                                left: 11.5%;
+                                transform: scale(0.8);
+                            }
+                            .gif {
+                                top: 13.5%;
+                                left: 9%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 44.25%;
+                                left: 21.75%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 43%;
+                                left: 21.5%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 15.45%;
+                                left: 29.1%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 10%;
+                                left: 33.1%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 10%;
+                                left: 32.5%;
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 17.75%;
+                                left: 39.25%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 14.5%;
+                                left: 38.65%;
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr6 {
+                            .npc {
+                            }
+                            .gif {
+                                top: 29%;
+                                left: 35%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 21.75%;
+                                left: 45.25%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 42.5%;
+                                left: 45%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 44.5%;
+                                left: 41.25%;
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 54%;
+                                left: 55.5%;
+                                transform: scale(1);
+                            }
+                            .gif {
+                                top: 48.5%;
+                                left: 54.25%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 50.5%;
+                                left: 70%;
+                            }
+                            .gif {
+                                top: 46%;
+                                left: 68%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 21%;
+                                left: 78%;
+                            }
+                            .gif {
+                                top: 15.5%;
+                                left: 75%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr12 {
+                            .gif {
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr13 {
+                            .gif {
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 73%;
+                                left: 46%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 73%;
+                                left: 45.65%;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #tutorial-wrapper {
+            .tutorial-slider {
+                .swiper-container {
+                    .tutorial-text {
+                        li {
+                            button {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) and (max-height: 680px) {
+    #section-2 {
+        #imgwrapper {
+            #drag {
+                #overlay-wrapper {
+                    .overlay-gr {
+                        &#gr1 {
+                            .npc {
+                                top: 16%;
+                                left: 11%;
+                                transform: scale(0.75);
+                            }
+                            .gif {
+                                top: 13.5%;
+                                left: 9%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr2 {
+                            .npc {
+                                top: 43.75%;
+                                left: 21.75%;
+                                transform: scale(0.8);
+                            }
+                            .gif {
+                                top: 42%;
+                                left: 21.25%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr3 {
+                            .gif {
+                                top: 14.5%;
+                                left: 28.65%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr4 {
+                            .npc {
+                                top: 9.75%;
+                                left: 33%;
+                                transform: scale(0.7);
+                            }
+                            .gif {
+                                top: 9.5%;
+                                left: 32.25%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr5 {
+                            .npc {
+                                top: 16.25%;
+                                left: 38.75%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 13.5%;
+                                left: 38.25%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr6 {
+                            .npc {
+                            }
+                            .gif {
+                                top: 27%;
+                                left: 34%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr7 {
+                            .gif {
+                                top: 20.75%;
+                                left: 45%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr8 {
+                            .npc {
+                                top: 42.5%;
+                                left: 45%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 43%;
+                                left: 41%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr9 {
+                            .npc {
+                                top: 53.25%;
+                                left: 55.25%;
+                                transform: scale(0.9);
+                            }
+                            .gif {
+                                top: 47.5%;
+                                left: 54%;
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr10 {
+                            .npc {
+                                top: 50.5%;
+                                left: 70%;
+                            }
+                            .gif {
+                                top: 46%;
+                                left: 68%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr11 {
+                            .npc {
+                                top: 21%;
+                                left: 78%;
+                            }
+                            .gif {
+                                top: 15%;
+                                left: 74.75%;
+                                transform: scale(0.9);
+                            }
+                        }
+                        &#gr12 {
+                            .gif {
+                                transform: scale(1);
+                            }
+                        }
+                        &#gr13 {
+                            .gif {
+                                transform: scale(1.1);
+                            }
+                        }
+                        &#gr14 {
+                            .npc {
+                                top: 73%;
+                                left: 46%;
+                                transform: scale(1.1);
+                            }
+                            .gif {
+                                top: 73%;
+                                left: 45.65%;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #tutorial-wrapper {
+            .tutorial-slider {
+                .swiper-container {
+                    .tutorial-text {
+                        li {
+                            button {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

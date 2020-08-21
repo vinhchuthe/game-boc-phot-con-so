@@ -1,0 +1,96 @@
+$blue: #0d4ca1;
+$black: #000;
+$orange: #ff6a02;
+$yellow: #fed440;
+$white: #fff;
+$green: #b0cb88;
+$green-text: #6b8742;
+
+%text-overflow {
+  display: block;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+*[disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: .5;
+}
+
+* {
+  outline: none !important;
+  text-decoration: none !important;
+  box-sizing: border-box;
+
+}
+
+.hidden {
+  display: none;
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+a, button{
+  cursor: url(../image/icon/icon-mouse.png), auto;
+}
+%d-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+%transition {
+  transition: all 0.3s !important;
+  -o-transition: all 0.3s !important;
+  -ms-transition: all 0.3s !important;
+  -webkit-transition: all 0.3s !important;
+  -moz-transition: all 0.3s !important;
+}
+a {
+  color: $blue;
+
+  &:hover {
+    color: $green;
+  }
+}
+
+
+.cb {
+  clear: both;
+}
+h1, h2,h3,h4,h5{
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+%imgson {
+  height: 100%;
+  width: 100%;
+  object-fit: cover
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+img {
+  max-width: 100%;
+  height: auto
+}
+

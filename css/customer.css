@@ -1,0 +1,18 @@
+@media (max-width: 767px) {
+  #section-2 #result-container .btnclose {
+    transform: translateY(-50%) scale(0.6);
+    padding: 0;
+    border-radius: 100%;
+    overflow: hidden; }
+    #section-2 #result-container .btnclose img {
+      border-radius: 100%; }
+    #section-2 #result-container .btnclose:hover {
+      transform: translateY(-50%) scale(0.6); }
+
+  .avarta-bp {
+    background: #fff;
+    max-width: 90%;
+    margin: 0 auto 10px auto;
+    border-radius: 10px; } }
+
+/*# sourceMappingURL=customer.css.map */
