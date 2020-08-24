@@ -96,22 +96,12 @@ if($start_time == 0)
                 },
                 dataType: 'html'
             });
-            // $("#section-1").append("frame/frame-2.php");
         }
 
-        function changetype() {
-            $(document).on("click",".type-btn", function() {    
-                var type = $(this).attr("data-type");
-                // Check browser support
-                if (typeof(Storage) !== "undefined") {
-                // Store
-                localStorage.setItem("key-type", type); 
-                } else {
-                console.log("Sorry, your browser does not support Web Storage...");
-                };
-                window.location.href="<?php echo URL_ROOT_PROJECT; ?>game.php";
-            });
-        }
+        
+        function playgame() {
+            window.location.href="<?php echo URL_ROOT_PROJECT; ?>game.php";
+        };
 
     </script>
 </head>
@@ -149,7 +139,7 @@ if($start_time == 0)
                             Athena</a>
                     </div>
                     <div class="section-content-btn">
-                        <button type="button" onclick="loadFrame2()">Tham gia ngay</button>
+                        <button type="button" onclick="playgame()">Tham gia ngay</button>
                     </div>
                 </div>
             </div>

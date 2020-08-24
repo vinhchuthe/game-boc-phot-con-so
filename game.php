@@ -80,8 +80,6 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                     content: data_content
                 },
                 success: function(data) {
-                    localStorage.setItem("is-actived", "actived");
-                    // $('#result-wrapper').remove();
                     $('#section-2').addClass("overllay").append(data);
                     if (storage == "image") {
                         console.log("download image");
@@ -107,11 +105,6 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             });
         }
 
-        function closeTutorial() {
-            $('#tutorial-wrapper').remove();
-            ClickBtn();
-        }
-
         function closeFrame5(elm) {
             ClickBtn();
             $('#section-2').removeClass('overllay');
@@ -124,7 +117,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             var name = $('#title').val();
             var patt1 = /\s/g;
             var result = name.match(patt1);
-            if (name.length <= 20 && name !== '')
+            if (name.length <= 30 && name !== '')
 			{
 				if(typeof(ssepushSource) == 'object')
 				{ 
@@ -133,18 +126,32 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                 $('#form-frame5-submit').submit();
             } else if (name === '') {
                 $('#error-name').removeClass('hidden');
-                $('#error-name').html('Tên viết liền, không chứa dấu cách');
+                $('#error-name').html('Tên viết không quá 30 ký tự');
             } else if (result) {
                 $('#error-name').removeClass('hidden');
-                $('#error-name').html('Tên viết liền, không chứa dấu cách');
+                $('#error-name').html('Tên viết không quá 30 ký tự');
             }
         }
 
         function setwidth() {
             var widthbg = $("#map-bg").width();
-            // console.log(widthbg);
             $("#drag").css("width", widthbg + 'px');
             $("#overlay-wrapper").css("width", widthbg + 'px');
+        };
+
+        function changetype() {
+            $(document).on("click",".type-btn", function() {    
+                var type = $(this).attr("data-type");
+                console.log(type);
+                // Check browser support
+                if (typeof(Storage) !== "undefined") {
+                // Store
+                localStorage.setItem("key-type", type);
+                } else {
+                console.log("Sorry, your browser does not support Web Storage...");
+                };
+                $('#tutorial-wrapper').remove();
+            });
         };
 
         function randOrder() {
@@ -177,7 +184,18 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                         </span>Công sở
                     </div>
                     <div class="preload-content-inner-icon">
-                        <img src="./image/icon/preload.png" alt="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="492" height="47" viewBox="0 0 492 47">
+                            <g id="loading" transform="translate(-691 -567)">
+                                <g id="Vector_Smart_Object" data-name="Vector Smart Object" transform="translate(400.247 93.053)">
+                                <rect id="Rectangle_5" data-name="Rectangle 5" width="478.663" height="34.21" rx="17.105" transform="translate(298.08 480.384)" fill="#5f752f"/>
+                                <path id="Path_13" data-name="Path 13" d="M781.733,490.648a23.084,23.084,0,0,0-18.516-15.868l-1.058-.159-1.068-.057c-.714-.037-1.435-.075-2.085-.06l-4.008.009-8.016.019-16.032.038-32.064.075-127.654.3-.6,0-128.257-.708-128.257-.285a23.517,23.517,0,0,0-23.3,21.7,23.106,23.106,0,0,0,.971,8.63,23.487,23.487,0,0,0,18.838,16.148l1.077.161,1.088.059c.727.037,1.462.076,2.107.06l4.009-.009,8.016-.018,16.032-.036,32.063-.073,43.411-.24,20.718.189,64.128.345c85.5.262,171.009-.184,256.512-.4a23.119,23.119,0,0,0,22.9-21.336A22.712,22.712,0,0,0,781.733,490.648ZM503.276,516.861l-64.128.346-20.718.189-43.411-.241-32.063-.072-16.032-.036-8.016-.018-4.009-.009c-.691.012-1.29-.031-1.9-.064l-.914-.05-.9-.143a19.644,19.644,0,0,1-12.348-7.192,19.27,19.27,0,0,1-4.176-13.63,19.592,19.592,0,0,1,19.455-17.994l128.257-.284,128.257-.708.61,0,127.646.3,32.064.075,16.032.037,8.016.019,4.008.009c.687-.012,1.3.031,1.921.065l.932.051.922.146a20.046,20.046,0,0,1,12.6,7.339,19.677,19.677,0,0,1,4.261,13.911,19.99,19.99,0,0,1-19.854,18.361C674.285,517.045,588.781,516.6,503.276,516.861Z" fill="#030404"/>
+                                <g id="Group_5" data-name="Group 5">
+                                    <path id="Path_14" data-name="Path 14" d="M304.282,495.822a1.5,1.5,0,0,1-1.449-1.9c1.337-4.807,5.77-8.779,11.57-10.369,5.033-1.378,10.4-.966,15.128-.6a1.5,1.5,0,0,1-.23,3c-4.709-.36-9.575-.735-14.1.507-3.751,1.027-8.208,3.741-9.469,8.276A1.5,1.5,0,0,1,304.282,495.822Z" fill="#fff"/>
+                                    <path id="Path_15" data-name="Path 15" d="M303.693,502.084h-.041a1.5,1.5,0,0,1-1.461-1.542c.011-.411.022-.616.033-.82.01-.184.02-.37.03-.739a1.5,1.5,0,1,1,3,.081c-.011.41-.022.615-.033.819-.01.185-.02.37-.03.74A1.5,1.5,0,0,1,303.693,502.084Z" fill="#fff"/>
+                                </g>
+                                </g>
+                            </g>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -248,8 +266,17 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
             <div id="tutorial-wrapper">
                 <div class="tutorial-slider">
+                    <div class="tutorial-title">
+                        <p>Hướng dẫn chơi game</p>
+                    </div>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <img class="pc-img" src="./image/pic/tutorial-0.png" alt="">
+                                    <img class="mb-img" src="./image/pic/mbtutorial-0.png" alt="">
+                                </div>
+                            </div>
                             <div class="swiper-slide">
                                 <div class="item">
                                     <img class="pc-img" src="./image/pic/tutorial-1.jpg" alt="">
@@ -262,17 +289,40 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                                     <img class="mb-img" src="./image/pic/mbtutorial-2.png" alt="">
                                 </div>
                             </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <img class="pc-img" src="./image/pic/tutorial-3.png" alt="">
+                                    <img class="mb-img" src="./image/pic/mbtutorial-3.png" alt="">
+                                    <div class="section-content-btn">
+                                        <h4>Lựa chọn hình thức “bóc phốt”</h4>
+                                        <ul>
+                                            <li>
+                                                <button class="type-btn" type="button" onclick="changetype()" data-type="image">
+                                                    <img src="./image/icon/btn-photo.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="type-btn" type="button" onclick="changetype()" data-type="video">
+                                                    <img src="./image/icon/btn-video.png" alt="">
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                         <div class="swiper-pagination"></div>
-                        <ul class="tutorial-text">
-                            <li>
-                                <button type="button" onclick="closeTutorial()">Bỏ qua</button>
-                            </li>
-                            <li>
-                                <button type="button" class="btn-next-slider" id="slide-next">Tiếp theo</button>
-                            </li>
-                        </ul>
+                        <div class="tutorial-text">
+                            <button type="button" class="btn-prev-slider" id="slide-prev">
+                                <img class="pc-icon" src="./image/icon/arrow-active.png" alt="">
+                                <img class="mb-icon" src="./image/icon/mb-arrow.png" alt="">
+                            </button>
+                            <button type="button" class="btn-next-slider" id="slide-next">
+                                <img class="pc-icon" src="./image/icon/arrow-active-right.png" alt="">
+                                <img class="mb-icon" src="./image/icon/mb-arrow-right.png" alt="">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -298,9 +348,15 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                 </div>
 
                 <h3>Xem ai vừa bị bắt quả tang nào</h3>
-                <div class="result-group">
+                <div class="result-group" id="js-scroll">
                     <ul id="urlResultMsg">
-                        
+                        <li id="ticontainer">
+                            <div class="tiblock">
+                                <div class="tidot"></div>
+                                <div class="tidot"></div>
+                                <div class="tidot"></div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -314,25 +370,15 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
 <script>
     $(window).on("load", function() {
-        // console.log("ready");
         setwidth();
-        $(".preload").css("display", "none");
+        $(".preload").fadeOut();
         
     });
-    $(document).ready(function() {
-        
-        // Disable enterkey
-        $(window).keydown(function(event){
-            if(event.keyCode == 13) {
-            event.preventDefault();
-            return false;
-            }
-        });
 
-        var active = localStorage.getItem("is-actived");
-        if (active == "actived") {
-            $("#tutorial-wrapper").remove();
-        } else {};
+    TweenMax.set($("#Rectangle_5"),{css:{width:"10%"}});
+    TweenMax.to($("#Rectangle_5"),30,{css:{width:"97%"}});
+
+    $(document).ready(function() {
 
         var audiokey = localStorage.getItem("audio");
         var audio = document.getElementById("audiogame");
@@ -353,12 +399,8 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
         panoramix();
         $('.overlay-gr').removeClass('active').sort(randOrder).slice(0, 3).addClass('active');
 
-        // $(".overlay-gr.active img").ezPlus({
-        // 	zoomWindowPosition: "result-img",
-        //     zoomWindowHeight: 260,
-        //     zoomWindowWidth: 260,
-        //     borderSize:0
-        // });
+        var messageBody = document.querySelector('#js-scroll');
+        messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
         
         var swiperTutorial = new Swiper('.tutorial-slider .swiper-container', {
             pagination: {
@@ -367,26 +409,13 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             effect: 'fade',
             navigation: {
                 nextEl: '.btn-next-slider',
-                // prevEl: '.swiper-button-prev',
+                prevEl: '.btn-prev-slider',
             },
-            on: {
-                reachEnd: function() {
-                    $("#slide-next").click(function() {
-                        // console.log("last slide");
-                        closeTutorial();
-                    });
-                }
-            }
         });
         $(".result-group").niceScroll({
-            cursorwidth: "5px",
-            cursorcolor: '#b0cb88',
+            cursorwidth: "7px",
+            cursorcolor: '#007ed7',
         });
-        TweenMax.staggerFrom($(".result-group ul li"), 1, {
-            opacity: 0,
-            autoAlpha: 0,
-            y: "+=20px"
-        }, 1);
 		
 		initMsg('', '<?php echo $token; ?>');
     });
@@ -410,7 +439,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 					{
 						jQuery.each(objData.data, function(idx, val){
 							var strpreappend = '<li>' + val + '</li>';
-							$('#urlResultMsg').prepend(strpreappend);
+							$('#urlResultMsg').append(strpreappend);
 						});
 						if(window.EventSource)
 						{

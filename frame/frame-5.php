@@ -14,7 +14,7 @@ $token = removeAllTags($token);
         </div>
         <div class="result-form-content">
             <h3>"Nạn nhân" của bạn cần một cái tên</h3>
-            <h4>* tối đa 20 ký tự</h4>
+            <h4>* tối đa 30 ký tự</h4>
         </div>
         <form action="detail.php?token=<?php echo $token; ?>" method="post" id="form-frame5-submit">
             <input type="text"  name="title" id="title" required >
