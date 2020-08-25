@@ -166,7 +166,7 @@ body {
             }
 
             &-download {
-              background-position: -242px 0;
+              background-image: url("../image/icon/download.gif");
             }
           }
           &:hover {
@@ -216,8 +216,8 @@ body {
 @media (max-width: 767px) {
   #detail-wrapper {
     #section-content {
-      max-height: unset;
-      height: 95vh;
+      max-height: 700px;
+      height: 85vh;
       max-width: 400px;
       width: 80vw;
       flex-direction: column;
@@ -233,6 +233,7 @@ body {
           margin: 0 auto;
           text-align: center;
           transform: none;
+          overflow: hidden;
 
           .download-img {
             width: 90%;
@@ -243,7 +244,6 @@ body {
           }
         }
         .section-btn {
-          margin-top: 0;
           margin: 15px 0 10px;
           padding: 0 15px;
 
@@ -265,7 +265,7 @@ body {
         }
         .section-social {
           ul {
-            margin: 20px 0;
+            margin: 15px 0;
 
             li {
               a {
@@ -278,19 +278,32 @@ body {
                 &.ico-mess {
                   background-position: -56px 0;
                 }
-                &.ico-ins {
-                  background-position: -115px 0;
-                }
-                &.ico-download {
-                  background-position: -173px 0;
-                }
               }
             }
           }
         }
         h4 {
           font-size: 16px;
-          margin: 20px auto 0 auto;
+          margin: 0 auto;
+          background-image: url("../image/icon/bg-btn.png");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          padding: 15px 20px;
+          border: none;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  #detail-wrapper {
+    #section-content {
+      height: 95%;
+      width: 300px;
+
+      .section-right {
+        h4 {
+          font-size: 14px;
         }
       }
     }

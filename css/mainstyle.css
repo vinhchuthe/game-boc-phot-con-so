@@ -391,26 +391,19 @@ area:-webkit-any-link {
   #section-1 #btn-mute img {
     width: 25px;
   }
-  #section-1 #section-content-2 {
-    width: 100%;
-    height: 100%;
+}
+
+@media (max-width: 400px) {
+  #section-1 #section-content-1 .section-content .section-content-title {
+    font-size: 30px;
   }
-  #section-1 #section-content-2 .section-content {
-    padding-top: 8vh;
+  #section-1 #section-content-1 .section-content .section-content-title span {
+    font-size: 60px;
   }
-  #section-1 #section-content-2 .section-content .section-content-title {
-    font-size: 45px;
+  #section-1 #section-content-1 .section-content .section-content-subtitle {
+    font-size: 20px;
   }
-  #section-1 #section-content-2 .section-content .section-content-image {
-    width: 85vw;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  #section-1 #section-content-2 .section-content .section-content-image img {
-    width: 100%;
-    max-width: unset;
-  }
-  #section-1 #section-content-2 .section-content .section-content-btn h4 {
+  #section-1 #section-content-1 .section-content .section-content-btn button {
     font-size: 25px;
   }
 }

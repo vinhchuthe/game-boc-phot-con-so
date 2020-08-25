@@ -1,10 +1,10 @@
 <?php 
-error_reporting(-1); // for dev
+//error_reporting(-1); // for dev
 ini_set('display_errors', 1); // for dev
 //ini_set('display_errors', 0); // for product
 // for dev CF_UPLOAD_LOCAL_GAME = local
 // for product CF_UPLOAD_LOCAL_GAME = cloud
-// define('CF_UPLOAD_LOCAL_GAME', 'cloud');
+//define('CF_UPLOAD_LOCAL_GAME', 'cloud');
 define('CF_UPLOAD_LOCAL_GAME', 'local');
 
 //define

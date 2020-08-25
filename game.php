@@ -337,27 +337,45 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                         <div class="group-icon icon1">
                             <a href="<?php echo URL_ROOT_PROJECT; ?>">
                                 <img src="./image/icon/preload.png" alt="home">
+                                <span>Reload</span>
                             </a>
                         </div>
                         <div class="group-icon icon2">
                             <a href="https://www.facebook.com/sharer/sharer.php?u=https://creativestudioa.admicro.vn/game-boc-phot-cong-so/">
                                 <img src="./image/icon/icon-share.png" alt="share">
+                                <span>Share</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <h3>Xem ai vừa bị bắt quả tang nào</h3>
-                <div class="result-group" id="js-scroll">
-                    <ul id="urlResultMsg">
-                        <li id="ticontainer">
-                            <div class="tiblock">
-                                <div class="tidot"></div>
-                                <div class="tidot"></div>
-                                <div class="tidot"></div>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="result-content-group">
+                    <h3>Xem ai vừa bị bắt quả tang nào</h3>
+                    <div class="result-group">
+                        <ul id="urlResultMsg">
+                            <li id="ticontainer">
+                                <div class="tiblock">
+                                    <div class="tidot"></div>
+                                    <div class="tidot"></div>
+                                    <div class="tidot"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="result-bot-group">
+                    <div class="result-player">
+                        <div class="user-icon">
+                            <img src="./image/icon/user-icon.png" alt="">
+                            <span id="js-user">180</span>
+                        </div>
+                    </div>
+                    <div class="result-audio">
+                        <button type="button" id="btn-mute">
+                            <img src="./image/icon/icon-volume.png" alt="">
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -380,6 +398,13 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
     $(document).ready(function() {
 
+        $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+            event.preventDefault();
+            regexErrForm();
+            }
+        });
+
         var audiokey = localStorage.getItem("audio");
         var audio = document.getElementById("audiogame");
         if(audiokey == "disable") {
@@ -398,9 +423,6 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
         // load success
         panoramix();
         $('.overlay-gr').removeClass('active').sort(randOrder).slice(0, 3).addClass('active');
-
-        var messageBody = document.querySelector('#js-scroll');
-        messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
         
         var swiperTutorial = new Swiper('.tutorial-slider .swiper-container', {
             pagination: {
