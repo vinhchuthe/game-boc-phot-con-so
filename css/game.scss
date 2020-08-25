@@ -246,6 +246,10 @@ area:-webkit-any-link {
                             right: 20px;
                         }
 
+                        &.swiper-button-disabled {
+                            filter: brightness(0) opacity(0.5);
+                        }
+
                         img {
                             max-width: 40px;
                             &.mb-icon {
