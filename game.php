@@ -43,9 +43,6 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
     <script src="./plugin/niceScroll/nicescroll.min.js"></script>
     <script src="./plugin/swiper/swiper.min.js"></script>
     
-    <!-- Lib Zoom --> 
-    <link rel="stylesheet" href="./css/jquery.ez-plus.css"/>
-    <script src='./plugin/jQuery/jquery.ez-plus.js'></script>
     <script> 
 		var ssepushSource = null;
         function panoramix() {
@@ -198,6 +195,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                 if (typeof(Storage) !== "undefined") {
                 // Store
                 localStorage.setItem("key-type", type);
+                localStorage.setItem("is-playing", "play");
                 } else {
                 console.log("Sorry, your browser does not support Web Storage...");
                 };
@@ -542,6 +540,15 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                 prevEl: '.btn-prev-slider',
             },
         });
+
+        var replay = localStorage.getItem("action");
+        if(replay == "replay") {
+            swiperTutorial.slideTo(3);
+            localStorage.removeItem("key-type");
+        } else {
+            swiperTutorial.slideTo(0);
+        };
+
         $(".result-group").niceScroll({
             cursorwidth: "7px",
             cursorcolor: '#007ed7',

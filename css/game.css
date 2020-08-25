@@ -332,6 +332,11 @@ area:-webkit-any-link {
   right: 20px;
 }
 
+#section-2 #tutorial-wrapper .tutorial-slider .swiper-container .tutorial-text button.swiper-button-disabled {
+  -webkit-filter: brightness(0) opacity(0.5);
+          filter: brightness(0) opacity(0.5);
+}
+
 #section-2 #tutorial-wrapper .tutorial-slider .swiper-container .tutorial-text button img {
   max-width: 40px;
 }

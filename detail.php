@@ -238,6 +238,11 @@ else
 				if(click_state !== "disable") {
 					document.getElementById('btnsound').play();
 				} else {};
+
+				var isplay = localStorage.getItem("is-playing");
+				if(isplay == "play") {
+					localStorage.setItem("action", "replay");
+				} else {};
 			};
 
 			$(document).ready(function() {

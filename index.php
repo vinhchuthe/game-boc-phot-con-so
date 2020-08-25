@@ -169,8 +169,10 @@ if($start_time == 0)
 <script>
         $(document).ready(function() {
             localStorage.removeItem("key-type");
-            localStorage.removeItem("is-actived");
+            localStorage.removeItem("is-playing");
+            localStorage.removeItem("action");
             localStorage.removeItem("audio");
+            
             $(document).on( "click", "#result-wrapper", function(){
                 var windowWidth = $(window).width();
                 if(windowWidth < 768){
