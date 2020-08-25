@@ -103,6 +103,7 @@ else
 		<link rel="icon" href="../wp-content/themes/creativestudio/dist/images/favicon.png">
 		<link rel="stylesheet" href="./css/detail.css">
 		<link rel="stylesheet" href="./css/customer.css">
+		<link rel="stylesheet" href="./css/edit-custome.css">
 		<title>Game bóc phốt công sở</title>
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:description" content="Game Bóc phốt công sở được phát triển bởi Creative Studio Athena">
@@ -131,11 +132,27 @@ else
 						<p class="title-container">
 							<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
 						</p>
-						<img class="download-img" src="<?php echo $post_url; ?>" alt="">
+						<img class="download-img" src="<?php echo $post_url; ?>" alt="" style="background: #fff; max-height: 250px;">
 						<h2>
 							<?php echo $randomString ?>
 						</h2>
 					</div>
+					<div id="img3download" class="section-image" style="">
+						<p class="title-container">
+							<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
+						</p>
+						<div class="avarta"><img class="download-img" src="<?php echo $post_url; ?>" alt="" style="background: #fff; max-height: 250px;"></div>
+						<h2>
+							<?php echo $randomString ?>
+						</h2>
+					</div>
+					<img id="preview-frame" src="" alt="" style="opacity: 0; display: none;">
+					<div class="end-code" style="display: none;">
+                        <img id="img-top" src=""></img>
+                        <p></p>
+                        <canvas id="bitmap" style="display:none;"></canvas>
+                        <img id="image">
+                    </div>
 					<div class="section-btn">
 						<a id="continue-btn" href="<?php echo URL_ROOT_PROJECT; ?>game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
 					</div>
@@ -166,6 +183,54 @@ else
 		<!--Script-->
 		<script src="./plugin/jQuery/jquery.min.js"></script>
 		<script src="./plugin/html2canvas.min.js"></script>
+	    <script src="./js-gif/b64.js"></script>
+	    <script src="./js-gif/LZWEncoder.js"></script>
+	    <script src="./js-gif/NeuQuant.js"></script>
+	    <script src="./js-gif/GIFEncoder.js"></script>
+	    <script src="./js-gif/giff.js"></script>
+	    <script>
+	    	html2canvas(document.getElementById('img3download')).then(function(canvas) {
+                var image = canvas.toDataURL("image/png");
+                localStorage.setItem("img-link", image);
+                $('#preview-frame, #img-top').attr('src', image);
+            });
+
+            var canvas = document.getElementById('bitmap');
+            var context = canvas.getContext('2d');
+
+            canvas.width = 300; 
+            canvas.height = 442;
+
+            context.fillStyle = "#FFFFFF";
+            context.fillRect(0,0,canvas.width,canvas.height);
+
+            var imgtop = document.getElementById('img-top');
+
+            var encoder = new GIFEncoder();
+            encoder.setRepeat(0); 
+            encoder.setDelay(8);
+
+            var gs = GIFF();
+            gs.onerror = function(e){
+               console.log("Gif loading error " + e.type);
+            } 
+            gs.load('<?php echo $post_url; ?>');
+
+
+            setTimeout(()=>{
+            encoder.start();
+
+            for(i=0;i<gs.frames.length;i++) {
+              context.drawImage(imgtop,0,0);
+              context.drawImage(gs.frames[i].image,0,0,500,500,25,100,250,250);
+              encoder.addFrame(context)
+            }
+
+            encoder.finish();
+            document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+
+            },1000);
+	    </script>
 
 		<script>
 			function continueBtn() {

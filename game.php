@@ -33,6 +33,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
     <link rel="icon" href="../wp-content/themes/creativestudio/dist/images/favicon.png">
     <link rel="stylesheet" href="./css/game.css">
     <link rel="stylesheet" href="./css/customer.css">
+    <link rel="stylesheet" href="./css/edit-custome.css">
     <link rel="stylesheet" href="./plugin/swiper/swiper.min.css">
     <title>Game bóc phốt công sở</title>
     <!--Script-->
@@ -58,12 +59,59 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
         }
 
-        function ClickBtn() {
+        function ClickBtn() { 
             var click_state = localStorage.getItem("audio");
             if(click_state !== "disable") {
                 document.getElementById('btnsound').play();
             } else {};
         }
+
+        $(document).ready(function() {
+            var randomQuote;
+            var randomNum; 
+            getQuote();
+            function getQuote(){
+             
+            var quotes = ["Ê, tôi đang action mà.",  
+                          "Ủa, đang action thôi mà.", 
+                          "action thôi mà cũng bị tóm à.",]
+            
+            randomNum = Math.floor(Math.random()*quotes.length);
+              randomQuote = quotes[randomNum];
+            }
+              
+            $(".overlay-gr .gif").click(function(event) { 
+                 $('.txt-succ').hide();
+                $(".txt-rand").hide();
+                var show = $(this).data('content'); 
+                $(this).toggleClass("active");
+                $(this).parents().children(".txt-rand").show();
+                $(this).parents().children('.txt-succ').show();
+                $('.txt-rand span').text(randomQuote);
+
+              getQuote();
+              function walkText(node) {
+                  if (node.nodeType == 3) { 
+                    node.data = node.data.replace(/action/ig, show);
+                  } 
+                  if (node.nodeType == 1 && node.nodeName != "SCRIPT") {
+                    for (var i = 0; i < node.childNodes.length; i++) { 
+                      walkText(node.childNodes[i]);
+                    }
+                  }
+                }
+                walkText(document.body);
+
+                $('#action_frame').html(show);
+                var href_img = $(this).attr('src');
+                $('#img-cv, #img-gif').attr("src",href_img);
+                $('#inp_gif').attr("value", href_img);
+
+                setTimeout(function(){
+                    $('.txt-rand').hide();
+                }, 2000);
+            });
+        });
 
         function loadFrame5(elm) {
 
@@ -73,36 +121,38 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             var data_content = $(elm).attr("data-content");
             var storage = localStorage.getItem("key-type");
             var content_global = $(elm).attr('data-content-id');
-            $.ajax({
-                url: "frame/frame-5.php?token=<?php echo $token; ?>",
-                method: "POST",
-                data: {
-                    content: data_content
-                },
-                success: function(data) {
-                    $('#section-2').addClass("overllay").append(data);
-                    if (storage == "image") {
-                        console.log("download image");
-                        $('.result-form-img img').attr('src', "./image/pic/" + data_url_img);
-                        $('#image-url').val(data_url_img);
-                    } else {
-                        console.log("download video");
-                        $('.result-form-img img').attr('src', "./image/pic/" + data_url_video);
-                        $('#image-url').val(data_url_video);
-                    };
+            setTimeout(function(){
+                $.ajax({
+                    url: "frame/frame-5.php?token=<?php echo $token; ?>",
+                    method: "POST",
+                    data: {
+                        content: data_content
+                    },
+                    success: function(data) {
+                        $('#section-2').addClass("overllay").append(data);
+                        if (storage == "image") {
+                            console.log("download image");
+                            $('.result-form-img img').attr('src', "./image/pic/" + data_url_img);
+                            $('#image-url').val(data_url_img);
+                        } else {
+                            console.log("download video");
+                            $('.result-form-img img').attr('src', "./image/pic/" + data_url_video);
+                            $('#image-url').val(data_url_video);
+                        };
 
-                    $(document).on('keyup', function(evt) {
-                        if (evt.keyCode == 27) {
-                            console.log('Esc key pressed.');
-                            $('#section-2').removeClass('overllay');
-                            $('#result-form').remove();
-                            $('#result-container').remove();
-                        }
-                    });
+                        $(document).on('keyup', function(evt) {
+                            if (evt.keyCode == 27) {
+                                console.log('Esc key pressed.');
+                                $('#section-2').removeClass('overllay');
+                                $('#result-form').remove();
+                                $('#result-container').remove();
+                            }
+                        });
 
-                },
-                dataType: 'html'
-            });
+                    },
+                    dataType: 'html'
+                });
+            }, 1000);
         }
 
         function closeFrame5(elm) {
@@ -110,6 +160,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             $('#section-2').removeClass('overllay');
             $('#result-form').remove();
             $('#result-container').remove();
+            $('.txt-succ').hide();
             elm.remove();
         }
 
@@ -121,7 +172,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 			{
 				if(typeof(ssepushSource) == 'object')
 				{ 
-					ssepushSource.close();
+					// ssepushSource.close();
 				}
                 $('#form-frame5-submit').submit();
             } else if (name === '') {
@@ -162,7 +213,8 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
 <body>
     <main>
-        <audio id="audiogame" src="./audio/audiogame.mp3" autoplay loop></audio>
+        <audio id="audiogame" src="" autoplay loop></audio>
+        <!-- <audio id="audiogame" src="./audio/audiogame.mp3" autoplay loop></audio> -->
         <audio id="btnsound" src="./audio/button-sound.mp3"></audio>
         <div class="preload">
             <header>
@@ -204,23 +256,47 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
         <section id="section-2">
 
             <div id="imgwrapper">
+                <div class="render-images">
+                    <input type="text" readonly id="inp_gif">
+                    <div class="box-frame text-center" id="frame-img">
+                        <div class="title-frame"><img src="./image/icon/downloadimg-title.png" class="img-fluid" alt=""></div>
+                        <div class="gif-frame"><img src="" class="img-fluid" alt="" id="img-cv" style="opacity: 0"></div>
+                        <div class="text-frame">
+                            <p><span id="name_frame"></span> vừa bị bóc phốt vì <span id="action_frame"></span> trong giờ làm</p> 
+                        </div>
+                    </div>
+                    <img id="preview-frame" src="" alt="">
+
+                    <div class="end-code">
+                        <img id="img-top" src=""></img>
+                        <img id="img-gif" src=""></img>
+                        <p></p>
+                        <canvas id="bitmap" style="display:none;"></canvas>
+                        <img id="image">
+                        <input type="hidden" name="imagebase">
+                    </div>
+                </div>
                 <div id="drag">
                     <img id="map-bg" src="./image/pic/background-min.png" alt="">
                     <div id="overlay-wrapper">
                         <div class="overlay-gr" id="gr1">
                             <img class="npc" src="./image/pic/char5.png" alt="">
                             <img class="gif" src="./image/pic/nv5.gif" alt="" data-content="trang điểm" data-url_video="nv5.gif" data-url_img="nv5.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr2">
                             <img class="npc" src="./image/pic/char4.png" alt="">
                             <img class="gif" src="./image/pic/nv4.gif" alt="" data-content="ngủ gật" data-url_video="nv4.gif" data-url_img="nv4.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr3">
                             <img class="gif" src="./image/pic/nv10.gif" alt="" data-content="cày phim" data-url_video="nv10.gif" data-url_img="nv10.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr4">
                             <img class="npc" src="./image/pic/char1.png" alt="">
                             <img class="gif" src="./image/pic/nv1.gif" alt="" data-content="uống trà sữa" data-url_video="nv1.gif" data-url_img="nv1.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr5">
                             <img class="npc" src="./image/pic/nvp3.png" alt="">
@@ -228,37 +304,46 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                         </div>
                         <div class="overlay-gr" id="gr6">
                             <img class="gif" src="./image/pic/nv7.gif" alt="" data-content="tự sướng" data-url_video="nv7.gif" data-url_img="nv7.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr7">
                             <img class="gif" src="./image/pic/nv9.gif" alt="" data-content="tám" data-url_video="nv9.gif" data-url_img="nv9.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr8">
                             <img class="npc" src="./image/pic/nvp4.gif" alt="" data-url_video="nvp4.gif" >
                             <img class="gif" src="./image/pic/nv8.gif" alt="" data-content="live stream bán hàng" data-url_video="nv8.gif" data-url_img="nv8.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr9">
                             <img class="npc" src="./image/pic/nvp5.gif" alt="" data-url_video="nvp5.gif" >
                             <img class="gif" src="./image/pic/nv6.gif" alt="" data-content="lướt Facebook thả thính" data-url_video="nv6.gif" data-url_img="nv6.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr10">
                             <img class="npc" src="./image/pic/char2.png" alt="">
                             <img class="gif" src="./image/pic/nv3.gif" alt="" data-content="quẹt Tinder" data-url_video="nv3.gif" data-url_img="nv3.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr11">
                             <img class="npc" src="./image/pic/char2.png" alt="">
                             <img class="gif" src="./image/pic/nv2.gif" alt="" data-content="ăn quà vặt" data-url_video="nv2.gif" data-url_img="nv2.png" onclick="loadFrame5(this)">
+                            <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr12">
                             <img class="npc" src="./image/pic/nvp2.png" alt="">
                             <img class="gif" src="./image/pic/nvp2.gif" alt="" data-content="nghiên cứu tài liệu" data-url_video="nvp2.gif" >
+                            <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr13">
                             <img class="npc" src="./image/pic/nvp1.png" alt="">
                             <img class="gif" src="./image/pic/nvp1.gif" alt="" data-content="gọi điện cho khách hàng" data-url_video="nvp1.gif" >
+                            <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr14">
                             <img class="npc" src="./image/pic/nvp6.png" alt="">
                             <img class="gif" src="./image/pic/nvp6.gif" alt="" data-content="lau dọn chỗ ngồi" data-url_video="nvp6.gif">
+                            <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                     </div>
                 </div>
@@ -271,7 +356,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                     </div>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                            <!-- <div class="swiper-slide">
                                 <div class="item">
                                     <img class="pc-img" src="./image/pic/tutorial-0.png" alt="">
                                     <img class="mb-img" src="./image/pic/mbtutorial-0.png" alt="">
@@ -288,7 +373,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                                     <img class="pc-img" src="./image/pic/tutorial-2.jpg" alt="">
                                     <img class="mb-img" src="./image/pic/mbtutorial-2.png" alt="">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="swiper-slide">
                                 <div class="item">
                                     <img class="pc-img" src="./image/pic/tutorial-3.png" alt="">
@@ -367,8 +452,13 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                 <div class="result-bot-group">
                     <div class="result-player">
                         <div class="user-icon">
+                            <div class="rand-number">
+                                <input id="min" type="number" class="d-none" placeholder="Enter a number" value="50">
+                                <input id="max" type="number" class="d-none" placeholder="Enter a number" value="150">
+                                <button id="clc-rand" class="d-none" onclick="generateRandomNumber();"> Generate</button> 
+                            </div>
                             <img src="./image/icon/user-icon.png" alt="">
-                            <span id="js-user">180</span>
+                            <span id="display">180</span><label>Người chơi cùng bạn</label>
                         </div>
                     </div>
                     <div class="result-audio">
@@ -387,6 +477,24 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 </body>
 
 <script>
+    $(window).on("load", function() {   
+        console.log("ready");
+        $(".preload").css("display", "none");
+
+        $('#clc-rand').click();
+    });
+    function generateRandomNumber() {
+      var min = parseInt(document.getElementById('min').value);
+      var max = parseInt(document.getElementById('max').value);
+      var rand = Math.floor(Math.random()* (max - min + 1)) + min;
+      if (min == 1 && max == 30) {rand = 6}
+      document.getElementById('display').innerText = rand
+    }
+    setInterval(function generateRandomNumber() {
+        $('#clc-rand').click();
+    }, 5000)
+
+
     $(window).on("load", function() {
         setwidth();
         $(".preload").fadeOut();
