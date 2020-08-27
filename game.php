@@ -20,7 +20,7 @@ if(isset($_SESSION[SESSION_START_TIME_NAME]))
 if($start_time == 0)
 {
 	$start_time = time();
-	$_SESSION[SESSION_START_TIME_NAME] = $start_time;
+	$_SESSION[SESSION_START_TIME_NAME] = $start_time; 
 } 
 
 $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
@@ -68,7 +68,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             var randomNum; 
             getQuote();
             function getQuote(){
-             
+              
             var quotes = ["Ê, tôi đang action mà.",  
                           "Ủa, đang action thôi mà.", 
                           "action thôi mà cũng bị tóm à.",]
@@ -85,7 +85,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                 $(this).parents().children(".txt-rand").show();
                 $(this).parents().children('.txt-succ').show();
                 $('.txt-rand span').text(randomQuote);
-
+ 
               getQuote();
               function walkText(node) {
                   if (node.nodeType == 3) { 
@@ -299,6 +299,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                         <div class="overlay-gr" id="gr5">
                             <img class="npc" src="./image/pic/nvp3.png" alt="">
                             <img class="gif" src="./image/pic/nvp3.gif" alt="" data-content="brainstorm" data-url_video="nvp3.gif" >
+                            <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr6">
                             <img class="gif" src="./image/pic/nv7.gif" alt="" data-content="tự sướng" data-url_video="nv7.gif" data-url_img="nv7.png" onclick="loadFrame5(this)">
@@ -481,7 +482,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
         $('#clc-rand').click();
     });
-    function generateRandomNumber() {
+    function generateRandomNumber() { 
       var min = parseInt(document.getElementById('min').value);
       var max = parseInt(document.getElementById('max').value);
       var rand = Math.floor(Math.random()* (max - min + 1)) + min;

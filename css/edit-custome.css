@@ -52,13 +52,6 @@
     text-align: center;
     border-radius: 0 0 10px 10px; }
 
-.box-frame {
-  width: 300px;
-  height: 465px;
-  background: #d7d7d7;
-  text-align: center;
-  padding: 15px; }
-
 .gif-frame {
   display: flex;
   width: 100%;
@@ -76,11 +69,6 @@
 #preview-frame {
   position: relative;
   z-index: 2; }
-
-.render-images {
-  position: absolute;
-  z-index: -1;
-  left: -999999px; }
 
 .txt-succ {
   display: none;
@@ -105,9 +93,6 @@ span#clc-submit {
   left: 150px;
   position: absolute; }
 
-#section-content .section-image .download-img {
-  max-height: initial; }
-
 #img3download {
   padding: 15px;
   background: #d7d7d7;
@@ -125,14 +110,92 @@ span#clc-submit {
   #img3download .avarta {
     background: #fff;
     overflow: hidden;
-    border-radius: 10px; }
+    border-radius: 10px;
+    height: 250px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     #img3download .avarta img {
-      opacity: 0; }
+      opacity: 0;
+      height: 200px !important;
+      object-fit: contain; }
   #img3download h2 {
     font-size: 25px;
     font-weight: normal;
     padding: 5px 15px;
     text-align: center;
     line-height: 1.1; }
+
+#section-content .section-image h2 {
+  font-size: 23px; }
+
+.box-frame {
+  width: 300px;
+  height: 442px;
+  background: #d7d7d7;
+  text-align: center;
+  position: relative;
+  top: 20px;
+  z-index: 1; }
+
+.text-frame {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  left: 0;
+  padding: 0 15px; }
+
+.gif-frame {
+  display: flex;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 5px 0 8px 0; }
+
+.text-frame h2 {
+  font-weight: normal;
+  line-height: 1;
+  font-size: 23px;
+  min-height: 60px; }
+
+#preview-frame {
+  position: relative;
+  z-index: 2; }
+
+.render-images {
+  position: absolute;
+  z-index: -1;
+  left: -999999px; }
+
+#img-gif {
+  height: 200px !important; }
+
+#img-top {
+  width: 300px !important;
+  height: 442px !important;
+  object-fit: cover !important; }
+
+@media (max-width: 1023px) {
+  .box-frame {
+    z-index: 11111111111;
+    height: auto;
+    top: 0;
+    width: 300px; }
+
+  #preview-frame {
+    width: 300px; }
+
+  .render-images {
+    top: 0;
+    width: 300px; }
+
+  #img-top {
+    max-width: unset; }
+
+  #img-gif {
+    width: 220px;
+    height: auto;
+    max-height: initial; } }
 
 /*# sourceMappingURL=edit-custome.css.map */

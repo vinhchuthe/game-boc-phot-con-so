@@ -26,7 +26,7 @@ if($isValidToken)
 	$myMessage = removeAllTags($myMessage);
 
 	$contentImage = isset($_POST['contentImage']) ? trim($_POST['contentImage']) : '';
-	$contentImage = removeAllTags($contentImage);
+	$contentImage = removeAllTags($contentImage); 
 
 	$gameUrl = PROJECT_KEY_NAME;
 	$gameUrlCrc = crc32($gameUrl);
@@ -91,6 +91,7 @@ if($isValidToken)
 		else
 		{
 			$filename = $filename . '.' . $extension;
+			var_dump($extension);die;
 			
 			//luu anh vao server
 			$is_upload_server = file_put_contents($localFolder . $filename, $image64_decode);
