@@ -26,8 +26,3 @@ $token = removeAllTags($token);
     </div>
 
 </div>
-<script>
-    $( document ).ready(function() {
-      $('input#title').focus();
-    });
-</script>

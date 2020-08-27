@@ -321,6 +321,9 @@ area:-webkit-any-link {
                     }
                 }
             }
+            .mb-menu {
+                display: none;
+            }
         }
 
         .result-content-group {
@@ -427,7 +430,7 @@ area:-webkit-any-link {
                     border: none;
                     background: transparent;
 
-                    .disabled {
+                    &.disabled {
                         opacity: 0.3;
                     }
                 }
@@ -649,6 +652,18 @@ area:-webkit-any-link {
     }
     44% {
         -webkit-transform: translateY(0px);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        -webkit-transform: translateY(0px) translateX(-50%);
+    }
+    28% {
+        -webkit-transform: translateY(-5px) translateX(-50%);
+    }
+    44% {
+        -webkit-transform: translateY(0px) translateX(-50%);
     }
 }
 
@@ -1224,6 +1239,25 @@ area:-webkit-any-link {
 @media (max-width: 1024px) {
 }
 
+// ------------------ ipad --------------------
+@media (max-width: 1100px) {
+    #section-2 {
+        #imgwrapper {
+            width: calc(100vw - 35vw);
+        }
+        #result-wrapper {
+            max-width: 35vw;
+        }
+        #result-container {
+            #result-form {
+                .result-form-content {
+                    left: 260px;
+                }
+            }
+        }
+    }
+}
+
 // ---------------- mobile ---------------------
 @media (max-width: 767px) {
     #section-2 {
@@ -1328,18 +1362,20 @@ area:-webkit-any-link {
             transition: all 0.5s;
 
             .result-icon-group {
+                position: relative;
                 padding: 0 15px 5px;
                 margin: 0;
                 border-bottom: 1px solid #777777;
 
                 .group-left {
                     h1 {
-                        font-size: 18px;
+                        font-size: 16px;
+                        line-height: 18px;
                     }
                 }
                 .group-right {
                     .group-icon {
-                        max-width: 40px;
+                        max-width: 35px;
                         flex: 0 0 auto;
                         a {
                             span {
@@ -1348,21 +1384,56 @@ area:-webkit-any-link {
                         }
                     }
                 }
+                .mb-menu {
+                    display: block;
+                    position: absolute;
+                    top: -5px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 40px;
+                    height: 2px;
+                    background-color: #777777;
+
+                    &.bounce {
+                        animation: bounce 1.5s infinite ease-in-out;
+                    }
+                }
             }
 
-            h3 {
-                font-size: 25px;
+            .result-content-group {
+                h3 {
+                    font-size: 25px;
+                }
+                .result-group {
+                    width: 100%;
+                    margin-right: 0;
+                    max-height: 30vh;
+                }
             }
-            .result-img {
-                display: none;
-                width: 200px;
-                height: 200px;
-                margin: 30px 0;
-            }
-            .result-group {
-                width: 90%;
-                margin-right: 0;
-                max-height: 30vh;
+
+            .result-bot-group {
+                .result-player {
+                    .user-icon {
+                        padding: 5px;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                        span {
+                            font-size: 16px;
+                            margin-left: 15px;
+                            min-width: 25px;
+                        }
+                    }
+                }
+                .result-audio {
+                    button {
+                        img {
+                            height: 30px;
+                        }
+                    }
+                }
             }
 
             &.collapse {

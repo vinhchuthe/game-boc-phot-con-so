@@ -26,7 +26,7 @@ if($isValidToken)
 	$myMessage = removeAllTags($myMessage);
 
 	$contentImage = isset($_POST['contentImage']) ? trim($_POST['contentImage']) : '';
-	$contentImage = removeAllTags($contentImage); 
+	$contentImage = removeAllTags($contentImage);
 
 	$gameUrl = PROJECT_KEY_NAME;
 	$gameUrlCrc = crc32($gameUrl);
@@ -91,7 +91,6 @@ if($isValidToken)
 		else
 		{
 			$filename = $filename . '.' . $extension;
-			var_dump($extension);die;
 			
 			//luu anh vao server
 			$is_upload_server = file_put_contents($localFolder . $filename, $image64_decode);
@@ -120,6 +119,7 @@ if($isValidToken)
 					if($chkUploadCloudFile)
 					{
 						$urlImage = CLOUD_IMG_DOMAIN . $yearFolder . '/' . $monthFolder . '/' . $filename;
+						$relativeUrlImage = '/' . $yearFolder . '/' . $monthFolder . '/' . $filename;
 						@unlink($localFolder . $filename);
 					}
 					else
@@ -129,6 +129,7 @@ if($isValidToken)
 				}
 				else
 				{
+                    $relativeUrlImage = '/' . $yearFolder . '/' . $monthFolder . '/' . $filename;
 					$urlImage = UPLOAD_URL . $yearFolder . '/' . $monthFolder . '/' . $filename;
 				}
 			}
@@ -150,6 +151,7 @@ if($isValidToken)
 	
 	// luu anh thanh cong => log to database
 	$errSaveDb = '';
+	$lastIdInsert = null;
 	if($errSaveImage == '')
 	{
 		$db = db_connect(); // open connect  database
@@ -165,13 +167,14 @@ if($isValidToken)
 			{
 				$stmt->bindParam(':game_url', $game_url, PDO::PARAM_STR);
 				$stmt->bindParam(':game_url_crc', $game_url_crc, PDO::PARAM_INT);
-				$stmt->bindParam(':image', $filename, PDO::PARAM_STR);
+				$stmt->bindParam(':image', $relativeUrlImage, PDO::PARAM_STR);
 				$stmt->bindParam(':message', $message, PDO::PARAM_STR);
 				$stmt->bindParam(':created_at', $curr_time, PDO::PARAM_STR);
 				$stmt->bindParam(':created_dt', $curr_date, PDO::PARAM_STR);
 				if($stmt->execute())
 				{
 					$flag = true;
+					$lastIdInsert = $db->lastInsertId();
 					$stmt->closeCursor();
 				}
 			}
@@ -187,9 +190,10 @@ if($isValidToken)
 		}
 	}
 	
-	if ($errSaveDb == '' && $errSaveImage == '') 
+	if ($errSaveDb == '' && $errSaveImage == '' && $lastIdInsert)
 	{
 		$rel['ok'] = true;
+		$rel['idShare'] = $lastIdInsert;
 		$rel['msg'] = '';
 		$rel['data'] = [
 			'image_url' => $urlImage

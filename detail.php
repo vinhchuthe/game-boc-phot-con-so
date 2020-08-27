@@ -82,7 +82,7 @@ if($isValidToken)
 		
 		$randomString = randtext($post_title, $post_content);
 	}
-} 
+}
 
 // valid form post
 // if had validated post => store image and save to database
@@ -132,7 +132,7 @@ else
 						<p class="title-container">
 							<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
 						</p>
-						<img class="download-img" src="<?php echo $post_url; ?>" alt="" style="background: #fff;">
+						<img class="download-img" src="<?php echo $post_url; ?>" alt="">
 						<h2>
 							<?php echo $randomString ?>
 						</h2>
@@ -152,10 +152,9 @@ else
 	                        <canvas id="bitmap" style="display:none;"></canvas>
 	                        <img id="image">
 	                    </div>
-	                </div> 
+	                </div>
 					<div class="section-btn">
-						<a id="continue-btn" href="http://localhost/game-boc-phot-con-so/game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
-						<!-- <a id="continue-btn" href="<?php echo URL_ROOT_PROJECT; ?>game.php" onclick="continueBtn();">Bóc phốt tiếp</a> -->
+						<a id="continue-btn" href="<?php echo URL_ROOT_PROJECT; ?>game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
 					</div>
 				</div>
 				<div class="section-right">
@@ -163,7 +162,7 @@ else
 					<h3>Share luôn với 500 anh em thôi chứ đợi gì nữa!</h3>
 					<div class="section-social">
 						<ul>
-							<li> 
+							<li>
 								<a id="share-fb" class="ico ico-fb" target="_blank" title="Share Facebook"></a>
 							</li>
 							<li>
@@ -179,29 +178,28 @@ else
 				</div>
 			</section>
 			<input type="hidden" id="imageShareSocialNetwork" value=""/>
+			<input type="hidden" id="idShare" value=""/>
 		</main>
 
 		<!--Script-->
 		<script src="./plugin/jQuery/jquery.min.js"></script>
 		<script src="./plugin/html2canvas.min.js"></script>
-	    <script src="./js-gif/b64.js"></script>
+		<script src="./js-gif/b64.js"></script>
 	    <script src="./js-gif/LZWEncoder.js"></script> 
 	    <script src="./js-gif/NeuQuant.js"></script>
 	    <script src="./js-gif/GIFEncoder.js"></script>
 	    <script src="./js-gif/giff.js"></script>
-	    <script>
-            var storage = localStorage.getItem("key-type");
+
+		<script>
+			var storage = localStorage.getItem("key-type");
 			if (storage == "image") {
                 console.log("download image");
                 if($(window).innerWidth() > 1023) {
 		            html2canvas(document.getElementById('img2download')).then(function(canvas) {
 		                var image = canvas.toDataURL("image/png");
-		                $('#btn-download').attr('href', image);
+						uploadimg(image);
 		            });
 
-		            $("#btn-download").click(function() {
-		                $('#btn-download').attr("download", image);
-		            });
 		        } else {
 		            function download(url){
 		              var a = $("<a style='display:none' id='js-downloder'>")
@@ -227,8 +225,7 @@ else
             } else {
                 console.log("download video");
                 html2canvas(document.getElementById('frame-img')).then(function(canvas) {
-                var image = canvas.toDataURL("image/png");
-                localStorage.setItem("img-link", image);
+                	var image = canvas.toDataURL("image/png");
 	                $('#preview-frame, #img-top').attr('src', image);
 	            });
 	            var canvas = document.getElementById('bitmap');
@@ -254,11 +251,45 @@ else
 	              encoder.addFrame(context)
 	            }
 	            encoder.finish();
-	            document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+	            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+				uploadimg(finimg);
 	            },1000);
             };
 
-	    </script>
+			$("#btn-download").click(function() {
+				var image_link = $("#imageShareSocialNetwork").val();
+				if( image_link !== "") {
+					$('#btn-download').attr("download", "<?php echo $post_title; ?>");
+				}else{
+					alert('Không tạo được ảnh nhân vật')
+				}
+			});
+
+			function uploadimg(image) {
+				var nameUser = "<?php  echo $post_title;; ?>";
+				var contentImage = "<?php echo $post_content; ?>";
+				$('#btn-download').attr('href', image);
+				var host = '<?php echo URL_ROOT_PROJECT; ?>';
+				$.ajax({
+					url: host+'src/module/post.php?token=<?php echo $new_token; ?>',
+					type: "POST",
+					data: { image: image, myMessage: '<?php echo $randomString; ?>'},
+					success: function (result) 
+					{
+						result = JSON.parse(result);
+						if(result.ok === true){
+							$('#imageShareSocialNetwork').val(result.data.image_url);
+							$('#btn-download').attr('download', result.data.image_url);
+							$('#idShare').val(result.idShare);
+						}
+						else
+						{
+							console.log(result);
+						}
+					}
+				})
+			};
+		</script>
 
 		<script>
 			function continueBtn() {
@@ -273,64 +304,10 @@ else
 				} else {};
 			};
 
-			// $(document).ready(function() {
-			// 	saveimg();
-			// });
-
-			// function saveimg() {
-			// 	var ele = document.getElementById('img2download');
-			// 	var w = parseInt(window.innerWidth);
-			// 	if(w < 576) {
-			// 		html2canvas(ele,{
-			// 			width: ele.scrollWidth,
-   //                 		height: ele.scrollHeight
-			// 		}).then(canvas => {
-			// 			rendercanvas(canvas);
-			// 		});
-			// 	} else {
-			// 		html2canvas(ele).then(canvas => {
-			// 			rendercanvas(canvas);
-			// 		});
-			// 	}
-			// }
-
-			// function rendercanvas(canvas) {
-			// 	var image = canvas.toDataURL("image/png");
-			// 	var nameUser = "<?php  echo $post_title;; ?>";
-			// 	var contentImage = "<?php echo $post_content; ?>";
-				
-			// 	$('#btn-download').attr('href', image).attr('target', '_blank');
-			// 	var host = '<?php echo URL_ROOT_PROJECT; ?>';
-			// 	$.ajax({
-			// 		url: host+'src/module/post.php?token=<?php echo $new_token; ?>',
-			// 		type: "POST",
-			// 		data: { image: image, myMessage: '<?php echo $randomString; ?>'},
-			// 		success: function (result) 
-			// 		{
-			// 			result = JSON.parse(result);
-			// 			if(result.ok === true){
-			// 				$('#imageShareSocialNetwork').val(result.data.image_url);
-			// 				$('#btn-download').attr('href', result.data.image_url);
-			// 			}
-			// 			else
-			// 			{
-			// 				console.log(result);
-			// 			}
-			// 		}
-			// 	})
-			// };
-
-			// $("#btn-download").click(function() {
-			// 	var image_link = $("#imageShareSocialNetwork").val();
-			// 	if( image_link !== "") {
-			// 		$('#btn-download').attr("download", "<?php echo $post_title; ?>");
-			// 	}else{
-			// 		alert('Không tạo được ảnh nhân vật')
-			// 	}
-			// });
-
+			//share image
 			$("#share-fb").click(function() {
-
+                var idShare = $('#idShare').val();
+                console.log(idShare)
 				var image_link = $("#imageShareSocialNetwork").val();
 				if( image_link !== "")
 				{
@@ -340,7 +317,8 @@ else
 						action_type: 'og.likes',
 						action_properties: JSON.stringify({
 							object:{
-								'og:url': "https://creativestudioa.admicro.vn/game-boc-phot-cong-so/detail.php",
+								'og:url': `<?php echo URL_ROOT_PROJECT; ?>sharefb.php?idShare=${idShare}`,
+								// 'og:url': `http://game.local/sharefb.php?idShare=${idShare}`,
 								'og:title': "Game Bóc phốt công sở",
 								'og:description': "Game Bóc phốt công sở được phát triển bởi Creative Studio Athena",
 								'og:type':"article",
@@ -359,17 +337,15 @@ else
 				}
 			});
 
-			$("#share-mess").click(function() { 
+			$("#share-mess").click(function() {
 
 				FB.ui({
 					display: 'popup',
 					method: 'share',
-					href: 'https://creativestudioa.admicro.vn/game-boc-phot-cong-so/',
+					href: `<?php echo URL_ROOT_PROJECT; ?>sharefb.php?idShare=${idShare}`,
 				}, function(response){});
 
 			});
-
-			
 		</script>
 	</body>
 

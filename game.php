@@ -20,7 +20,7 @@ if(isset($_SESSION[SESSION_START_TIME_NAME]))
 if($start_time == 0)
 {
 	$start_time = time();
-	$_SESSION[SESSION_START_TIME_NAME] = $start_time; 
+	$_SESSION[SESSION_START_TIME_NAME] = $start_time;
 } 
 
 $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
@@ -56,59 +56,12 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
         }
 
-        function ClickBtn() { 
+        function ClickBtn() {
             var click_state = localStorage.getItem("audio");
             if(click_state !== "disable") {
                 document.getElementById('btnsound').play();
             } else {};
         }
-
-        $(document).ready(function() {
-            var randomQuote;
-            var randomNum; 
-            getQuote();
-            function getQuote(){
-              
-            var quotes = ["Ê, tôi đang action mà.",  
-                          "Ủa, đang action thôi mà.", 
-                          "action thôi mà cũng bị tóm à.",]
-            
-            randomNum = Math.floor(Math.random()*quotes.length);
-              randomQuote = quotes[randomNum];
-            }
-              
-            $(".overlay-gr .gif").click(function(event) { 
-                 $('.txt-succ').hide();
-                $(".txt-rand").hide();
-                var show = $(this).data('content'); 
-                $(this).toggleClass("active");
-                $(this).parents().children(".txt-rand").show();
-                $(this).parents().children('.txt-succ').show();
-                $('.txt-rand span').text(randomQuote);
- 
-              getQuote();
-              function walkText(node) {
-                  if (node.nodeType == 3) { 
-                    node.data = node.data.replace(/action/ig, show);
-                  } 
-                  if (node.nodeType == 1 && node.nodeName != "SCRIPT") {
-                    for (var i = 0; i < node.childNodes.length; i++) { 
-                      walkText(node.childNodes[i]);
-                    }
-                  }
-                }
-                walkText(document.body);
-
-                $('#action_frame').html(show);
-                var href_img = $(this).attr('src');
-                $('#img-cv, #img-gif').attr("src",href_img);
-                $('#inp_gif').attr("value", href_img);
-
-                setTimeout(function(){
-                    $('.txt-rand').hide();
-                }, 2000);
-            });
-        });
 
         function loadFrame5(elm) {
 
@@ -127,6 +80,8 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                     },
                     success: function(data) {
                         $('#section-2').addClass("overllay").append(data);
+                        $('input#title').focus();
+
                         if (storage == "image") {
                             console.log("download image");
                             $('.result-form-img img').attr('src', "./image/pic/" + data_url_img);
@@ -149,7 +104,8 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                     },
                     dataType: 'html'
                 });
-            }, 1000);
+            }, 2000);
+            
         }
 
         function closeFrame5(elm) {
@@ -169,7 +125,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 			{
 				if(typeof(ssepushSource) == 'object')
 				{ 
-					// ssepushSource.close();
+					ssepushSource.close();
 				}
                 $('#form-frame5-submit').submit();
             } else if (name === '') {
@@ -211,8 +167,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
 <body>
     <main>
-        <audio id="audiogame" src="" autoplay loop></audio>
-        <!-- <audio id="audiogame" src="./audio/audiogame.mp3" autoplay loop></audio> -->
+        <audio id="audiogame" src="./audio/audiogame.mp3" autoplay loop></audio>
         <audio id="btnsound" src="./audio/button-sound.mp3"></audio>
         <div class="preload">
             <header>
@@ -254,26 +209,6 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
         <section id="section-2">
 
             <div id="imgwrapper">
-                <div class="render-images">
-                    <input type="text" readonly id="inp_gif">
-                    <div class="box-frame text-center" id="frame-img">
-                        <div class="title-frame"><img src="./image/icon/downloadimg-title.png" class="img-fluid" alt=""></div>
-                        <div class="gif-frame"><img src="" class="img-fluid" alt="" id="img-cv" style="opacity: 0"></div>
-                        <div class="text-frame">
-                            <p><span id="name_frame"></span> vừa bị bóc phốt vì <span id="action_frame"></span> trong giờ làm</p> 
-                        </div>
-                    </div>
-                    <img id="preview-frame" src="" alt="">
-
-                    <div class="end-code">
-                        <img id="img-top" src=""></img>
-                        <img id="img-gif" src=""></img>
-                        <p></p>
-                        <canvas id="bitmap" style="display:none;"></canvas>
-                        <img id="image">
-                        <input type="hidden" name="imagebase">
-                    </div>
-                </div>
                 <div id="drag">
                     <img id="map-bg" src="./image/pic/background-min.png" alt="">
                     <div id="overlay-wrapper">
@@ -298,8 +233,8 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                         </div>
                         <div class="overlay-gr" id="gr5">
                             <img class="npc" src="./image/pic/nvp3.png" alt="">
-                            <img class="gif" src="./image/pic/nvp3.gif" alt="" data-content="brainstorm" data-url_video="nvp3.gif" >
-                            <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
+                            <img class="gif" src="./image/pic/nvp3.gif" alt="" data-content="brainstorm" data-url_video="nvp3.gif">
+                            <div class="txt-succ"><img src="./image/pic/click-false.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr6">
                             <img class="gif" src="./image/pic/nv7.gif" alt="" data-content="tự sướng" data-url_video="nv7.gif" data-url_img="nv7.png" onclick="loadFrame5(this)">
@@ -355,7 +290,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                     </div>
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <!-- <div class="swiper-slide">
+                            <div class="swiper-slide">
                                 <div class="item">
                                     <img class="pc-img" src="./image/pic/tutorial-0.png" alt="">
                                     <img class="mb-img" src="./image/pic/mbtutorial-0.png" alt="">
@@ -372,7 +307,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                                     <img class="pc-img" src="./image/pic/tutorial-2.jpg" alt="">
                                     <img class="mb-img" src="./image/pic/mbtutorial-2.png" alt="">
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="swiper-slide">
                                 <div class="item">
                                     <img class="pc-img" src="./image/pic/tutorial-3.png" alt="">
@@ -415,7 +350,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
                 <div class="result-icon-group">
                     <div class="group-left">
-                    <h1><a href="https://creativestudioa.admicro.vn">Creative <br>Studio <br>Athena</a></h1>
+                        <h1><a href="https://creativestudioa.admicro.vn">Creative <br>Studio <br>Athena</a></h1>
                     </div>
                     <div class="group-right">
                         <div class="group-icon icon1">
@@ -431,6 +366,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                             </a>
                         </div>
                     </div>
+                    <div class="mb-menu bounce"></div>
                 </div>
 
                 <div class="result-content-group">
@@ -476,28 +412,9 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 </body>
 
 <script>
-    $(window).on("load", function() {   
-        console.log("ready");
-        $(".preload").css("display", "none");
-
-        $('#clc-rand').click();
-    });
-    function generateRandomNumber() { 
-      var min = parseInt(document.getElementById('min').value);
-      var max = parseInt(document.getElementById('max').value);
-      var rand = Math.floor(Math.random()* (max - min + 1)) + min;
-      if (min == 1 && max == 30) {rand = 6}
-      document.getElementById('display').innerText = rand
-    }
-    setInterval(function generateRandomNumber() {
-        $('#clc-rand').click();
-    }, 5000)
-
-
     $(window).on("load", function() {
         setwidth();
         $(".preload").fadeOut();
-        
     });
 
     TweenMax.set($("#Rectangle_5"),{css:{width:"10%"}});
@@ -505,6 +422,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
     $(document).ready(function() {
 
+        // Enter key
         $(window).keydown(function(event){
             if(event.keyCode == 13) {
             event.preventDefault();
@@ -512,18 +430,92 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             }
         });
 
+        // Audio
         var audiokey = localStorage.getItem("audio");
         var audio = document.getElementById("audiogame");
         if(audiokey == "disable") {
+            $("#btn-mute").addClass("disabled");
             audio.muted = true;
-        } else { 
+        } else {
+            $("#btn-mute").removeClass("disabled"); 
             audio.muted = false;
         };
 
-        $(document).on("click", "#result-wrapper", function() {
+        // randomQuote
+        var randomQuote;
+        var randomNum; 
+        getQuote();
+        function getQuote(){
+             
+            var quotes = [
+                "Ê, tôi đang action mà.",  
+                "Ủa, đang action thôi mà.", 
+                "action thôi mà cũng bị tóm à.",
+            ];
+            
+            randomNum = Math.floor(Math.random()*quotes.length);
+            randomQuote = quotes[randomNum];
+        };
+        $(".overlay-gr .gif").click(function(event) { 
+            $('.txt-succ').hide();
+            $(".txt-rand").hide();
+            var show = $(this).data('content'); 
+            $(this).toggleClass("active");
+            $(this).parents().children(".txt-rand").show();
+            $(this).parents().children('.txt-succ').show();
+            $('.txt-rand span').text(randomQuote);
+
+            getQuote();
+            function walkText(node) {
+                if (node.nodeType == 3) { 
+                node.data = node.data.replace(/action/ig, show);
+                } 
+                if (node.nodeType == 1 && node.nodeName != "SCRIPT") {
+                for (var i = 0; i < node.childNodes.length; i++) { 
+                    walkText(node.childNodes[i]);
+                }
+                }
+            }
+            walkText(document.body);
+
+            $('#action_frame').html(show);
+            var href_img = $(this).attr('src');
+            $('#img-cv, #img-gif').attr("src",href_img);
+            $('#inp_gif').attr("value", href_img);
+
+            setTimeout(function(){
+                $('.txt-rand').hide();
+            }, 2000);
+        });
+
+        // Random user
+        function generateRandomNumber() {
+            var min = parseInt(document.getElementById('min').value);
+            var max = parseInt(document.getElementById('max').value);
+            var rand = Math.floor(Math.random()* (max - min + 1)) + min;
+            if (min == 1 && max == 30) {rand = 6}
+            document.getElementById('display').innerText = rand;
+        }
+        setInterval(generateRandomNumber, 5000);
+
+        // mute btn
+        $("#btn-mute").click(function() {
+            $(this).toggleClass('disabled');
+            if($(this).hasClass("disabled")) {
+                localStorage.setItem("audio", "disable");
+                audio.muted = true;
+            } else {
+                localStorage.removeItem("audio");
+                audio.muted = false;
+            };
+        });
+
+        // mobile collapse
+        $(document).on("click", ".result-icon-group", function() {
             var windowWidth = $(window).width();
             if (windowWidth < 768) {
                 $("#result-wrapper").toggleClass("collapse");
+                $(".mb-menu").removeClass("bounce");
             }
         });
 

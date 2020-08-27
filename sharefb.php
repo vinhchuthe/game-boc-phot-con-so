@@ -1,4 +1,26 @@
-
+<?php
+require_once("./glb/cfglb.php");
+require_once("./src/config/constant.php");
+require_once("./src/config/database.php");
+//Todo: Xử lý get ảnh từ idShare
+$idShare = $_GET['idShare'];
+$infoData = [];
+if($idShare){
+    $db = db_connect();
+    try {
+        $sql = "SELECT * FROM log_game WHERE id = $idShare";
+        $stmt = $db->prepare($sql);
+        if($stmt)
+        {
+            $data = $db->query($sql);
+            $data->setFetchMode(PDO::FETCH_ASSOC);
+            $infoData = $data->fetch();
+        }
+    }catch(PDOException $e){
+        die("Error: " . $e->getMessage());
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -10,61 +32,40 @@
     <title>Game bóc phốt công sở</title>
 
     <!-- Share fb -->
-    <meta property="og:locale" content="vi_VN"> 
+    
+    <meta property="og:locale" content="vi_VN">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Game Bóc phốt công sở">
     <meta property="og:description"
           content="Game Bóc phốt công sở được phát triển bởi Creative Studio Athena">
-    <meta property="og:url" content="https://creativestudioa.admicro.vn/game-boc-phot-cong-so/">
+    <meta property="og:url" content="<?php echo URL_ROOT_PROJECT; ?>sharefb.php?idShare=<?php echo $idShare ?>">
     <meta property="og:site_name" content="Game Bóc phốt công sở">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="<?php  echo CLOUD_IMG_DOMAIN. $infoData['image']; ?>">
+    <meta property="og:image:width" content="300"/>
+    <meta property="og:image:height" content="442"/>
 
 </head>
 
 <body>
-    <main id="detail-wrapper">
-        <section id="section-content">
-            <div class="section-left">
-                <div id="img2download" class="section-image">
-                    <p class="title-container">
-                        <img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
-                    </p>
-                    <img class="download-img" src="" alt="">
-                    <h2>
-                        
-                    </h2>
-                </div>
-                <div class="section-btn">
-                    <a id="continue-btn" href="<?php echo URL_ROOT_PROJECT; ?>">Bóc phốt tiếp</a>
-                </div>
+<main id="detail-wrapper">
+    <audio id="btnsound" src="./audio/button-sound.mp3"></audio>
+    <section id="section-content">
+        <div class="sharefb section-left">
+            <div id="img2download" class="section-image">
+                <img class="img-title" src="<?php  echo CLOUD_IMG_DOMAIN. $infoData['image']; ?>" alt="">
             </div>
-            <div class="section-right">
-                <h1>"Bóc phốt" công sở</h1>
-                <h3>Share luôn với 500 anh em thôi chứ đợi gì nữa!</h3>
-                <div class="section-social">
-                    <ul>
-                        <li>
-                            <a id="share-fb" class="ico ico-fb" target="_blank" title="Share Facebook"></a>
-                        </li>
-                        <li>
-                            <a id="share-mess" class="ico ico-mess" title="Share message"></a>
-                        </li>
-                        <li>
-                            <a id="btn-download" class="ico ico-download" title="Download"></a>
-                        </li>
-                    </ul>
-                </div>
-                <h4><a href="https://creativestudioa.admicro.vn" target="_blank">Tham khảo các dịch vụ của Creative Studio
-                        Athena</a></h4>
+            <div class="section-btn">
+                <a id="continue-btn" href="<?php echo $infoData; ?>">Bóc phốt tiếp</a>
             </div>
-        </section>
-        <input type="hidden" id="imageShareSocialNetwork" value=""/>
-    </main>
-
-    <!--Script-->
-    <script src="./plugin/jQuery/jquery.min.js"></script>
-    <script src="./plugin/html2canvas.min.js"></script>
-
+        </div>
+        <div class="sharefb section-right">
+            <h1>"Bóc phốt" công sở</h1>
+            <h3>Share luôn với 500 anh em thôi chứ đợi gì nữa!</h3>
+            <h4><a href="https://creativestudioa.admicro.vn" target="_blank">Tham khảo các dịch vụ của Creative Studio
+                    Athena</a></h4>
+        </div>
+    </section>
+</main>
 </body>
 
 </html>

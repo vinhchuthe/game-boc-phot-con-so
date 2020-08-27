@@ -76,7 +76,7 @@ if($isValidToken)
 			}
 			
 			// sap sep lai mang thoi gian tu cu toi moi
-			$lstMsg = array_reverse($lstMsg);
+			// $lstMsg = array_reverse($lstMsg);
 		}
 	}
 	
