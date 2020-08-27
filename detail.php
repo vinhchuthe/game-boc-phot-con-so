@@ -137,6 +137,7 @@ else
 							<?php echo $randomString ?>
 						</h2>
 					</div>
+					<div id="img-out" style="display: none;"></div>
 					<div class="render-images">
 	                    <div class="box-frame text-center" id="frame-img">
 	                        <div class="gif-top"><img src="./image/icon/bn-gif.png" alt=""></div>
@@ -154,7 +155,7 @@ else
 	                    </div>
 	                </div>
 					<div class="section-btn">
-						<a id="continue-btn" href="<?php echo URL_ROOT_PROJECT; ?>game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
+						<a id="continue-btn" href="game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
 					</div>
 				</div>
 				<div class="section-right">
@@ -183,7 +184,9 @@ else
 
 		<!--Script-->
 		<script src="./plugin/jQuery/jquery.min.js"></script>
-		<script src="./plugin/html2canvas.min.js"></script>
+		<script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script> -->
+		<!-- <script src="./plugin/html2canvas.min.js"></script>  -->
 		<script src="./js-gif/b64.js"></script>
 	    <script src="./js-gif/LZWEncoder.js"></script> 
 	    <script src="./js-gif/NeuQuant.js"></script>
@@ -194,35 +197,11 @@ else
 			var storage = localStorage.getItem("key-type");
 			if (storage == "image") {
                 console.log("download image");
-                if($(window).innerWidth() > 1023) {
-		            html2canvas(document.getElementById('img2download')).then(function(canvas) {
-		                var image = canvas.toDataURL("image/png");
-						uploadimg(image);
-		            });
-
-		        } else {
-		            function download(url){
-		              var a = $("<a style='display:none' id='js-downloder'>")
-		              .attr("href", url)
-		              .attr("download", image)
-		              .appendTo("body");
-		              a[0].click(); 
-
-		              a.remove();
-		            }
-
-		            function saveCapture(element) { 
-		              html2canvas(element).then(function(canvas) {
-		                download(canvas.toDataURL("image/png"));
-		              })
-		            }
-
-		            $('#btn-download').click(function(){
-		              var element = document.querySelector("#img2download");
-		              saveCapture(element)
-		            })
-		        };
-            } else {
+                html2canvas(document.querySelector("#img2download")).then(canvas => {
+				    var image = canvas.toDataURL("image/png");
+				    uploadimg(image);
+				});
+            } else { 
                 console.log("download video");
                 html2canvas(document.getElementById('frame-img')).then(function(canvas) {
                 	var image = canvas.toDataURL("image/png");
@@ -247,7 +226,7 @@ else
 	            encoder.start(); 
 	            for(i=0;i<gs.frames.length;i++) {
 	              context.drawImage(imgtop,0,0,300,442); 
-	              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,250,250);
+	              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
 	              encoder.addFrame(context)
 	            }
 	            encoder.finish();

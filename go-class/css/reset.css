@@ -1,0 +1,79 @@
+html, body, div, dl, dt, dd, ul,  h1, h2, h3,  pre, form, label, fieldset, input, p, blockquote, th, td { margin:0; padding:0 }
+body { font-family: 'SVN-Gotham'; font-size: 15px; color: #000; }
+body {overflow-x: hidden;}
+table { border-collapse:collapse; border-spacing:0 }
+ul { padding: 0; margin: 0; }
+ul, li { list-style: none }
+button:focus , input:focus, textarea:focus { outline: none }
+span, a { display: inline-block }
+a {color: #000; }
+a:hover , a:focus{color: #fab702; outline: none; text-decoration: none; transition: all 0.4s ease; }
+.container{max-width: 1200px;width: 100%; padding: 0 10px}
+body img{max-width: 100%;transition: all ease 0.5s;}
+input, select{transition: all ease 0.4s;}
+button{cursor: pointer;transition: 0.3s all ease;}
+iframe{display: block;max-width: 100%;width: 100%;}
+select:focus {outline: none}
+h1, h2, h3, h4, h5, h6 {line-height: 1.25;}
+.h3, h3 {font-size: inherit}
+.flex {display: flex;display: -webkit-flex;}
+.flex-center {display: flex;display: -webkit-flex;align-items: center;}
+.flex-center-center {display: flex;display: -webkit-flex;align-items: center;justify-content: center;}
+.flex-center-end {display: flex;display: -webkit-flex;align-items: center;justify-content: flex-end;}
+.flex-center-start {display: flex;display: -webkit-flex;align-items: center;justify-content: flex-start;}
+.flex-center-between {display: flex;display: -webkit-flex;align-items: center;justify-content: space-between;}
+.flex-end-end {display: flex; display: -webkit-flex; align-items: flex-end; justify-content: flex-end}
+.flex-between {display: flex; display: -webkit-flex; justify-content: space-between}
+.inflex-center-center {display: inline-flex;display: -webkit-inline-flex;align-items: center;justify-content: center;}
+.absolute {position: absolute;}
+.relative {position: relative;}
+.pdt-30 {padding-top: 30px}
+.pd-100 {padding: 100px 0}
+.pd-15 {padding: 15px 0;}
+.pd-015 {padding: 0 15px;}
+.pd-30 {padding: 30px 0;}
+.pd-40 {padding: 40px 0;}
+.pd-040 {padding: 0 40px;}
+.pd-55 {padding: 50px;}
+.pd-60 {padding: 60px 0;}
+.mg-10 {margin: 10px 0;}
+.mg-20 {margin: 20px 0;}
+.mgt-10 {margin-top: 10px;}
+.mgb-10 {margin-bottom: 10px;}
+.mgt-20 {margin-top: 20px;}
+.mgb-20 {margin-bottom: 20px;}
+.mgt-30 {margin-top: 30px;}
+.mgb-30 {margin-bottom: 30px;}
+.mgr-15 {margin-right: 15px;}
+.mgb-40 {margin-bottom: 40px}
+.mgb-60 {margin-bottom: 60px}
+.mgl-10 {margin-left: 10px}
+.mgr-10 {margin-right: 10px}
+.mgt-50 {margin-top: 50px;}
+.search ::-webkit-input-placeholder {color: #333;font-size: 16px;font-weight: 300}
+.search ::-moz-placeholder {color: #333;font-size: 16px;font-weight: 300}
+.search :-ms-input-placeholder {color: #333;font-size: 16px; font-weight: 300}
+::-webkit-input-placeholder {color: #fff;font-size: 16px;font-weight: 300}
+::-moz-placeholder {color: #fff;font-size: 16px;font-weight: 300}
+:-ms-input-placeholder {color: #ffff;font-size: 16px; font-weight: 300}
+.zoom {display: block;overflow: hidden;}
+.zoom:hover img {transform: scale(1.1);-webkit-transform: scale(1.1);}
+.height-100 {height: 100%}
+.font-14, .font-14 a {font-size: 14px}
+.font-16, .font-16 a {font-size: 16px}
+.font-18, .font-18 a {font-size: 18px}
+.font-20, .font-20 a {font-size: 20px}
+.font-22, .font-22 a {font-size: 22px}
+.font-24, .font-24 a {font-size: 24px}
+.font-28, .font-28 a {font-size: 28px}
+.font-30, .font-30 a {font-size: 30px}
+.font-36, .font-36 a {font-size: 36px}
+.font-48, .font-48 a {font-size: 48px}
+.font-56, .font-56 a {font-size: 56px}
+.text-habaras {font-family: 'SVN-Harabaras';}
+.row {margin-right: -10px;margin-left: -10px;}
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {padding: 0 10px}
+.img-circle {border: 5px solid #fff; border-radius:50%; flex: 0 0 120px; max-width: 120px;}
+.img-circle img {border-radius: 50%;height: 110px;width: 100%;object-fit: cover;}
+.img-circle-150 {border: 5px solid #fff; border-radius:50%; flex: 0 0 160px; max-width: 160px}
+.img-circle-150 img {border-radius: 50%;height: 150px;width: 100%;object-fit: cover;}

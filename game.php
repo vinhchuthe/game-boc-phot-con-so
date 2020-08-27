@@ -125,7 +125,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 			{
 				if(typeof(ssepushSource) == 'object')
 				{ 
-					ssepushSource.close();
+					// ssepushSource.close();
 				}
                 $('#form-frame5-submit').submit();
             } else if (name === '') {
@@ -165,9 +165,10 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
     </script>
 </head>
 
-<body>
+<body> 
     <main>
-        <audio id="audiogame" src="./audio/audiogame.mp3" autoplay loop></audio>
+        <!-- <audio id="audiogame" src="./audio/audiogame.mp3" autoplay loop></audio> -->
+        <audio id="audiogame" src="" autoplay loop></audio>
         <audio id="btnsound" src="./audio/button-sound.mp3"></audio>
         <div class="preload">
             <header>
@@ -464,6 +465,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             $(this).parents().children(".txt-rand").show();
             $(this).parents().children('.txt-succ').show();
             $('.txt-rand span').text(randomQuote);
+            $('.overlay-gr .gif').css("pointer-events", "none");
 
             getQuote();
             function walkText(node) {
@@ -485,6 +487,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
             setTimeout(function(){
                 $('.txt-rand').hide();
+                $('.overlay-gr .gif').css("pointer-events", "unset");
             }, 2000);
         });
 
@@ -578,7 +581,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 							ssepushSource.addEventListener("message", function(event){
 								if(event.data == 'invalid_token')
 								{
-									ssepushSource.close();
+									// ssepushSource.close();
 								}
 								else
 								{

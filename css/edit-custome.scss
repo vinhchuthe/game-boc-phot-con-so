@@ -1,28 +1,4 @@
-@media (max-width: 767px) {
-	#section-2 {
-		#result-container {
-			.btnclose {
-				transform: translateY(-50%) scale(0.6);
-				padding: 0;
-			    border-radius: 100%;
-			    overflow: hidden;
-			    img {
-			    	border-radius: 100%;
-			    } 
-			    &:hover {
-			    	transform: translateY(-50%) scale(0.6);
-			    }
-			}
-		} 
-	}
 
-	.avarta-bp { 
-	    background: #fff; 
-	    max-width: 90%;
-	    margin: 0 auto 10px auto;
-	    border-radius: 10px; 
-	}
-}    
 #section-2 #result-wrapper .result-group {
 	max-height: 40vh;
 }  
@@ -240,6 +216,44 @@ span#clc-submit {
 	    max-height: initial;
 	}
 }
+@media (max-width: 767px) {
+	#section-2 {
+		#result-container {
+			.btnclose {
+				transform: translateY(-50%) scale(0.6);
+				padding: 0;
+			    border-radius: 100%;
+			    overflow: hidden;
+			    img {
+			    	border-radius: 100%;
+			    } 
+			    &:hover {
+			    	transform: translateY(-50%) scale(0.6);
+			    }
+			}
+		} 
+	}
+
+	.avarta-bp { 
+	    background: #fff; 
+	    max-width: 90%;
+	    margin: 0 auto 10px auto;
+	    border-radius: 10px; 
+	}
+	.txt-succ {
+	    top: -130px;
+	    left: 50px;
+	}
+	.txt-succ img {
+	    width: 170px;
+	}
+	.txt-rand img {
+	    width: 170px;
+	}
+	.txt-rand span {
+	    font-size: 15px;
+	}
+} 
 
 // Vinh's code
 @media(max-width: 400px) {
