@@ -225,6 +225,10 @@ else
 					  })
 				} else {
 					const original = document.querySelector('#img2download_mobile');
+					$('#img2download_mobile .download-img').css({
+						width: '252px',
+						height: '170px',
+					});
 					html2canvas(original, {
 					   scale: 1,
 					   width: 300,
@@ -241,36 +245,70 @@ else
 				}
             } else { 
                 console.log("download video");
-                html2canvas(document.getElementById('frame-img')).then(function(canvas) {
-                	var image = canvas.toDataURL("image/png");
-	                $('#preview-frame, #img-top').attr('src', image);
-	            });
-	            var canvas = document.getElementById('bitmap');
-	            var context = canvas.getContext('2d'); 
-	            canvas.width = 300;  
-	            canvas.height = 442;
-	            context.fillStyle = "#FFFFFF";
-	            context.fillRect(0,0,canvas.width,canvas.height);
-	            var imgtop = document.getElementById('img-top');
-	            var encoder = new GIFEncoder();
-	            encoder.setRepeat(0); 
-	            encoder.setDelay(11);
-	            var gs = GIFF();
-	            gs.onerror = function(e){ 
-	               console.log("Gif loading error " + e.type);
-	            }  
-	            gs.load('<?php echo $post_url; ?>');
-	            setTimeout(()=>{
-	            encoder.start(); 
-	            for(i=0;i<gs.frames.length;i++) {
-	              context.drawImage(imgtop,0,0,300,442); 
-	              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
-	              encoder.addFrame(context)
-	            }
-	            encoder.finish();
-	            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
-				uploadimg(finimg);
-	            },1000);
+	            var w = parseInt(window.innerWidth);
+                if(w > 1023) {
+                	html2canvas(document.getElementById('frame-img')).then(function(canvas) {
+	                	var image = canvas.toDataURL("image/png");
+		                $('#preview-frame, #img-top').attr('src', image);
+		            });
+					var canvas = document.getElementById('bitmap');
+		            var context = canvas.getContext('2d'); 
+		            canvas.width = 300;  
+		            canvas.height = 442;
+		            context.fillStyle = "#FFFFFF";
+		            context.fillRect(0,0,canvas.width,canvas.height);
+		            var imgtop = document.getElementById('img-top');
+		            var encoder = new GIFEncoder();
+		            encoder.setRepeat(0); 
+		            encoder.setDelay(11);
+		            var gs = GIFF();
+		            gs.onerror = function(e){ 
+		               console.log("Gif loading error " + e.type);
+		            }  
+		            gs.load('<?php echo $post_url; ?>');
+		            setTimeout(()=>{
+		            encoder.start(); 
+		            for(i=0;i<gs.frames.length;i++) {
+		              context.drawImage(imgtop,0,30,300,442); 
+		              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
+		              encoder.addFrame(context)
+		            }
+		            encoder.finish();
+		            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+					uploadimg(finimg);
+		            },1000);
+				} else {
+					html2canvas(document.getElementById('frame-img')).then(function(canvas) {
+	                	var image = canvas.toDataURL("image/png");
+		                $('#preview-frame, #img-top').attr('src', image);
+		            });
+					var canvas = document.getElementById('bitmap');
+		            var context = canvas.getContext('2d'); 
+		            canvas.width = 300;  
+		            canvas.height = 442;
+		            context.fillStyle = "#FFFFFF";
+		            context.fillRect(0,0,canvas.width,canvas.height);
+		            var imgtop = document.getElementById('img-top');
+		            var encoder = new GIFEncoder();
+		            encoder.setRepeat(0); 
+		            encoder.setDelay(11);
+		            var gs = GIFF();
+		            gs.onerror = function(e){ 
+		               console.log("Gif loading error " + e.type);
+		            }  
+		            gs.load('<?php echo $post_url; ?>');
+		            setTimeout(()=>{
+		            encoder.start(); 
+		            for(i=0;i<gs.frames.length;i++) {
+		              context.drawImage(imgtop,0,20,300,462); 
+		              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
+		              encoder.addFrame(context)
+		            }
+		            encoder.finish();
+		            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+					uploadimg(finimg);
+		            },1000);
+				}
             };
 
 			$("#btn-download").click(function() {
