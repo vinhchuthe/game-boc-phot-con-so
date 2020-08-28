@@ -137,7 +137,6 @@ else
 							<?php echo $randomString ?>
 						</h2>
 					</div>
-					<div id="img-out" style="display: none;"></div>
 					<div class="render-images">
 	                    <div class="box-frame text-center" id="frame-img">
 	                        <div class="gif-top"><img src="./image/icon/bn-gif.png" alt=""></div>
@@ -152,8 +151,8 @@ else
 	                        <p></p>
 	                        <canvas id="bitmap" style="display:none;"></canvas>
 	                        <img id="image">
-	                    </div>
-	                </div>
+	                    </div> 
+	                </div> 
 					<div class="section-btn">
 						<a id="continue-btn" href="game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
 					</div>
@@ -178,6 +177,17 @@ else
 							Athena</a></h4>
 				</div>
 			</section>
+			<div id="img2download_mobile" class="section-imag">
+				<div class="inf-down">
+					<p class="title-container">
+						<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
+					</p>
+					<img class="download-img" src="<?php echo $post_url; ?>" alt="">
+					<h2>
+						<?php echo $randomString ?>
+					</h2> 
+				</div>
+			</div> 
 			<input type="hidden" id="imageShareSocialNetwork" value=""/>
 			<input type="hidden" id="idShare" value=""/>
 		</main>
@@ -204,19 +214,25 @@ else
 					   scale: 1,
 					   width: 300,
 					   height: 410,
+					   top: 40,
+					   paddingTop: 40,
+					   marginTop: 40,
 					   backgroundColor: "#d7d7d7",
-					   useCORS: true,
+					   useCORS: true, 
 					   }).then(canvas => {
 					    var image = canvas.toDataURL("image/png");
 					    uploadimg(image);
 					  })
 				} else {
-					const original = document.querySelector('#img2download');
+					const original = document.querySelector('#img2download_mobile');
 					html2canvas(original, {
 					   scale: 1,
 					   width: 300,
-					   height: 380,
-					   backgroundColor: "#d7d7d7",
+					   height: 410,
+					   top: 50,
+					   paddingTop: 40,
+					   marginTop: 40, 
+					   backgroundColor: "#d7d7d7", 
 					   useCORS: true,
 					   }).then(canvas => {
 					    var image = canvas.toDataURL("image/png");
@@ -231,7 +247,7 @@ else
 	            });
 	            var canvas = document.getElementById('bitmap');
 	            var context = canvas.getContext('2d'); 
-	            canvas.width = 300; 
+	            canvas.width = 300;  
 	            canvas.height = 442;
 	            context.fillStyle = "#FFFFFF";
 	            context.fillRect(0,0,canvas.width,canvas.height);
