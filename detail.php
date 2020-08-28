@@ -184,7 +184,7 @@ else
 
 		<!--Script-->
 		<script src="./plugin/jQuery/jquery.min.js"></script>
-		<script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script> -->
 		<!-- <script src="./plugin/html2canvas.min.js"></script>  -->
 		<script src="./js-gif/b64.js"></script>
@@ -197,10 +197,32 @@ else
 			var storage = localStorage.getItem("key-type");
 			if (storage == "image") {
                 console.log("download image");
-                html2canvas(document.querySelector("#img2download")).then(canvas => {
-				    var image = canvas.toDataURL("image/png");
-				    uploadimg(image);
-				});
+                var w = parseInt(window.innerWidth);
+                if(w > 1023) {
+					const original = document.querySelector('#img2download');
+					html2canvas(original, {
+					   scale: 1,
+					   width: 300,
+					   height: 410,
+					   backgroundColor: "#d7d7d7",
+					   useCORS: true,
+					   }).then(canvas => {
+					    var image = canvas.toDataURL("image/png");
+					    uploadimg(image);
+					  })
+				} else {
+					const original = document.querySelector('#img2download');
+					html2canvas(original, {
+					   scale: 1,
+					   width: 300,
+					   height: 380,
+					   backgroundColor: "#d7d7d7",
+					   useCORS: true,
+					   }).then(canvas => {
+					    var image = canvas.toDataURL("image/png");
+					    uploadimg(image);
+					  })
+				}
             } else { 
                 console.log("download video");
                 html2canvas(document.getElementById('frame-img')).then(function(canvas) {
@@ -220,7 +242,7 @@ else
 	            var gs = GIFF();
 	            gs.onerror = function(e){ 
 	               console.log("Gif loading error " + e.type);
-	            } 
+	            }  
 	            gs.load('<?php echo $post_url; ?>');
 	            setTimeout(()=>{
 	            encoder.start(); 
