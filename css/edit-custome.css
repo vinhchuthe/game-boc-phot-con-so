@@ -224,8 +224,8 @@ span#clc-submit {
     transform: none;
     overflow: hidden;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 20px;
+    left: calc(50% - 150px);
     z-index: -1;
     pointer-events: none;
     display: block;

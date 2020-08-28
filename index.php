@@ -176,7 +176,7 @@ if($start_time == 0)
             $(document).on( "click", "#result-wrapper", function(){
                 var windowWidth = $(window).width();
                 if(windowWidth < 768){
-                    $("#result-wrapper").toggleClass("collapse");
+                    $("#result-wrapper").toggleClass("collapse"); 
                 }
             } );
         });

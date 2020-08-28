@@ -30,7 +30,7 @@ $token = isset($_GET['token']) ? trim($_GET['token']) : '';
 $isValidToken = token::validate($token, PROJECT_KEY_NAME, TOKEN_KEY, TOKEN_EXPIRE_TIME);//12hour expire token
 
 $post_url = '';
-$post_title = '';
+$post_title = ''; 
 $post_content = '';
 if($isValidToken)
 {
@@ -177,20 +177,20 @@ else
 							Athena</a></h4>
 				</div>
 			</section>
-			<div id="img2download_mobile" class="section-imag">
-				<div class="inf-down">
-					<p class="title-container">
-						<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
-					</p>
-					<img class="download-img" src="<?php echo $post_url; ?>" alt="">
-					<h2>
-						<?php echo $randomString ?>
-					</h2> 
-				</div>
-			</div> 
 			<input type="hidden" id="imageShareSocialNetwork" value=""/>
 			<input type="hidden" id="idShare" value=""/>
 		</main>
+		<div id="img2download_mobile" class="section-imag">
+			<div class="inf-down">
+				<p class="title-container">
+					<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
+				</p>
+				<img class="download-img" src="<?php echo $post_url; ?>" alt="">
+				<h2>
+					<?php echo $randomString ?>
+				</h2> 
+			</div>
+		</div> 
 
 		<!--Script-->
 		<script src="./plugin/jQuery/jquery.min.js"></script>
@@ -245,38 +245,74 @@ else
 				}
             } else { 
                 console.log("download video");
-	            var w = parseInt(window.innerWidth);
-                html2canvas(document.getElementById('frame-img')).then(function(canvas) {
-                	var image = canvas.toDataURL("image/png");
-	                $('#preview-frame, #img-top').attr('src', image);
-	            });
-				var canvas = document.getElementById('bitmap');
-	            var context = canvas.getContext('2d'); 
-	            canvas.width = 300;  
-	            canvas.height = 442;
-	            context.fillStyle = "#FFFFFF";
-	            context.fillRect(0,0,canvas.width,canvas.height);
-	            var imgtop = document.getElementById('img-top');
-	            var encoder = new GIFEncoder();
-	            encoder.setRepeat(0); 
-	            encoder.setDelay(11);
-	            var gs = GIFF();
-	            gs.onerror = function(e){ 
-	               console.log("Gif loading error " + e.type);
-	            }  
-	            gs.load('<?php echo $post_url; ?>');
-	            setTimeout(()=>{
-	            encoder.start(); 
-	            for(i=0;i<gs.frames.length;i++) {
-	              context.drawImage(imgtop,0,0,300,442); 
-	              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
-	              encoder.addFrame(context)
-	            }
-	            encoder.finish();
-	            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
-				uploadimg(finimg);
-	            },1000);
-            };
+                var w = parseInt(window.innerWidth);
+                if(w > 1023) {
+					var w = parseInt(window.innerWidth);
+	                html2canvas(document.getElementById('frame-img')).then(function(canvas) {
+	                	var image = canvas.toDataURL("image/png");
+		                $('#preview-frame, #img-top').attr('src', image);
+		            });
+					var canvas = document.getElementById('bitmap');
+		            var context = canvas.getContext('2d'); 
+		            canvas.width = 300;  
+		            canvas.height = 442;
+		            context.fillStyle = "#FFFFFF";
+		            context.fillRect(0,0,canvas.width,canvas.height);
+		            var imgtop = document.getElementById('img-top');
+		            var encoder = new GIFEncoder();
+		            encoder.setRepeat(0); 
+		            encoder.setDelay(11);
+		            var gs = GIFF();
+		            gs.onerror = function(e){ 
+		               console.log("Gif loading error " + e.type);
+		            }  
+		            gs.load('<?php echo $post_url; ?>');
+		            setTimeout(()=>{
+		            encoder.start(); 
+		            for(i=0;i<gs.frames.length;i++) {
+		              context.drawImage(imgtop,0,0,300,442); 
+		              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
+		              encoder.addFrame(context)
+		            }
+		            encoder.finish();
+		            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+					uploadimg(finimg);
+		            },1000);
+				}
+				else {
+					var w = parseInt(window.innerWidth);
+	                html2canvas(document.getElementById('frame-img')).then(function(canvas) {
+	                	var image = canvas.toDataURL("image/png");
+		                $('#preview-frame, #img-top').attr('src', image);
+		            });
+					var canvas = document.getElementById('bitmap');
+		            var context = canvas.getContext('2d'); 
+		            canvas.width = 300;  
+		            canvas.height = 472;
+		            context.fillStyle = "#FFFFFF";
+		            context.fillRect(0,0,canvas.width,canvas.height);
+		            var imgtop = document.getElementById('img-top');
+		            var encoder = new GIFEncoder();
+		            encoder.setRepeat(0); 
+		            encoder.setDelay(11);
+		            var gs = GIFF();
+		            gs.onerror = function(e){ 
+		               console.log("Gif loading error " + e.type);
+		            }  
+		            gs.load('<?php echo $post_url; ?>');
+		            setTimeout(()=>{
+		            encoder.start(); 
+		            for(i=0;i<gs.frames.length;i++) {
+		              context.drawImage(imgtop,0,30,300,472); 
+		              context.drawImage(gs.frames[i].image,0,0,500,500,25,150,220,220);
+		              encoder.addFrame(context)
+		            }
+		            encoder.finish();
+		            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+					uploadimg(finimg);
+		            },1000);
+				}
+            }; 
 
 			$("#btn-download").click(function() {
 				var image_link = $("#imageShareSocialNetwork").val();

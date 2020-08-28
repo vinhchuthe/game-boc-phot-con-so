@@ -25,7 +25,7 @@
 .txt-rand {
 	display: none;
 	position: absolute;
-    top: 0;
+    top: 0; 
 	&.active_rand {
 		display: block;
 	}
@@ -37,7 +37,7 @@
 	    width: 100%;
 	    bottom: -12px;
 	    left: 0;
-	    padding: 0 10px 10px 10px;
+	    padding: 0 10px 10px 10px; 
 	    display: flex;
 	    line-height: 1.2;
 	    justify-content: center;
@@ -259,17 +259,17 @@ span#clc-submit {
 	}
 	#img2download_mobile {
 		background: #d7d7d7;
-		padding: 10px;
+	    padding: 10px;
 	    margin: 0 auto;
 	    text-align: center;
 	    -webkit-transform: none;
 	    transform: none;
 	    overflow: hidden;
 	    position: absolute;
-	    top: 0;
-	    left: 0;
+	    top: 20px;
+	    left: calc(50% - 150px);
 	    z-index: -1;
-	    pointer-events: none; 
+	    pointer-events: none;
 	    display: block;
 	    width: 300px;
 	    .inf-down {

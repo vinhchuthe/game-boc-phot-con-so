@@ -235,7 +235,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                         <div class="overlay-gr" id="gr5">
                             <img class="npc" src="./image/pic/nvp3.png" alt="">
                             <img class="gif" src="./image/pic/nvp3.gif" alt="" data-content="brainstorm" data-url_video="nvp3.gif">
-                            <div class="txt-succ"><img src="./image/pic/click-false.png"></div>
+                            <div class="txt-succ"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr6">
                             <img class="gif" src="./image/pic/nv7.gif" alt="" data-content="tự sướng" data-url_video="nv7.gif" data-url_img="nv7.png" onclick="loadFrame5(this)">
@@ -581,10 +581,10 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 							ssepushSource.addEventListener("message", function(event){
 								if(event.data == 'invalid_token')
 								{
-									// ssepushSource.close();
+									// ssepushSource.close(); 
 								}
 								else
-								{
+								{ 
 									var data = JSON.parse(event.data);
 									jQuery.each(data, function(idx, itemVal){
 										var strpreappend = '<li>' + itemVal + '</li>';
