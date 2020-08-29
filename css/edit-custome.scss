@@ -29,7 +29,7 @@
 	&.active_rand {
 		display: block;
 	}
-	img {
+	img { 
 		max-width: inherit;
 	}
 	span {
@@ -350,7 +350,44 @@ span#clc-submit {
 		display: flex;
 	}
 } 
-
+.anim-popup {
+	animation: shake 1000ms;
+}
+@keyframes shake {
+  0% {
+    transform: rotateZ(0);
+  }
+  10% {
+    transform: rotateZ(-30deg);
+  }
+  20% {
+    transform: rotateZ(15deg);
+  }
+  30% {
+    transform: rotateZ(-10deg);
+  }
+  40% {
+    transform: rotateZ(7.5deg);
+  }
+  50% {
+    transform: rotateZ(-6deg);
+  }
+  60% {
+    transform: rotateZ(5deg);
+  }
+  70% {
+    transform: rotateZ(-4.28571deg);
+  }
+  80% {
+    transform: rotateZ(3.75deg);
+  }
+  90% {
+    transform: rotateZ(-3.33333deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
 // Vinh's code
 @media(max-width: 400px) {
 	.user-icon {

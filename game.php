@@ -35,14 +35,14 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
     <link rel="stylesheet" href="./css/customer.css">
     <link rel="stylesheet" href="./css/edit-custome.css">
     <link rel="stylesheet" href="./plugin/swiper/swiper.min.css">
-    <title>Game bóc phốt công sở</title>
+    <title>Game bóc phốt công sở</title> 
     <!--Script-->
     <script src="./plugin/jQuery/jquery.min.js"></script>
     <script src="./plugin/jQuery/Tweenmax.js"></script>
     <script src="./plugin/jQuery/draggable.js"></script>
     <script src="./plugin/niceScroll/nicescroll.min.js"></script>
     <script src="./plugin/swiper/swiper.min.js"></script>
-    
+     
     <script> 
 		var ssepushSource = null;
         function panoramix() {
@@ -462,8 +462,8 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             $(".txt-rand").hide();
             var show = $(this).data('content'); 
             $(this).toggleClass("active");
-            $(this).parents().children(".txt-rand").show();
-            $(this).parents().children('.txt-succ').show();
+            $(this).parents().children(".txt-rand").show().addClass('anim-popup');
+            $(this).parents().children('.txt-succ').show().addClass('anim-popup');
             $('.txt-rand span').text(randomQuote);
             $('.overlay-gr .gif').css("pointer-events", "none");
 
@@ -486,7 +486,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             $('#inp_gif').attr("value", href_img);
 
             setTimeout(function(){
-                $('.txt-rand').hide();
+                $('.txt-rand, .txt-succ').hide().removeClass('anim-popup');
                 $('.overlay-gr .gif').css("pointer-events", "unset");
             }, 2000);
         });
@@ -499,7 +499,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             if (min == 1 && max == 30) {rand = 6}
             document.getElementById('display').innerText = rand;
         }
-        setInterval(generateRandomNumber, 5000);
+        setInterval(generateRandomNumber, 10000);
 
         // mute btn
         $("#btn-mute").click(function() {
