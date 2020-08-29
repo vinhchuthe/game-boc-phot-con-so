@@ -15,6 +15,9 @@
 .d-none {
   display: none; }
 
+.gif {
+  display: block !important; }
+
 .txt-rand {
   display: none;
   position: absolute;
@@ -160,8 +163,62 @@ span#clc-submit {
   height: 442px !important;
   object-fit: cover !important; }
 
-#img2download_mobile {
+#avar_gen {
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center; }
+  #avar_gen img {
+    width: 120px !important; }
+
+#section-content .section-image .download-img {
+  max-height: unset;
+  height: inherit;
+  width: 120px; }
+
+#img2download .avarta {
+  height: 220px;
+  padding: 15px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.box-canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: none; }
+
+#img-canvas {
+  padding: 50px 10px 10px 10px;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-transform: none;
+  transform: none;
+  overflow: hidden;
+  background: #d7d7d7;
+  width: 300px;
+  position: relative; }
+  #img-canvas h2 {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 5px 15px;
+    text-align: center;
+    line-height: 1.1; }
+  #img-canvas .avarta {
+    margin-bottom: 6px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  #img-canvas p {
+    margin: 0; }
 
 @media (max-width: 1023px) {
   .box-frame {
@@ -215,49 +272,29 @@ span#clc-submit {
   .txt-rand span {
     font-size: 15px; }
 
-  #img2download_mobile {
-    background: #d7d7d7;
-    padding: 10px;
-    margin: 0 auto;
-    text-align: center;
-    -webkit-transform: none;
-    transform: none;
-    overflow: hidden;
-    position: absolute;
-    top: 20px;
-    left: calc(50% - 150px);
-    z-index: -1;
-    pointer-events: none;
-    display: block;
-    width: 300px; }
-    #img2download_mobile .inf-down {
-      padding-top: 10px; }
-    #img2download_mobile .download-img {
-      width: 90%;
-      max-height: 170px;
-      object-fit: contain !important;
-      padding: 5px;
-      border-radius: 10px;
-      background: #fff; }
-    #img2download_mobile h2 {
-      font-size: 20px;
-      font-weight: normal;
-      padding: 5px 15px;
-      text-align: center;
-      line-height: 1.1; }
-
   #section-content {
     overflow: hidden; }
 
   #detail-wrapper #section-content .section-left #img2download {
     position: relative;
     top: -10px; }
+    #detail-wrapper #section-content .section-left #img2download .avarta {
+      width: 100%;
+      height: 180px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px; }
 
   #image {
     padding-top: 30px !important;
     background: #d7d7d7;
     position: relative;
-    top: 30px; } }
+    top: 30px; }
+
+  .box-canvas {
+    display: block; } }
 @media (max-width: 400px) {
   .user-icon label {
     left: 120px; } }

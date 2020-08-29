@@ -30,7 +30,7 @@ $token = isset($_GET['token']) ? trim($_GET['token']) : '';
 $isValidToken = token::validate($token, PROJECT_KEY_NAME, TOKEN_KEY, TOKEN_EXPIRE_TIME);//12hour expire token
 
 $post_url = '';
-$post_title = ''; 
+$post_title = '';  
 $post_content = '';
 if($isValidToken)
 {
@@ -132,7 +132,7 @@ else
 						<p class="title-container">
 							<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
 						</p>
-						<img class="download-img" src="<?php echo $post_url; ?>" alt="">
+						<div class="avarta"><img class="download-img" src="<?php echo $post_url; ?>" alt="" style="object-fit: contain"></div>
 						<h2>
 							<?php echo $randomString ?>
 						</h2>
@@ -177,20 +177,20 @@ else
 							Athena</a></h4>
 				</div>
 			</section>
+			<section class="box-canvas">
+				<div id="img-canvas">
+					<p class="title-container">
+						<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
+					</p>
+					<div class="avarta" id="avar_gen"><img class="download-img" src="<?php echo $post_url; ?>" alt="" style="object-fit: contain"></div>
+					<h2>
+						<?php echo $randomString ?>
+					</h2>
+				</div>
+			</section>
 			<input type="hidden" id="imageShareSocialNetwork" value=""/>
 			<input type="hidden" id="idShare" value=""/>
 		</main>
-		<div id="img2download_mobile" class="section-imag">
-			<div class="inf-down">
-				<p class="title-container">
-					<img class="img-title" src="./image/icon/downloadimg-title.png" alt="">
-				</p>
-				<img class="download-img" src="<?php echo $post_url; ?>" alt="">
-				<h2>
-					<?php echo $randomString ?>
-				</h2> 
-			</div>
-		</div> 
 
 		<!--Script-->
 		<script src="./plugin/jQuery/jquery.min.js"></script>
@@ -209,39 +209,31 @@ else
                 console.log("download image");
                 var w = parseInt(window.innerWidth);
                 if(w > 1023) {
-					const original = document.querySelector('#img2download');
+                	const original = document.querySelector('#img2download');
 					html2canvas(original, {
-					   scale: 1,
-					   width: 300,
-					   height: 410,
-					   top: 40,
-					   paddingTop: 40,
-					   marginTop: 40,
 					   backgroundColor: "#d7d7d7",
 					   useCORS: true, 
-					   }).then(canvas => {
-					    var image = canvas.toDataURL("image/png");
-					    uploadimg(image);
-					  })
-				} else {
-					const original = document.querySelector('#img2download_mobile');
-					$('#img2download_mobile .download-img').css({
-						width: '252px',
-						height: '170px',
-					});
-					html2canvas(original, {
 					   scale: 1,
 					   width: 300,
 					   height: 410,
 					   top: 50,
-					   paddingTop: 40,
-					   marginTop: 40, 
-					   backgroundColor: "#d7d7d7", 
-					   useCORS: true,
 					   }).then(canvas => {
 					    var image = canvas.toDataURL("image/png");
 					    uploadimg(image);
-					  })
+					})
+				}
+				else {
+					const original = document.querySelector('#img-canvas');
+					html2canvas(original, {
+					   backgroundColor: "#d7d7d7",
+					   useCORS: true, 
+					   scale: 1, 
+					   width: 300,
+					   height: 425,
+					   }).then(canvas => {
+					    var image = canvas.toDataURL("image/png");
+					    uploadimg(image); 
+					})
 				}
             } else { 
                 console.log("download video");
