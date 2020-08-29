@@ -137,22 +137,6 @@ else
 							<?php echo $randomString ?>
 						</h2>
 					</div>
-					<div class="render-images">
-	                    <div class="box-frame text-center" id="frame-img">
-	                        <div class="gif-top"><img src="./image/icon/bn-gif.png" alt=""></div>
-	                        <div class="text-frame">
-	                            <h2><?php echo $randomString ?></h2>
-	                        </div>
-	                    </div>
-	                    <img id="preview-frame" src="" alt="">
-	                    <div class="end-code">
-	                        <img id="img-top" src=""></img>
-	                        <img id="img-gif" src="<?php echo $post_url; ?>" style="max-height: 220px;"></img>
-	                        <p></p>
-	                        <canvas id="bitmap" style="display:none;"></canvas>
-	                        <img id="image">
-	                    </div> 
-	                </div> 
 					<div class="section-btn">
 						<a id="continue-btn" href="game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
 					</div>
@@ -188,6 +172,22 @@ else
 					</h2>
 				</div>
 			</section>
+			<section class="render-images">
+                <div class="box-frame text-center" id="frame-img">
+                    <div class="gif-top"><img src="./image/icon/bn-gif.png" alt=""></div>
+                    <div class="text-frame">
+                        <h2><?php echo $randomString ?></h2>
+                    </div>
+                </div>
+                <img id="preview-frame" src="" alt="">
+                <div class="end-code">
+                    <img id="img-top" src=""></img>
+                    <img id="img-gif" src="<?php echo $post_url; ?>" style="max-height: 220px;"></img>
+                    <p></p>
+                    <canvas id="bitmap" style="display:none;"></canvas>
+                    <img id="image">
+                </div> 
+            </section> 
 			<input type="hidden" id="imageShareSocialNetwork" value=""/>
 			<input type="hidden" id="idShare" value=""/>
 		</main>
@@ -207,103 +207,50 @@ else
 			var storage = localStorage.getItem("key-type");
 			if (storage == "image") {
                 console.log("download image");
-                var w = parseInt(window.innerWidth);
-                if(w > 1023) {
-                	const original = document.querySelector('#img2download');
-					html2canvas(original, {
-					   backgroundColor: "#d7d7d7",
-					   useCORS: true, 
-					   scale: 1,
-					   width: 300,
-					   height: 410,
-					   top: 50,
-					   }).then(canvas => {
-					    var image = canvas.toDataURL("image/png");
-					    uploadimg(image);
-					})
-				}
-				else {
-					const original = document.querySelector('#img-canvas');
-					html2canvas(original, {
-					   backgroundColor: "#d7d7d7",
-					   useCORS: true, 
-					   scale: 1, 
-					   width: 300,
-					   height: 425,
-					   }).then(canvas => {
-					    var image = canvas.toDataURL("image/png");
-					    uploadimg(image); 
-					})
-				}
+                const original = document.querySelector('#img-canvas');
+				html2canvas(original, {
+				   backgroundColor: "#d7d7d7",
+				   useCORS: true, 
+				   scale: 1, 
+				   width: 300,
+				   height: 425,
+				   }).then(canvas => {
+				    var image = canvas.toDataURL("image/png");
+				    uploadimg(image); 
+				}) 
             } else { 
                 console.log("download video");
                 var w = parseInt(window.innerWidth);
-                if(w > 1023) {
-					var w = parseInt(window.innerWidth);
-	                html2canvas(document.getElementById('frame-img')).then(function(canvas) {
-	                	var image = canvas.toDataURL("image/png");
-		                $('#preview-frame, #img-top').attr('src', image);
-		            });
-					var canvas = document.getElementById('bitmap');
-		            var context = canvas.getContext('2d'); 
-		            canvas.width = 300;  
-		            canvas.height = 442;
-		            context.fillStyle = "#FFFFFF";
-		            context.fillRect(0,0,canvas.width,canvas.height);
-		            var imgtop = document.getElementById('img-top');
-		            var encoder = new GIFEncoder();
-		            encoder.setRepeat(0); 
-		            encoder.setDelay(11);
-		            var gs = GIFF();
-		            gs.onerror = function(e){ 
-		               console.log("Gif loading error " + e.type);
-		            }  
-		            gs.load('<?php echo $post_url; ?>');
-		            setTimeout(()=>{
-		            encoder.start(); 
-		            for(i=0;i<gs.frames.length;i++) {
-		              context.drawImage(imgtop,0,0,300,442); 
-		              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
-		              encoder.addFrame(context)
-		            }
-		            encoder.finish();
-		            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
-					uploadimg(finimg);
-		            },1000);
-				}
-				else {
-					var w = parseInt(window.innerWidth);
-	                html2canvas(document.getElementById('frame-img')).then(function(canvas) {
-	                	var image = canvas.toDataURL("image/png");
-		                $('#preview-frame, #img-top').attr('src', image);
-		            });
-					var canvas = document.getElementById('bitmap');
-		            var context = canvas.getContext('2d'); 
-		            canvas.width = 300;  
-		            canvas.height = 472;
-		            context.fillStyle = "#FFFFFF";
-		            context.fillRect(0,0,canvas.width,canvas.height);
-		            var imgtop = document.getElementById('img-top');
-		            var encoder = new GIFEncoder();
-		            encoder.setRepeat(0); 
-		            encoder.setDelay(11);
-		            var gs = GIFF();
-		            gs.onerror = function(e){ 
-		               console.log("Gif loading error " + e.type);
-		            }  
-		            gs.load('<?php echo $post_url; ?>');
-		            setTimeout(()=>{
-		            encoder.start(); 
-		            for(i=0;i<gs.frames.length;i++) {
-		              context.drawImage(imgtop,0,30,300,472); 
-		              context.drawImage(gs.frames[i].image,0,0,500,500,25,150,220,220);
-		              encoder.addFrame(context)
-		            }
-		            encoder.finish();
-		            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
-					uploadimg(finimg);
-		            },1000);
-				}
+                html2canvas(document.getElementById('frame-img')).then(function(canvas) {
+                	var image = canvas.toDataURL("image/png");
+	                $('#preview-frame, #img-top').attr('src', image);
+	            });
+				var canvas = document.getElementById('bitmap');
+	            var context = canvas.getContext('2d'); 
+	            canvas.width = 300;  
+	            canvas.height = 442;
+	            context.fillStyle = "#FFFFFF";
+	            context.fillRect(0,0,canvas.width,canvas.height);
+	            var imgtop = document.getElementById('img-top');
+	            var encoder = new GIFEncoder();
+	            encoder.setRepeat(0); 
+	            encoder.setDelay(11);
+	            var gs = GIFF();
+	            gs.onerror = function(e){ 
+	               console.log("Gif loading error " + e.type);
+	            }  
+	            gs.load('<?php echo $post_url; ?>');
+	            setTimeout(()=>{
+	            encoder.start(); 
+	            for(i=0;i<gs.frames.length;i++) {
+	              context.drawImage(imgtop,0,0,300,442); 
+	              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
+	              encoder.addFrame(context)
+	            }
+	            encoder.finish();
+	            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+				uploadimg(finimg);
+	            },1000);
             }; 
 
 			$("#btn-download").click(function() {
