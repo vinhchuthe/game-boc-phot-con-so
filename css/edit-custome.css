@@ -291,7 +291,10 @@ span#clc-submit {
     top: 30px; }
 
   .box-canvas {
-    display: flex; } }
+    display: flex; }
+
+  #img-canvas {
+    padding: 50px 10px 10px 10px; } }
 .anim-popup {
   animation: shake 1000ms; }
 

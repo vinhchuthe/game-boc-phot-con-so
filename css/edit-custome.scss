@@ -29,7 +29,7 @@
 	&.active_rand {
 		display: block;
 	}
-	img { 
+	img {
 		max-width: inherit;
 	}
 	span {
@@ -349,6 +349,9 @@ span#clc-submit {
 	.box-canvas { 
 		display: flex;
 	}
+	#img-canvas {
+		padding: 50px 10px 10px 10px;
+	}
 } 
 .anim-popup {
 	animation: shake 1000ms;
@@ -395,5 +398,5 @@ span#clc-submit {
 			left: 120px;
 		}
 	}
-}
+} 
 // End Vinh's code
