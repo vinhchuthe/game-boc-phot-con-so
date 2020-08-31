@@ -217,11 +217,13 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                             <img class="npc" src="./image/pic/char5.png" alt="">
                             <img class="gif" src="./image/pic/nv5.gif" alt="" data-content="trang điểm" data-url_video="nv5.gif" data-url_img="nv5.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr2">
                             <img class="npc" src="./image/pic/char4.png" alt="">
                             <img class="gif" src="./image/pic/nv4.gif" alt="" data-content="ngủ gật" data-url_video="nv4.gif" data-url_img="nv4.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr3">
                             <img class="gif" src="./image/pic/nv10.gif" alt="" data-content="cày phim" data-url_video="nv10.gif" data-url_img="nv10.png" onclick="loadFrame5(this)">
@@ -231,11 +233,13 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                             <img class="npc" src="./image/pic/char1.png" alt="">
                             <img class="gif" src="./image/pic/nv1.gif" alt="" data-content="uống trà sữa" data-url_video="nv1.gif" data-url_img="nv1.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr5">
                             <img class="npc" src="./image/pic/nvp3.png" alt="">
                             <img class="gif" src="./image/pic/nvp3.gif" alt="" data-content="brainstorm" data-url_video="nvp3.gif">
                             <div class="txt-succ"><img src="./image/pic/click-false.png"><span></span></div> 
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr6">
                             <img class="gif" src="./image/pic/nv7.gif" alt="" data-content="tự sướng" data-url_video="nv7.gif" data-url_img="nv7.png" onclick="loadFrame5(this)">
@@ -249,37 +253,60 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                             <img class="npc" src="./image/pic/nvp4.gif" alt="" data-url_video="nvp4.gif" >
                             <img class="gif" src="./image/pic/nv8.gif" alt="" data-content="live stream bán hàng" data-url_video="nv8.gif" data-url_img="nv8.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr9">
                             <img class="npc" src="./image/pic/nvp5.gif" alt="" data-url_video="nvp5.gif" >
                             <img class="gif" src="./image/pic/nv6.gif" alt="" data-content="lướt Facebook thả thính" data-url_video="nv6.gif" data-url_img="nv6.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr10">
                             <img class="npc" src="./image/pic/char2.png" alt="">
                             <img class="gif" src="./image/pic/nv3.gif" alt="" data-content="quẹt Tinder" data-url_video="nv3.gif" data-url_img="nv3.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr11">
                             <img class="npc" src="./image/pic/char2.png" alt="">
                             <img class="gif" src="./image/pic/nv2.gif" alt="" data-content="ăn quà vặt" data-url_video="nv2.gif" data-url_img="nv2.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr12">
                             <img class="npc" src="./image/pic/nvp2.png" alt="">
                             <img class="gif" src="./image/pic/nvp2.gif" alt="" data-content="nghiên cứu tài liệu" data-url_video="nvp2.gif" >
                             <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr13">
                             <img class="npc" src="./image/pic/nvp1.png" alt="">
                             <img class="gif" src="./image/pic/nvp1.gif" alt="" data-content="gọi điện cho khách hàng" data-url_video="nvp1.gif" >
                             <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr14">
                             <img class="npc" src="./image/pic/nvp6.png" alt="">
                             <img class="gif" src="./image/pic/nvp6.gif" alt="" data-content="lau dọn chỗ ngồi" data-url_video="nvp6.gif">
                             <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
+                            <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
+                        <div class="overlay-stt over-stt-1" id="stt-1"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-2" id="stt-2"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-3" id="stt-3"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-4" id="stt-4"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-5" id="stt-5"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-6" id="stt-6"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-7" id="stt-7"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-8" id="stt-8"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-9" id="stt-9"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-10" id="stt-10"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-11" id="stt-11"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-12" id="stt-12"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-13" id="stt-13"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-14" id="stt-14"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+                        <div class="overlay-stt over-stt-15" id="stt-15"><div class="clc-static"></div><div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div></div>
+
                     </div>
                 </div>
             </div>
@@ -457,6 +484,35 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             randomNum = Math.floor(Math.random()*quotes.length);
             randomQuote = quotes[randomNum];
         };
+
+        //random qoute static 
+        var randomQuote_Static;
+        var randomNum_Static; 
+        getQuoteStatic();
+        function getQuoteStatic(){
+              
+            var quotes_static = [
+                "Ê, tôi đang làm việc mà",  
+                "Ủa, đang làm việc thôi mà.", 
+            ];
+            
+            randomNum_Static = Math.floor(Math.random()*quotes_static.length);
+            randomQuote_Static = quotes_static[randomNum_Static];
+            console.log(randomQuote_Static);
+        };
+
+        $('.overlay-gr .npc, .clc-static').click(function(event) {
+            $(this).parents().children('.txt-rand-stt').show().addClass('anim-popup');
+            $('.txt-rand-stt span').text(randomQuote_Static);
+            getQuoteStatic();
+            $('.clc-static, .overlay-gr .gif, .overlay-gr .npc').css("pointer-events", "none");
+            setTimeout(function(){
+                $('.txt-rand-stt').hide().removeClass('anim-popup');
+                $('.clc-static, .overlay-gr .gif, .overlay-gr .npc').css("pointer-events", "unset");
+            }, 2000);
+        });
+ 
+
         $(".overlay-gr .gif").click(function(event) { 
             $('.txt-succ').hide();
             $(".txt-rand").hide();
@@ -465,7 +521,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             $(this).parents().children(".txt-rand").show().addClass('anim-popup');
             $(this).parents().children('.txt-succ').show().addClass('anim-popup');
             $('.txt-rand span').text(randomQuote);
-            $('.overlay-gr .gif').css("pointer-events", "none");
+            $('.overlay-gr .gif, .clc-static').css("pointer-events", "none");
 
             getQuote();
             function walkText(node) {
@@ -487,7 +543,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
             setTimeout(function(){
                 $('.txt-rand, .txt-succ').hide().removeClass('anim-popup');
-                $('.overlay-gr .gif').css("pointer-events", "unset");
+                $('.overlay-gr .gif, .clc-static').css("pointer-events", "unset");
             }, 2000);
         });
 
