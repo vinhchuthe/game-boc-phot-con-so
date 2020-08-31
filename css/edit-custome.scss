@@ -26,7 +26,7 @@
 	display: none; 
 	position: absolute;
     top: 0; 
-	&.active_rand {
+	&.active_rand { 
 		display: block;
 	}
 	img {
@@ -52,7 +52,7 @@
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    margin: 5px 0 8px 0;
+    margin: 5px 0 8px 0; 
 }
 .text-frame {
 	p {
@@ -746,10 +746,6 @@ span#clc-submit {
 	}
 	.over-stt-8 {
 	}
-	// .over-stt-9 {
-	// 	width: 60px;
- //    	top: 26%;
-	// }
 	.over-stt-10 {
 		width: 60px;
     	top: 26%;
@@ -765,6 +761,10 @@ span#clc-submit {
 	}
 	.over-stt-15 {
 	} 
+	.txt-rand-stt {
+	    left: -60px;
+	    top: -150px;
+	}
 }
 @media (max-width: 1023px) and (min-width: 768px) {
 	.tutorial-slider button.type-btn, .tutorial-slider button.type-btn img {
@@ -776,4 +776,4 @@ span#clc-submit {
 	#section-2 #tutorial-wrapper .tutorial-slider .swiper-container .swiper-wrapper .swiper-slide .item .section-content-btn {
 	    width: 100%;
 	}
-}
+} 

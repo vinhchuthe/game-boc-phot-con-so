@@ -658,7 +658,11 @@ span#clc-submit {
     top: 26%; }
 
   .over-stt-14 {
-    width: 100px; } }
+    width: 100px; }
+
+  .txt-rand-stt {
+    left: -60px;
+    top: -150px; } }
 @media (max-width: 1023px) and (min-width: 768px) {
   .tutorial-slider button.type-btn, .tutorial-slider button.type-btn img {
     width: 100px !important;
