@@ -23,7 +23,7 @@ if($start_time == 0)
 	$_SESSION[SESSION_START_TIME_NAME] = $start_time;
 } 
 
-$token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
+$token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY); 
 ?>
 <!DOCTYPE html>
 <html lang="vi">

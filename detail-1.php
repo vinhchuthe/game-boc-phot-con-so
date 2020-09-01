@@ -22,7 +22,7 @@ if(isset($_SESSION[SESSION_START_TIME_NAME]))
 }
 if($start_time == 0)
 {
-	$start_time = time(); 
+	$start_time = time();
 	$_SESSION[SESSION_START_TIME_NAME] = $start_time;
 }
 
@@ -188,21 +188,6 @@ else
                     <img id="image">
                 </div> 
             </section> 
-            <section class="box-share">
-				<div class="img-share" id="share-thumbs"> 
-					<div class="left text-center">
-						<div class="i-top"><img src="./image/icon/share-top.png" alt=""></div>
-						<div class="i-txt">
-							<h2><?php echo $randomString ?></h2>
-						</div>
-						<div class="btn-share"><img src="./image/icon/btn-share.png" alt=""></div>
-					</div>
-					<div class="right">
-						<div class="avarta"><img src="<?php echo $post_url; ?>" alt="" ></div>
-					</div>
-				</div>
-				<img id="preview-share">
-			</section>
 			<input type="hidden" id="imageShareSocialNetwork" value=""/>
 			<input type="hidden" id="idShare" value=""/>
 		</main>
@@ -220,18 +205,6 @@ else
 
 		<script>
 			var storage = localStorage.getItem("key-type");
-			const original = document.querySelector('#share-thumbs');
-			html2canvas(original, {
-			   backgroundColor: "#d7d7d7",
-			   useCORS: true, 
-			   scale: 1, 
-			   width: 500,
-			   height: 250,
-			   }).then(canvas => {
-			    var image = canvas.toDataURL("image/png");
-			    // uploadimg(image); 
-			    $('#preview-share').attr('src', image);
-			}) 
 			if (storage == "image") {
                 console.log("download image");
                 const original = document.querySelector('#img-canvas');
@@ -239,12 +212,12 @@ else
 				   backgroundColor: "#d7d7d7",
 				   useCORS: true, 
 				   scale: 1, 
-				   width: 300, 
+				   width: 300,
 				   height: 425,
 				   }).then(canvas => {
 				    var image = canvas.toDataURL("image/png");
 				    uploadimg(image); 
-				})  
+				}) 
             } else { 
                 console.log("download video");
                 var w = parseInt(window.innerWidth);
@@ -356,7 +329,7 @@ else
 						}
 					});
 				}
-				else{
+				else{ 
 					alert('Không tạo được ảnh nhân vật')
 				}
 			});

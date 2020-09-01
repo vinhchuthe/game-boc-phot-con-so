@@ -24,7 +24,7 @@
 }
 .txt-rand {
 	display: none; 
-	position: absolute;
+	position: absolute; 
     top: 0; 
 	&.active_rand { 
 		display: block;
@@ -435,6 +435,55 @@ span#clc-submit {
     	max-width: inherit;
     }
 } 
+.img-share {
+	display: flex;
+    width: 500px;
+    background: #ededed;
+    padding: 25px;
+    .right {
+    	flex: 0 0 200px;
+    }
+    .avarta {
+    	width: 200px;
+	    height: 200px;
+	    background: #fff;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    border-radius: 10px;
+	    img {
+	    	height: inherit;
+    		padding: 10px;
+	    }
+    }
+    .left {
+    	text-align: center;
+	    padding-right: 25px;
+	    position: relative;
+	    display: flex;
+	    flex-wrap: wrap;
+	    align-items: end;
+    }
+    .i-txt {
+    	padding: 10px 0 15px 0;
+    	h2 {
+    		font-size: 23px;
+		    font-weight: normal;
+		    line-height: 1.2;
+		    padding: 0 20px;
+    	}
+    }
+    .btn-share {
+    	line-height: .6;
+    	width: 100%;
+    }
+}
+
+.box-share {
+	position: absolute;
+    z-index: -1;
+    left: -999999px;
+}
 @media (max-width: 4096px) and (max-height: 2160px) {
 	.overlay-stt {
 	    width: 150px;
