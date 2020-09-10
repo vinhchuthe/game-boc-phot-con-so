@@ -35,13 +35,13 @@ if($start_time == 0)
     <meta property="og:type" content="article">
     <meta property="og:title" content="Game Bóc phốt công sở">
     <meta property="og:description"
-          content="Game Bóc phốt công sở được phát triển bởi Creative Studio Athena">
+          content="Thử tài nhanh tay - tinh mắt “bóc phốt” đồng nghiệp xung quanh bạn. Game được phát triển bởi Creative Studio Athena.">
     <meta property="og:url" content="https://creativestudioa.admicro.vn/game-boc-phot-cong-so/">
     <meta property="og:site_name" content="Game Bóc phốt công sở">
     <meta property="og:image" content="https://creativestudioa.admicro.vn/game-boc-phot-cong-so/image/pic/cover-fb.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description"
-          content="Game Bóc phốt công sở được phát triển bởi Creative Studio Athena">
+          content="Thử tài nhanh tay - tinh mắt “bóc phốt” đồng nghiệp xung quanh bạn. Game được phát triển bởi Creative Studio Athena.">
     <meta name="twitter:title" content="Game Bóc phốt công sở">
     <title>Game bóc phốt công sở</title>
     <!--Script-->
@@ -176,7 +176,7 @@ if($start_time == 0)
             $(document).on( "click", "#result-wrapper", function(){
                 var windowWidth = $(window).width();
                 if(windowWidth < 768){
-                    $("#result-wrapper").toggleClass("collapse"); 
+                    $("#result-wrapper").toggleClass("collapse");
                 }
             } );
         });

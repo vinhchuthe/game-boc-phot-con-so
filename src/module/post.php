@@ -20,6 +20,7 @@ $isValidToken = token::validate($token, PROJECT_KEY_NAME, TOKEN_KEY, 600);//10 m
 if($isValidToken)
 {
 	$image64 = isset($_POST['image']) ? trim($_POST['image']) : ''; // do khong luu anh
+	$imageHorizontal64 = isset($_POST['imageHorizontal']) ? trim($_POST['imageHorizontal']) : ''; // do khong luu anh
 	$nameUser = isset($_POST['nameUser']) ? trim($_POST['nameUser']) : '';
 	$nameUser = removeAllTags($nameUser);
 	$myMessage = isset($_POST['myMessage']) ? trim($_POST['myMessage']) : '';
@@ -75,7 +76,9 @@ if($isValidToken)
 	// save image to local host 
 	$errSaveImage = '';
 	$urlImage = '';
-	if (preg_match('/^data:image\/(\w+);base64,/', $image64, $extension)) 
+	$urlImageHorizontal = '';
+    $relativeUrlImageHorizontal = '';
+	if (preg_match('/^data:image\/(\w+);base64,/', $image64, $extension))
 	{
 		$save_image64 = substr($image64, strpos($image64, ',') + 1);
 		$image64_decode = base64_decode($save_image64);
@@ -147,6 +150,83 @@ if($isValidToken)
 			'image_url' => ''
 		];
 	}
+
+	//Fixme: Need to rewrite this code php to scale.
+    if (preg_match('/^data:image\/(\w+);base64,/', $imageHorizontal64, $extension))
+    {
+        $save_image64 = substr($imageHorizontal64, strpos($imageHorizontal64, ',') + 1);
+        $image64_decode = base64_decode($save_image64);
+        $extension = strtolower($extension[1]); // jpg, png, gif
+        if (!in_array($extension, ['jpg', 'jpeg', 'gif', 'png']))
+        {
+            $errSaveImage = 'invalid image type';
+        }
+        else if ($image64_decode === false)
+        {
+            $errSaveImage = 'base64_decode failed';
+        }
+        else
+        {
+            //Todo: Re-create variable
+
+            $filename = time() . uniqid() . rand(0,1000000);
+            $filename = $filename . '.' . $extension;
+
+            //luu anh vao server
+            $is_upload_server = file_put_contents($localFolder . $filename, $image64_decode);
+            if ($is_upload_server > 0)
+            {
+                //move image from local host to cloud
+                if(CF_UPLOAD_LOCAL_GAME == 'cloud')
+                {
+                    $mycloud = new mycloud();
+                    // check year folder exists
+                    $cloudFolder = CLOUD_IMG_REAL_PATH . $yearFolder . '/';
+                    if(!$mycloud->directory_exists($cloudFolder))
+                    {
+                        $mycloud->mkdir($cloudFolder);
+                    }
+
+                    // check month folder exists
+                    $cloudFolder = CLOUD_IMG_REAL_PATH . $yearFolder . '/' . $monthFolder . '/';
+                    if(!$mycloud->directory_exists($cloudFolder))
+                    {
+                        $mycloud->mkdir($cloudFolder);
+                    }
+                    // check file exist
+                    $cloudFilePath = CLOUD_IMG_REAL_PATH . $yearFolder . '/' . $monthFolder . '/' . $filename;
+                    $chkUploadCloudFile = $mycloud->upload($localFolder . $filename, $cloudFilePath, true);
+                    if($chkUploadCloudFile)
+                    {
+                        $urlImageHorizontal = CLOUD_IMG_DOMAIN . $yearFolder . '/' . $monthFolder . '/' . $filename;
+                        $relativeUrlImageHorizontal = '/' . $yearFolder . '/' . $monthFolder . '/' . $filename;
+                        @unlink($localFolder . $filename);
+                    }
+                    else
+                    {
+                        $errSaveImage = 'upload_cloud_image_error';
+                    }
+                }
+                else
+                {
+                    $relativeUrlImageHorizontal = '/' . $yearFolder . '/' . $monthFolder . '/' . $filename;
+                    $urlImageHorizontal = UPLOAD_URL . $yearFolder . '/' . $monthFolder . '/' . $filename;
+                }
+            }
+            else
+            {
+                $errSaveImage = 'save_image_local_error';
+            }
+        }
+    }
+    else
+    {
+        $rel['ok'] = false;
+        $rel['msg'] = $image64;
+        $rel['data'] = [
+            'image_url' => ''
+        ];
+    }
 	
 	
 	// luu anh thanh cong => log to database
@@ -161,13 +241,14 @@ if($isValidToken)
 			$flag = false;
 			$game_url = PROJECT_KEY_NAME;
 			$game_url_crc = crc32($game_url);
-			$sql = "INSERT INTO `log_game`(`game_url`, `game_url_crc`, `image`, `message`, `created_at`, `created_dt`) VALUES (:game_url, :game_url_crc, :image, :message, :created_at, :created_dt)";
+			$sql = "INSERT INTO `log_game`(`game_url`, `game_url_crc`, `image`,`image_horizontal`, `message`, `created_at`, `created_dt`) VALUES (:game_url, :game_url_crc, :image, :image_horizontal, :message, :created_at, :created_dt)";
 			$stmt = $db->prepare($sql);
 			if($stmt)
 			{
 				$stmt->bindParam(':game_url', $game_url, PDO::PARAM_STR);
 				$stmt->bindParam(':game_url_crc', $game_url_crc, PDO::PARAM_INT);
 				$stmt->bindParam(':image', $relativeUrlImage, PDO::PARAM_STR);
+				$stmt->bindParam(':image_horizontal', $relativeUrlImageHorizontal, PDO::PARAM_STR);
 				$stmt->bindParam(':message', $message, PDO::PARAM_STR);
 				$stmt->bindParam(':created_at', $curr_time, PDO::PARAM_STR);
 				$stmt->bindParam(':created_dt', $curr_date, PDO::PARAM_STR);

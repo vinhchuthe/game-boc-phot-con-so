@@ -23,7 +23,7 @@ if($start_time == 0)
 	$_SESSION[SESSION_START_TIME_NAME] = $start_time;
 } 
 
-$token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY); 
+$token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -35,14 +35,14 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
     <link rel="stylesheet" href="./css/customer.css">
     <link rel="stylesheet" href="./css/edit-custome.css">
     <link rel="stylesheet" href="./plugin/swiper/swiper.min.css">
-    <title>Game bóc phốt công sở</title> 
+    <title>Game bóc phốt công sở</title>
     <!--Script-->
     <script src="./plugin/jQuery/jquery.min.js"></script>
     <script src="./plugin/jQuery/Tweenmax.js"></script>
     <script src="./plugin/jQuery/draggable.js"></script>
     <script src="./plugin/niceScroll/nicescroll.min.js"></script>
     <script src="./plugin/swiper/swiper.min.js"></script>
-     
+    
     <script> 
 		var ssepushSource = null;
         function panoramix() {
@@ -65,7 +65,6 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
         function loadFrame5(elm) {
 
-            ClickBtn();
             var data_url_video = $(elm).attr('data-url_video');
             var data_url_img = $(elm).attr('data-url_img');
             var data_content = $(elm).attr("data-content");
@@ -104,13 +103,14 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                     },
                     dataType: 'html'
                 });
-            }, 2000);
+            }, 1000);
             
         }
 
         function closeFrame5(elm) {
             ClickBtn();
             $('#section-2').removeClass('overllay');
+            $(".overlay-gr .gif").removeClass("active");
             $('#result-form').remove();
             $('#result-container').remove();
             $('.txt-succ').hide();
@@ -125,7 +125,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 			{
 				if(typeof(ssepushSource) == 'object')
 				{ 
-					// ssepushSource.close();
+					ssepushSource.close();
 				}
                 $('#form-frame5-submit').submit();
             } else if (name === '') {
@@ -165,11 +165,18 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
     </script>
 </head>
 
-<body> 
+<body>
     <main>
-        <!-- <audio id="audiogame" src="./audio/audiogame.mp3" autoplay loop></audio> -->
-        <audio id="audiogame" src="" autoplay loop></audio>
-        <audio id="btnsound" src="./audio/button-sound.mp3"></audio>
+        <audio id="audiogame" src="./audio/audiogame.mp3" autoplay loop></audio>
+        <audio id="btnsound">
+            <source src="./audio/button-sound.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="btntrue">
+            <source src="./audio/true.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="btnfalse">
+            <source src="./audio/false.mp3" type="audio/mpeg">
+        </audio>
         <div class="preload">
             <header>
                 <div class="col-left">
@@ -215,79 +222,79 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                     <div id="overlay-wrapper">
                         <div class="overlay-gr" id="gr1">
                             <img class="npc" src="./image/pic/char5.png" alt="">
-                            <img class="gif" src="./image/pic/nv5.gif" alt="" data-content="trang điểm" data-url_video="nv5.gif" data-url_img="nv5.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv5.gif" alt="" data-content="trang điểm" data-url_video="nv5.gif" data-url_img="nv5.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr2">
                             <img class="npc" src="./image/pic/char4.png" alt="">
-                            <img class="gif" src="./image/pic/nv4.gif" alt="" data-content="ngủ gật" data-url_video="nv4.gif" data-url_img="nv4.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv4.gif" alt="" data-content="ngủ gật" data-url_video="nv4.gif" data-url_img="nv4.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr3">
-                            <img class="gif" src="./image/pic/nv10.gif" alt="" data-content="cày phim" data-url_video="nv10.gif" data-url_img="nv10.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv10.gif" alt="" data-content="cày phim" data-url_video="nv10.gif" data-url_img="nv10.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr4">
                             <img class="npc" src="./image/pic/char1.png" alt="">
-                            <img class="gif" src="./image/pic/nv1.gif" alt="" data-content="uống trà sữa" data-url_video="nv1.gif" data-url_img="nv1.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv1.gif" alt="" data-content="uống trà sữa" data-url_video="nv1.gif" data-url_img="nv1.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr5">
                             <img class="npc" src="./image/pic/nvp3.png" alt="">
-                            <img class="gif" src="./image/pic/nvp3.gif" alt="" data-content="brainstorm" data-url_video="nvp3.gif">
-                            <div class="txt-succ"><img src="./image/pic/click-false.png"><span></span></div> 
+                            <img class="gif false" src="./image/pic/nvp3.gif" alt="" data-content="brainstorm" data-url_video="nvp3.gif">
+                            <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr6">
-                            <img class="gif" src="./image/pic/nv7.gif" alt="" data-content="tự sướng" data-url_video="nv7.gif" data-url_img="nv7.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv7.gif" alt="" data-content="tự sướng" data-url_video="nv7.gif" data-url_img="nv7.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr7">
-                            <img class="gif" src="./image/pic/nv9.gif" alt="" data-content="tám" data-url_video="nv9.gif" data-url_img="nv9.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv9.gif" alt="" data-content="tám" data-url_video="nv9.gif" data-url_img="nv9.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                         </div>
                         <div class="overlay-gr" id="gr8">
                             <img class="npc" src="./image/pic/nvp4.gif" alt="" data-url_video="nvp4.gif" >
-                            <img class="gif" src="./image/pic/nv8.gif" alt="" data-content="live stream bán hàng" data-url_video="nv8.gif" data-url_img="nv8.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv8.gif" alt="" data-content="live stream bán hàng" data-url_video="nv8.gif" data-url_img="nv8.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr9">
                             <img class="npc" src="./image/pic/nvp5.gif" alt="" data-url_video="nvp5.gif" >
-                            <img class="gif" src="./image/pic/nv6.gif" alt="" data-content="lướt Facebook thả thính" data-url_video="nv6.gif" data-url_img="nv6.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv6.gif" alt="" data-content="lướt Facebook thả thính" data-url_video="nv6.gif" data-url_img="nv6.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr10">
                             <img class="npc" src="./image/pic/char2.png" alt="">
-                            <img class="gif" src="./image/pic/nv3.gif" alt="" data-content="quẹt Tinder" data-url_video="nv3.gif" data-url_img="nv3.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv3.gif" alt="" data-content="quẹt Tinder" data-url_video="nv3.gif" data-url_img="nv3.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr11">
                             <img class="npc" src="./image/pic/char2.png" alt="">
-                            <img class="gif" src="./image/pic/nv2.gif" alt="" data-content="ăn quà vặt" data-url_video="nv2.gif" data-url_img="nv2.png" onclick="loadFrame5(this)">
+                            <img class="gif true" src="./image/pic/nv2.gif" alt="" data-content="ăn quà vặt" data-url_video="nv2.gif" data-url_img="nv2.png" onclick="loadFrame5(this)">
                             <div class="txt-succ"><img src="./image/pic/click-true.png"></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr12">
                             <img class="npc" src="./image/pic/nvp2.png" alt="">
-                            <img class="gif" src="./image/pic/nvp2.gif" alt="" data-content="nghiên cứu tài liệu" data-url_video="nvp2.gif" >
+                            <img class="gif false" src="./image/pic/nvp2.gif" alt="" data-content="nghiên cứu tài liệu" data-url_video="nvp2.gif" >
                             <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr13">
                             <img class="npc" src="./image/pic/nvp1.png" alt="">
-                            <img class="gif" src="./image/pic/nvp1.gif" alt="" data-content="gọi điện cho khách hàng" data-url_video="nvp1.gif" >
+                            <img class="gif false" src="./image/pic/nvp1.gif" alt="" data-content="gọi điện cho khách hàng" data-url_video="nvp1.gif" >
                             <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
                         <div class="overlay-gr" id="gr14">
                             <img class="npc" src="./image/pic/nvp6.png" alt="">
-                            <img class="gif" src="./image/pic/nvp6.gif" alt="" data-content="lau dọn chỗ ngồi" data-url_video="nvp6.gif">
+                            <img class="gif false" src="./image/pic/nvp6.gif" alt="" data-content="lau dọn chỗ ngồi" data-url_video="nvp6.gif">
                             <div class="txt-rand"><img src="./image/pic/click-false.png"><span></span></div>
                             <div class="txt-rand-stt"><img src="./image/pic/click-false.png"><span></span></div>
                         </div>
@@ -372,6 +379,11 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                         </div>
                     </div>
                 </div>
+                <div class="tutorial-audio">
+                    <button type="button" id="btn-tutorial-mute">
+                        <img src="./image/icon/icon-volume-w.png" alt="">
+                    </button>
+                </div>
             </div>
 
             <div id="result-wrapper">
@@ -394,7 +406,9 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                             </a>
                         </div>
                     </div>
-                    <div class="mb-menu bounce"></div>
+                    <div class="mb-menu bounce">
+                        <img src="./image/icon/mb-menu.png" alt="">
+                    </div>
                 </div>
 
                 <div class="result-content-group">
@@ -459,15 +473,21 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
         });
 
         // Audio
-        var audiokey = localStorage.getItem("audio");
-        var audio = document.getElementById("audiogame");
-        if(audiokey == "disable") {
-            $("#btn-mute").addClass("disabled");
-            audio.muted = true;
-        } else {
-            $("#btn-mute").removeClass("disabled"); 
-            audio.muted = false;
+        function checkaudio() {
+            var audiokey = localStorage.getItem("audio");
+            var audio = document.getElementById("audiogame");
+            if(audiokey == "disable") {
+                $("#btn-mute").addClass("disabled");
+                $("#btn-tutorial-mute").addClass("disabled");
+                audio.muted = true;
+            } else {
+                $("#btn-mute").removeClass("disabled");
+                $("#btn-tutorial-mute").removeClass("disabled");
+                audio.muted = false;
+            };
         };
+        checkaudio();
+        
 
         // randomQuote
         var randomQuote;
@@ -498,10 +518,15 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             
             randomNum_Static = Math.floor(Math.random()*quotes_static.length);
             randomQuote_Static = quotes_static[randomNum_Static];
-            console.log(randomQuote_Static);
+            // console.log(randomQuote_Static);
         };
 
         $('.overlay-gr .npc, .clc-static').click(function(event) {
+            var click_state = localStorage.getItem("audio");
+            if(click_state !== "disable") {
+                document.getElementById("btnfalse").play();
+            } else {};
+           
             $(this).parents().children('.txt-rand-stt').show().addClass('anim-popup');
             $('.txt-rand-stt span').text(randomQuote_Static);
             getQuoteStatic();
@@ -511,17 +536,33 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
                 $('.clc-static, .overlay-gr .gif, .overlay-gr .npc').css("pointer-events", "unset");
             }, 2000);
         });
- 
 
         $(".overlay-gr .gif").click(function(event) { 
             $('.txt-succ').hide();
             $(".txt-rand").hide();
             var show = $(this).data('content'); 
-            $(this).toggleClass("active");
+            $(this).addClass("active");
             $(this).parents().children(".txt-rand").show().addClass('anim-popup');
             $(this).parents().children('.txt-succ').show().addClass('anim-popup');
             $('.txt-rand span').text(randomQuote);
             $('.overlay-gr .gif, .clc-static').css("pointer-events", "none");
+
+            // Vinh code
+            clicksound();
+            function clicksound() {
+                var click_state = localStorage.getItem("audio");
+                if(click_state !== "disable") {
+                    if($('.overlay-gr .gif').parents().children(".true").hasClass("active")) {
+                        // console.log("step2");
+                        document.getElementById("btntrue").play();
+                    } else if($('.overlay-gr .gif').parents().children(".false").hasClass("active")) {
+                        // console.log("step3");
+                        document.getElementById("btnfalse").play();
+                    }
+                } else {};
+            };
+            
+            // End Vinh Code
 
             getQuote();
             function walkText(node) {
@@ -543,9 +584,10 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 
             setTimeout(function(){
                 $('.txt-rand, .txt-succ').hide().removeClass('anim-popup');
-                $('.overlay-gr .gif, .clc-static').css("pointer-events", "unset");
+                $('.overlay-gr .gif').css("pointer-events", "unset");
             }, 2000);
         });
+
 
         // Random user
         function generateRandomNumber() {
@@ -562,10 +604,22 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
             $(this).toggleClass('disabled');
             if($(this).hasClass("disabled")) {
                 localStorage.setItem("audio", "disable");
-                audio.muted = true;
+                checkaudio();
             } else {
                 localStorage.removeItem("audio");
-                audio.muted = false;
+                checkaudio();
+            };
+        });
+
+        // tutorial mute btn
+        $("#btn-tutorial-mute").click(function() {
+            $(this).toggleClass('disabled');
+            if($(this).hasClass("disabled")) {
+                localStorage.setItem("audio", "disable");
+                checkaudio();
+            } else {
+                localStorage.removeItem("audio");
+                checkaudio();
             };
         });
 
@@ -637,10 +691,10 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 							ssepushSource.addEventListener("message", function(event){
 								if(event.data == 'invalid_token')
 								{
-									// ssepushSource.close(); 
+									ssepushSource.close();
 								}
 								else
-								{ 
+								{
 									var data = JSON.parse(event.data);
 									jQuery.each(data, function(idx, itemVal){
 										var strpreappend = '<li>' + itemVal + '</li>';

@@ -16,6 +16,7 @@ body {
     &::selection {
         background-color: transparent;
     }
+
     &::-moz-selection {
         background-color: transparent;
     }
@@ -58,6 +59,7 @@ area:-webkit-any-link {
                 height: 100vh;
                 max-width: unset;
             }
+
             #overlay-wrapper {
                 position: absolute;
                 top: 0;
@@ -76,6 +78,7 @@ area:-webkit-any-link {
                         .npc {
                             display: none !important;
                         }
+
                         .gif {
                             display: block !important;
                         }
@@ -159,6 +162,7 @@ area:-webkit-any-link {
                                 &.pc-img {
                                     display: block;
                                 }
+
                                 &.mb-img {
                                     display: none;
                                 }
@@ -175,6 +179,7 @@ area:-webkit-any-link {
                                     color: #666;
                                     font-size: 30px;
                                 }
+
                                 ul {
                                     display: flex;
                                     justify-content: center;
@@ -194,6 +199,7 @@ area:-webkit-any-link {
                                                 width: auto;
                                             }
                                         }
+
                                         p {
                                             font-size: 22px;
                                             font-family: "HLTFont";
@@ -205,6 +211,7 @@ area:-webkit-any-link {
                                             button {
                                                 filter: brightness(1) opacity(1);
                                             }
+
                                             p {
                                                 color: $green-text;
                                             }
@@ -242,16 +249,18 @@ area:-webkit-any-link {
                         &.btn-prev-slider {
                             left: 20px;
                         }
+
                         &.btn-next-slider {
                             right: 20px;
                         }
 
                         &.swiper-button-disabled {
-                            filter: brightness(0) opacity(0.5);
+                            opacity: 0;
                         }
 
                         img {
                             max-width: 40px;
+
                             &.mb-icon {
                                 display: none;
                             }
@@ -263,6 +272,22 @@ area:-webkit-any-link {
                             margin-left: auto;
                         }
                     }
+                }
+            }
+        }
+
+        .tutorial-audio {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+
+            #btn-tutorial-mute {
+                border: none;
+                background: transparent;
+
+                &.disabled {
+                    opacity: 0.3;
                 }
             }
         }
@@ -291,6 +316,7 @@ area:-webkit-any-link {
 
             .group-left {
                 flex: 0 0 50%;
+
                 h1 {
                     line-height: 20px;
                     text-transform: uppercase;
@@ -300,6 +326,7 @@ area:-webkit-any-link {
                     }
                 }
             }
+
             .group-right {
                 flex: 0 0 50%;
                 display: flex;
@@ -321,6 +348,7 @@ area:-webkit-any-link {
                     }
                 }
             }
+
             .mb-menu {
                 display: none;
             }
@@ -334,6 +362,7 @@ area:-webkit-any-link {
                 color: #6c6c6c;
                 margin-bottom: 15px;
             }
+
             .result-group {
                 max-height: 44vh;
                 margin-right: 20px;
@@ -346,7 +375,7 @@ area:-webkit-any-link {
                         padding: 15px 20px;
                         background: rgb(0, 126, 215);
                         background: linear-gradient(320deg, rgba(0, 126, 215, 1) 0%, rgba(0, 184, 240, 1) 100%);
-                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007ed7",endColorstr="#00b8f0",GradientType=1);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007ed7", endColorstr="#00b8f0", GradientType=1);
                         border-radius: 20px 20px 20px 0;
                         margin: 0 0 20px 0;
                         color: #ffffff;
@@ -366,6 +395,7 @@ area:-webkit-any-link {
                         &:last-child {
                             margin-bottom: 0;
                         }
+
                         &#ticontainer {
                             .tiblock {
                                 align-items: center;
@@ -384,9 +414,11 @@ area:-webkit-any-link {
                                     &:nth-child(1) {
                                         animation-delay: 200ms;
                                     }
+
                                     &:nth-child(2) {
                                         animation-delay: 300ms;
                                     }
+
                                     &:nth-child(3) {
                                         animation-delay: 400ms;
                                     }
@@ -416,6 +448,7 @@ area:-webkit-any-link {
                         width: 30px;
                         height: 30px;
                     }
+
                     span {
                         font-size: 20px;
                         display: block;
@@ -425,6 +458,7 @@ area:-webkit-any-link {
                     }
                 }
             }
+
             .result-audio {
                 #btn-mute {
                     border: none;
@@ -570,6 +604,7 @@ area:-webkit-any-link {
             h1 {
                 text-transform: uppercase;
                 line-height: 20px;
+
                 a {
                     color: #777;
                 }
@@ -647,9 +682,11 @@ area:-webkit-any-link {
     0% {
         -webkit-transform: translateY(0px);
     }
+
     28% {
         -webkit-transform: translateY(-5px);
     }
+
     44% {
         -webkit-transform: translateY(0px);
     }
@@ -659,9 +696,11 @@ area:-webkit-any-link {
     0% {
         -webkit-transform: translateY(0px) translateX(-50%);
     }
+
     28% {
         -webkit-transform: translateY(-5px) translateX(-50%);
     }
+
     44% {
         -webkit-transform: translateY(0px) translateX(-50%);
     }
@@ -679,6 +718,7 @@ area:-webkit-any-link {
                 #map-bg {
                     height: 3700px;
                 }
+
                 #overlay-wrapper {
                     .overlay-gr {
                         &#gr1 {
@@ -688,32 +728,39 @@ area:-webkit-any-link {
                             .npc {
                                 max-width: 140px;
                             }
+
                             .gif {
                                 margin-left: -150px;
                                 margin-top: -80px;
                                 max-width: 400px;
                             }
                         }
+
                         &#gr2 {
                             top: 46.5%;
                             left: 21.75%;
+
                             .npc {
                                 max-width: 250px;
                             }
+
                             .gif {
                                 margin-left: -35px;
                                 margin-top: -62px;
                                 max-width: 400px;
                             }
                         }
+
                         &#gr3 {
                             top: 27.75%;
                             left: 29.25%;
+
                             .gif {
                                 max-width: unset;
                                 transform: scale(1.1);
                             }
                         }
+
                         &#gr4 {
                             top: 24.2%;
                             left: 33.5%;
@@ -721,18 +768,22 @@ area:-webkit-any-link {
                             .npc {
                                 max-width: 300px;
                             }
+
                             .gif {
                                 margin-left: -110px;
                                 margin-top: -70px;
                                 max-width: 500px;
                             }
                         }
+
                         &#gr5 {
                             top: 27.5%;
                             left: 39%;
+
                             .npc {
                                 max-width: 600px;
                             }
+
                             .gif {
                                 margin-left: -60px;
                                 margin-top: -80px;
@@ -740,6 +791,7 @@ area:-webkit-any-link {
                                 max-width: unset;
                             }
                         }
+
                         &#gr6 {
                             top: 36%;
                             left: 35%;
@@ -748,19 +800,24 @@ area:-webkit-any-link {
                                 max-width: 400px;
                             }
                         }
+
                         &#gr7 {
                             top: 31.3%;
                             left: 45.35%;
+
                             .gif {
                                 max-width: 500px;
                             }
                         }
+
                         &#gr8 {
                             top: 46%;
                             left: 44.75%;
+
                             .npc {
                                 transform: scale(1.1);
                             }
+
                             .gif {
                                 margin-left: -200px;
                                 margin-top: 10px;
@@ -768,12 +825,15 @@ area:-webkit-any-link {
                                 max-width: 500px;
                             }
                         }
+
                         &#gr9 {
                             top: 67.5%;
                             left: 60.5%;
+
                             .npc {
                                 max-width: 300px;
                             }
+
                             .gif {
                                 margin-left: -70px;
                                 margin-top: -130px;
@@ -781,54 +841,67 @@ area:-webkit-any-link {
                                 max-width: unset;
                             }
                         }
+
                         &#gr10 {
                             top: 66.5%;
                             left: 75.25%;
+
                             .npc {
                                 max-width: 150px;
                             }
+
                             .gif {
                                 margin-left: -120px;
                                 margin-top: -150px;
                                 max-width: 450px;
                             }
                         }
+
                         &#gr11 {
                             top: 31%;
                             left: 78.5%;
+
                             .npc {
                                 max-width: 150px;
                             }
+
                             .gif {
                                 margin-left: -190px;
                                 margin-top: -140px;
                                 max-width: 450px;
                             }
                         }
+
                         &#gr12 {
                             top: 17%;
                             left: 59.5%;
+
                             .npc {
                                 max-width: 250px;
                             }
+
                             .gif {
                                 margin-left: -40px;
                                 margin-top: -40px;
                                 max-width: 300px;
                             }
                         }
+
                         &#gr13 {
                             top: 86%;
                             left: 57.75%;
+
                             .npc {
                                 max-width: 170px;
                             }
+
                             .gif {
                                 margin-left: -60px;
                                 margin-top: -20px;
                                 max-width: 270px;
                             }
                         }
+
                         &#gr14 {
                             top: 77.5%;
                             left: 41%;
@@ -836,6 +909,7 @@ area:-webkit-any-link {
                             .npc {
                                 max-width: 250px;
                             }
+
                             .gif {
                                 margin-top: 30px;
                                 transform: scale(1.2);
@@ -847,6 +921,7 @@ area:-webkit-any-link {
         }
     }
 }
+
 // End 4k screen
 
 // ---------------- 2500px screen ---------------------
@@ -859,85 +934,106 @@ area:-webkit-any-link {
                 #map-bg {
                     height: 2500px;
                 }
+
                 #overlay-wrapper {
                     .overlay-gr {
                         &#gr1 {
                             top: 28%;
                             left: 12%;
+
                             .npc {
                                 max-width: 90px;
                             }
+
                             .gif {
                                 max-width: 270px;
                                 margin-left: -100px;
                                 margin-top: -60px;
                             }
                         }
+
                         &#gr2 {
                             top: 46.5%;
                             left: 21.75%;
+
                             .npc {
                                 max-width: 170px;
                             }
+
                             .gif {
                                 max-width: 250px;
                                 margin-top: -30px;
                                 margin-left: -12px;
                             }
                         }
+
                         &#gr3 {
                             top: 27%;
                             left: 28.95%;
+
                             .gif {
                                 max-width: 370px;
                                 transform: none;
                             }
                         }
+
                         &#gr4 {
                             top: 24.3%;
                             left: 33.5%;
+
                             .npc {
                                 max-width: 200px;
                             }
+
                             .gif {
                                 max-width: 330px;
                                 margin-left: -65px;
                                 margin-top: -45px;
                             }
                         }
+
                         &#gr5 {
                             top: 27.75%;
                             left: 39.1%;
+
                             .npc {
                                 max-width: 400px;
                             }
+
                             .gif {
                                 max-width: 450px;
                                 margin-left: -50px;
                                 margin-top: -65px;
                             }
                         }
+
                         &#gr6 {
                             top: 36%;
                             left: 35%;
+
                             .gif {
                                 max-width: 300px;
                             }
                         }
+
                         &#gr7 {
                             top: 31%;
                             left: 45.2%;
+
                             .gif {
                                 max-width: 350px;
                             }
                         }
+
                         &#gr8 {
                             top: 45.5%;
                             left: 44.5%;
+
                             .npc {
                                 transform: none;
                                 max-width: 190px;
                             }
+
                             .gif {
                                 transform: none;
                                 max-width: 370px;
@@ -945,72 +1041,90 @@ area:-webkit-any-link {
                                 margin-top: -10px;
                             }
                         }
+
                         &#gr9 {
                             top: 67.75%;
                             left: 60.5%;
+
                             .npc {
                                 max-width: 200px;
                             }
+
                             .gif {
                                 max-width: 400px;
                                 margin-left: -50px;
                                 margin-top: -95px;
                             }
                         }
+
                         &#gr10 {
                             top: 66.25%;
                             left: 75.25%;
+
                             .npc {
                                 max-width: 110px;
                             }
+
                             .gif {
                                 max-width: 300px;
                                 margin-left: -80px;
                                 margin-top: -90px;
                             }
                         }
+
                         &#gr11 {
                             top: 31%;
                             left: 78.5%;
+
                             .npc {
                                 max-width: 110px;
                             }
+
                             .gif {
                                 max-width: 300px;
                                 margin-left: -130px;
                                 margin-top: -85px;
                             }
                         }
+
                         &#gr12 {
                             top: 17%;
                             left: 59.75%;
+
                             .npc {
                                 max-width: 170px;
                             }
+
                             .gif {
                                 max-width: 200px;
                                 margin-left: -20px;
                                 margin-top: -10px;
                             }
                         }
+
                         &#gr13 {
                             top: 86%;
                             left: 57.75%;
+
                             .npc {
                                 max-width: 120px;
                             }
+
                             .gif {
                                 max-width: 180px;
                                 margin-left: -50px;
                                 margin-top: -20px;
                             }
                         }
+
                         &#gr14 {
                             top: 77.5%;
                             left: 41%;
+
                             .npc {
                                 max-width: 160px;
                             }
+
                             .gif {
                                 transform: none;
                                 margin-top: 0;
@@ -1023,6 +1137,7 @@ area:-webkit-any-link {
         }
     }
 }
+
 // End 2500px screen
 
 // ------------------ 1600px screen ------------------
@@ -1034,25 +1149,30 @@ area:-webkit-any-link {
             #preload-content {
                 .preload-content-inner-title {
                     font-size: 80px;
+
                     span {
                         font-size: 120px;
                     }
                 }
             }
         }
+
         #imgwrapper {
             #drag {
                 #map-bg {
                     height: 1500px;
                 }
+
                 #overlay-wrapper {
                     .overlay-gr {
                         &#gr1 {
                             top: 28%;
                             left: 12%;
+
                             .npc {
                                 max-width: 55px;
                             }
+
                             .gif {
                                 max-width: 160px;
                                 margin-left: -50px;
@@ -1063,9 +1183,11 @@ area:-webkit-any-link {
                         &#gr2 {
                             top: 46.5%;
                             left: 21.75%;
+
                             .npc {
                                 max-width: 100px;
                             }
+
                             .gif {
                                 max-width: 150px;
                                 margin-top: -17px;
@@ -1076,6 +1198,7 @@ area:-webkit-any-link {
                         &#gr3 {
                             left: 28.75%;
                             top: 26.75%;
+
                             .gif {
                                 max-width: 230px;
                             }
@@ -1084,9 +1207,11 @@ area:-webkit-any-link {
                         &#gr4 {
                             top: 24.2%;
                             left: 33.5%;
+
                             .npc {
                                 max-width: 120px;
                             }
+
                             .gif {
                                 max-width: 190px;
                                 margin-left: -35px;
@@ -1097,9 +1222,11 @@ area:-webkit-any-link {
                         &#gr5 {
                             top: 27.5%;
                             left: 39%;
+
                             .npc {
                                 max-width: 250px;
                             }
+
                             .gif {
                                 max-width: 270px;
                                 margin-left: -26px;
@@ -1110,6 +1237,7 @@ area:-webkit-any-link {
                         &#gr6 {
                             top: 36%;
                             left: 35%;
+
                             .gif {
                                 max-width: 170px;
                             }
@@ -1118,6 +1246,7 @@ area:-webkit-any-link {
                         &#gr7 {
                             top: 31%;
                             left: 45.25%;
+
                             .gif {
                                 max-width: 210px;
                             }
@@ -1126,9 +1255,11 @@ area:-webkit-any-link {
                         &#gr8 {
                             top: 45.5%;
                             left: 44.5%;
+
                             .npc {
                                 max-width: 120px;
                             }
+
                             .gif {
                                 max-width: 220px;
                                 margin-left: -87px;
@@ -1139,9 +1270,11 @@ area:-webkit-any-link {
                         &#gr9 {
                             top: 67.75%;
                             left: 60.5%;
+
                             .npc {
                                 max-width: 120px;
                             }
+
                             .gif {
                                 max-width: 260px;
                                 margin-left: -35px;
@@ -1152,9 +1285,11 @@ area:-webkit-any-link {
                         &#gr10 {
                             top: 66.25%;
                             left: 75.25%;
+
                             .npc {
                                 max-width: 60px;
                             }
+
                             .gif {
                                 max-width: 180px;
                                 margin-left: -55px;
@@ -1165,9 +1300,11 @@ area:-webkit-any-link {
                         &#gr11 {
                             top: 31%;
                             left: 78.5%;
+
                             .npc {
                                 max-width: 60px;
                             }
+
                             .gif {
                                 max-width: 180px;
                                 margin-left: -75px;
@@ -1178,9 +1315,11 @@ area:-webkit-any-link {
                         &#gr12 {
                             top: 17%;
                             left: 59.75%;
+
                             .npc {
                                 max-width: 100px;
                             }
+
                             .gif {
                                 margin-left: -20px;
                                 margin-top: -10px;
@@ -1191,9 +1330,11 @@ area:-webkit-any-link {
                         &#gr13 {
                             top: 85.7%;
                             left: 57.75%;
+
                             .npc {
                                 max-width: 75px;
                             }
+
                             .gif {
                                 max-width: 110px;
                                 margin-left: -25px;
@@ -1204,9 +1345,11 @@ area:-webkit-any-link {
                         &#gr14 {
                             top: 77.75%;
                             left: 41.2%;
+
                             .npc {
                                 max-width: 90px;
                             }
+
                             .gif {
                                 transform: none;
                                 margin-top: 0;
@@ -1219,6 +1362,7 @@ area:-webkit-any-link {
         }
     }
 }
+
 // End 1600px screen
 
 //  ------------- 1366px screen --------------------
@@ -1228,6 +1372,7 @@ area:-webkit-any-link {
         #preload-content {
             .preload-content-inner-title {
                 font-size: 70px;
+
                 span {
                     font-size: 100px;
                 }
@@ -1236,8 +1381,7 @@ area:-webkit-any-link {
     }
 }
 
-@media (max-width: 1024px) {
-}
+@media (max-width: 1024px) {}
 
 // ------------------ ipad --------------------
 @media (max-width: 1100px) {
@@ -1245,9 +1389,11 @@ area:-webkit-any-link {
         #imgwrapper {
             width: calc(100vw - 35vw);
         }
+
         #result-wrapper {
             max-width: 35vw;
         }
+
         #result-container {
             #result-form {
                 .result-form-content {
@@ -1284,25 +1430,31 @@ area:-webkit-any-link {
 
                             .item {
                                 height: 100%;
+
                                 img {
                                     height: 100%;
 
                                     &.pc-img {
                                         display: none;
                                     }
+
                                     &.mb-img {
                                         display: block;
                                     }
                                 }
+
                                 .section-content-btn {
                                     margin-top: 10px;
                                     top: 45%;
+
                                     h4 {
                                         font-size: 20px;
                                         margin-bottom: 20px;
                                     }
+
                                     ul {
                                         display: block;
+
                                         li {
                                             margin-bottom: 20px;
 
@@ -1315,6 +1467,7 @@ area:-webkit-any-link {
                             }
                         }
                     }
+
                     .swiper-pagination {
                         width: 60%;
                         bottom: 10px;
@@ -1325,11 +1478,13 @@ area:-webkit-any-link {
                             width: 20px;
                         }
                     }
+
                     .tutorial-text {
                         button {
                             &.btn-prev-slider {
                                 left: -70px;
                             }
+
                             &.btn-next-slider {
                                 right: -70px;
                             }
@@ -1337,6 +1492,7 @@ area:-webkit-any-link {
                             .pc-icon {
                                 display: none;
                             }
+
                             .mb-icon {
                                 display: block !important;
                             }
@@ -1344,13 +1500,28 @@ area:-webkit-any-link {
                     }
                 }
             }
+
             .btnclose {
                 visibility: hidden;
+
                 &:hover {
                     @include scale(0.8);
                 }
             }
+
+            .tutorial-audio {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: 20px;
+
+                #btn-tutorial-mute {
+                    img {
+                        width: 25px;
+                    }
+                }
+            }
         }
+
         #result-wrapper {
             width: 100vw;
             max-width: unset;
@@ -1373,10 +1544,12 @@ area:-webkit-any-link {
                         line-height: 18px;
                     }
                 }
+
                 .group-right {
                     .group-icon {
                         max-width: 35px;
                         flex: 0 0 auto;
+
                         a {
                             span {
                                 font-size: 14px;
@@ -1384,15 +1557,21 @@ area:-webkit-any-link {
                         }
                     }
                 }
+
                 .mb-menu {
                     display: block;
                     position: absolute;
-                    top: -5px;
+                    top: -15px;
                     left: 50%;
                     transform: translateX(-50%);
-                    width: 40px;
-                    height: 2px;
-                    background-color: #777777;
+                    width: 50px;
+                    height: 13px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0.5;
+                    }
 
                     &.bounce {
                         animation: bounce 1.5s infinite ease-in-out;
@@ -1404,6 +1583,7 @@ area:-webkit-any-link {
                 h3 {
                     font-size: 25px;
                 }
+
                 .result-group {
                     width: 100%;
                     margin-right: 0;
@@ -1420,6 +1600,7 @@ area:-webkit-any-link {
                             width: 20px;
                             height: 20px;
                         }
+
                         span {
                             font-size: 16px;
                             margin-left: 15px;
@@ -1427,6 +1608,7 @@ area:-webkit-any-link {
                         }
                     }
                 }
+
                 .result-audio {
                     button {
                         img {
@@ -1441,6 +1623,7 @@ area:-webkit-any-link {
                 transition: all 0.5s;
             }
         }
+
         #result-container {
             #result-form {
                 max-height: 500px;
@@ -1457,6 +1640,7 @@ area:-webkit-any-link {
                     height: 150px;
                     margin: 0 auto;
                 }
+
                 .result-form-content {
                     position: static;
                     text-align: center;
@@ -1467,12 +1651,14 @@ area:-webkit-any-link {
                         font-size: 25px;
                     }
                 }
+
                 #form-frame5-submit {
                     position: static;
                     transform: none;
                     padding: 0 15px;
                 }
             }
+
             .btnclose {
                 transform: translateY(-50%) scale(0.6);
                 top: calc(50% - 240px);
@@ -1480,20 +1666,25 @@ area:-webkit-any-link {
                 z-index: 21;
             }
         }
+
         #imgwrapper {
             width: 100%;
+
             #drag {
                 #map-bg {
                     height: 1200px;
                 }
+
                 #overlay-wrapper {
                     .overlay-gr {
                         &#gr1 {
                             top: 28%;
                             left: 12%;
+
                             .npc {
                                 max-width: 45px;
                             }
+
                             .gif {
                                 max-width: 130px;
                                 margin-left: -40px;
@@ -1504,9 +1695,11 @@ area:-webkit-any-link {
                         &#gr2 {
                             top: 46.65%;
                             left: 21.75%;
+
                             .npc {
                                 max-width: 80px;
                             }
+
                             .gif {
                                 max-width: 110px;
                                 margin-top: -7px;
@@ -1517,6 +1710,7 @@ area:-webkit-any-link {
                         &#gr3 {
                             left: 28.95%;
                             top: 26.85%;
+
                             .gif {
                                 max-width: 180px;
                             }
@@ -1525,9 +1719,11 @@ area:-webkit-any-link {
                         &#gr4 {
                             top: 24.2%;
                             left: 33.5%;
+
                             .npc {
                                 max-width: 95px;
                             }
+
                             .gif {
                                 max-width: 160px;
                                 margin-left: -32px;
@@ -1538,9 +1734,11 @@ area:-webkit-any-link {
                         &#gr5 {
                             top: 27.5%;
                             left: 39%;
+
                             .npc {
                                 max-width: 200px;
                             }
+
                             .gif {
                                 max-width: 225px;
                                 margin-left: -26px;
@@ -1551,6 +1749,7 @@ area:-webkit-any-link {
                         &#gr6 {
                             top: 36%;
                             left: 35%;
+
                             .gif {
                                 max-width: 140px;
                             }
@@ -1559,6 +1758,7 @@ area:-webkit-any-link {
                         &#gr7 {
                             top: 31%;
                             left: 45.25%;
+
                             .gif {
                                 max-width: 165px;
                             }
@@ -1567,9 +1767,11 @@ area:-webkit-any-link {
                         &#gr8 {
                             top: 45.5%;
                             left: 44.5%;
+
                             .npc {
                                 max-width: 95px;
                             }
+
                             .gif {
                                 max-width: 175px;
                                 margin-left: -70px;
@@ -1580,9 +1782,11 @@ area:-webkit-any-link {
                         &#gr9 {
                             top: 67.75%;
                             left: 60.5%;
+
                             .npc {
                                 max-width: 95px;
                             }
+
                             .gif {
                                 max-width: 220px;
                                 margin-left: -30px;
@@ -1593,9 +1797,11 @@ area:-webkit-any-link {
                         &#gr10 {
                             top: 66.25%;
                             left: 75.25%;
+
                             .npc {
                                 max-width: 50px;
                             }
+
                             .gif {
                                 max-width: 150px;
                                 margin-left: -45px;
@@ -1606,9 +1812,11 @@ area:-webkit-any-link {
                         &#gr11 {
                             top: 31%;
                             left: 78.5%;
+
                             .npc {
                                 max-width: 50px;
                             }
+
                             .gif {
                                 max-width: 145px;
                                 margin-left: -60px;
@@ -1619,9 +1827,11 @@ area:-webkit-any-link {
                         &#gr12 {
                             top: 17%;
                             left: 59.75%;
+
                             .npc {
                                 max-width: 80px;
                             }
+
                             .gif {
                                 margin-left: -20px;
                                 margin-top: -10px;
@@ -1632,9 +1842,11 @@ area:-webkit-any-link {
                         &#gr13 {
                             top: 85.7%;
                             left: 57.75%;
+
                             .npc {
                                 max-width: 60px;
                             }
+
                             .gif {
                                 max-width: 85px;
                                 margin-left: -25px;
@@ -1645,9 +1857,11 @@ area:-webkit-any-link {
                         &#gr14 {
                             top: 77.75%;
                             left: 41.2%;
+
                             .npc {
                                 max-width: 75px;
                             }
+
                             .gif {
                                 transform: none;
                                 margin-top: 5px;
@@ -1660,6 +1874,7 @@ area:-webkit-any-link {
             }
         }
     }
+
     .preload {
         header {
             .col-left {
@@ -1668,17 +1883,20 @@ area:-webkit-any-link {
                     line-height: 1;
                 }
             }
+
             .col-right {
                 a {
                     img {
                         width: 40px;
                     }
+
                     span {
                         font-size: 17px;
                     }
                 }
             }
         }
+
         #preload-content {
             width: 100%;
             height: 100%;
@@ -1700,10 +1918,12 @@ area:-webkit-any-link {
                         transform: translateX(-50%);
                     }
                 }
+
                 .preload-content-inner-subtitle {
                     font-size: 25px;
                     margin: 15px 0;
                 }
+
                 .preload-content-inner-icon {
                     max-width: 80vw;
                 }
@@ -1718,6 +1938,7 @@ area:-webkit-any-link {
             .preload-content-inner {
                 .preload-content-inner-title {
                     font-size: 40px;
+
                     span {
                         font-size: 70px;
                     }
@@ -1737,6 +1958,7 @@ area:-webkit-any-link {
                             &.btn-prev-slider {
                                 left: -45px;
                             }
+
                             &.btn-next-slider {
                                 right: -45px;
                             }
@@ -1746,6 +1968,7 @@ area:-webkit-any-link {
                             }
                         }
                     }
+
                     .swiper-wrapper {
                         .swiper-slide {
                             .item {
@@ -1764,7 +1987,7 @@ area:-webkit-any-link {
                 }
             }
         }
-        #result-wrapper {
-        }
+
+        #result-wrapper {}
     }
 }

@@ -22,7 +22,7 @@ if(isset($_SESSION[SESSION_START_TIME_NAME]))
 }
 if($start_time == 0)
 {
-	$start_time = time(); 
+	$start_time = time();
 	$_SESSION[SESSION_START_TIME_NAME] = $start_time;
 }
 
@@ -30,7 +30,7 @@ $token = isset($_GET['token']) ? trim($_GET['token']) : '';
 $isValidToken = token::validate($token, PROJECT_KEY_NAME, TOKEN_KEY, TOKEN_EXPIRE_TIME);//12hour expire token
 
 $post_url = '';
-$post_title = '';  
+$post_title = '';
 $post_content = '';
 if($isValidToken)
 {
@@ -138,7 +138,7 @@ else
 						</h2>
 					</div>
 					<div class="section-btn">
-						<a id="continue-btn" href="game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
+						<a id="continue-btn" href="<?php echo URL_ROOT_PROJECT; ?>game.php" onclick="continueBtn();">Bóc phốt tiếp</a>
 					</div>
 				</div>
 				<div class="section-right">
@@ -157,7 +157,7 @@ else
 							</li>
 						</ul>
 					</div>
-					<h4><a href="https://creativestudioa.admicro.vn" target="_blank">Tham khảo các dịch vụ của Creative Studio
+					<h4><a href="https://creativestudioa.admicro.vn" target="_blank">Tham khảo 4 dịch vụ của Creative Studio
 							Athena</a></h4>
 				</div>
 			</section>
@@ -173,22 +173,22 @@ else
 				</div>
 			</section>
 			<section class="render-images">
-                <div class="box-frame text-center" id="frame-img">
-                    <div class="gif-top"><img src="./image/icon/bn-gif.png" alt=""></div>
-                    <div class="text-frame">
-                        <h2><?php echo $randomString ?></h2>
-                    </div>
-                </div>
-                <img id="preview-frame" src="" alt="">
-                <div class="end-code">
-                    <img id="img-top" src=""></img>
-                    <img id="img-gif" src="<?php echo $post_url; ?>" style="max-height: 220px;"></img>
-                    <p></p>
-                    <canvas id="bitmap" style="display:none;"></canvas>
-                    <img id="image">
-                </div> 
-            </section> 
-            <section class="box-share">
+				<div class="box-frame text-center" id="frame-img">
+					<div class="gif-top"><img src="./image/icon/bn-gif.png" alt=""></div>
+					<div class="text-frame">
+						<h2><?php echo $randomString ?></h2>
+					</div>
+				</div>
+				<img id="preview-frame" src="" alt="">
+				<div class="end-code">
+					<img id="img-top" src=""></img>
+					<img id="img-gif" src="<?php echo $post_url; ?>" style="max-height: 220px;"></img>
+					<p></p>
+					<canvas id="bitmap" style="display:none;"></canvas>
+					<img id="image">
+				</div>
+			</section>
+			<section class="box-share">
 				<div class="img-share" id="share-thumbs"> 
 					<div class="left text-center">
 						<div class="i-top"><img src="./image/icon/share-top.png" alt=""></div>
@@ -210,8 +210,6 @@ else
 		<!--Script-->
 		<script src="./plugin/jQuery/jquery.min.js"></script>
 		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script> -->
-		<!-- <script src="./plugin/html2canvas.min.js"></script>  -->
 		<script src="./js-gif/b64.js"></script>
 	    <script src="./js-gif/LZWEncoder.js"></script> 
 	    <script src="./js-gif/NeuQuant.js"></script>
@@ -220,84 +218,98 @@ else
 
 		<script>
 			var storage = localStorage.getItem("key-type");
+
+			// sharefb img
 			const original = document.querySelector('#share-thumbs');
-			html2canvas(original, {
-			   backgroundColor: "#d7d7d7",
-			   useCORS: true, 
-			   scale: 1, 
-			   width: 500,
-			   height: 250,
-			   }).then(canvas => {
-			    var image = canvas.toDataURL("image/png");
-			    // uploadimg(image); 
-			    $('#preview-share').attr('src', image);
-			}) 
-			if (storage == "image") {
-                console.log("download image");
-                const original = document.querySelector('#img-canvas');
-				html2canvas(original, {
-				   backgroundColor: "#d7d7d7",
-				   useCORS: true, 
-				   scale: 1, 
-				   width: 300, 
-				   height: 425,
-				   }).then(canvas => {
-				    var image = canvas.toDataURL("image/png");
-				    uploadimg(image); 
-				})  
-            } else { 
-                console.log("download video");
+			const originalCanvas = document.querySelector('#img-canvas');
+			async function renderImage(){
+				const imageHorizontalCanvas = await html2canvas(original, {
+					backgroundColor: "#d7d7d7",
+					useCORS: true, 
+					scale: 1, 
+					width: 500,
+					height: 250,
+				});
+				const imageVerticalCanvas = await html2canvas(originalCanvas, {
+						backgroundColor: "#d7d7d7",
+						useCORS: true, 
+						scale: 1, 
+						width: 300,
+						height: 425,
+					   });
+				const imageHorizontal = imageHorizontalCanvas.toDataURL("image/png");
+				const imageVertical = imageVerticalCanvas.toDataURL("image/png");
+				uploadimg(imageVertical,imageHorizontal);
+                $('#preview-share').attr('src', imageHorizontal);
+			};
+
+			async function renderGif(){
                 var w = parseInt(window.innerWidth);
-                html2canvas(document.getElementById('frame-img')).then(function(canvas) {
-                	var image = canvas.toDataURL("image/png");
-	                $('#preview-frame, #img-top').attr('src', image);
-	            });
-				var canvas = document.getElementById('bitmap');
-	            var context = canvas.getContext('2d'); 
-	            canvas.width = 300;  
-	            canvas.height = 442;
-	            context.fillStyle = "#FFFFFF";
-	            context.fillRect(0,0,canvas.width,canvas.height);
-	            var imgtop = document.getElementById('img-top');
-	            var encoder = new GIFEncoder();
-	            encoder.setRepeat(0); 
-	            encoder.setDelay(11);
-	            var gs = GIFF();
-	            gs.onerror = function(e){ 
-	               console.log("Gif loading error " + e.type);
-	            }  
-	            gs.load('<?php echo $post_url; ?>');
-	            setTimeout(()=>{
-	            encoder.start(); 
-	            for(i=0;i<gs.frames.length;i++) {
-	              context.drawImage(imgtop,0,0,300,442); 
-	              context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
-	              encoder.addFrame(context)
-	            }
-	            encoder.finish();
-	            var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
-				uploadimg(finimg);
-	            },1000);
-            }; 
+                const originalCanvas = document.getElementById('frame-img')
+                html2canvas(originalCanvas).then(function(canvas) {
+                    var image = canvas.toDataURL("image/png");
+                    $('#preview-frame, #img-top').attr('src', image);
+                });
+                const imageHorizontalCanvas = await html2canvas(original, {
+                    backgroundColor: "#d7d7d7",
+                    useCORS: true,
+                    scale: 1,
+                    width: 500,
+                    height: 250,
+                });
+                const imageHorizontal = imageHorizontalCanvas.toDataURL("image/png");
+                var canvas = document.getElementById('bitmap');
+                var context = canvas.getContext('2d');
+                canvas.width = 300;
+                canvas.height = 442;
+                context.fillStyle = "#FFFFFF";
+                context.fillRect(0,0,canvas.width,canvas.height);
+                var imgtop = document.getElementById('img-top');
+                var encoder = new GIFEncoder();
+                encoder.setRepeat(0);
+                encoder.setDelay(11);
+                var gs = GIFF();
+                gs.onerror = function(e){
+                    console.log("Gif loading error " + e.type);
+                }
+                gs.load('<?php echo $post_url; ?>');
+                setTimeout(()=>{
+                    encoder.start();
+                    for(i=0;i<gs.frames.length;i++) {
+                        context.drawImage(imgtop,0,0,300,442);
+                        context.drawImage(gs.frames[i].image,0,0,500,500,25,110,220,220);
+                        encoder.addFrame(context)
+                    }
+                    encoder.finish();
+                    var finimg = document.getElementById('image').src = 'data:image/gif;base64,'+encode64(encoder.stream().getData());
+                    uploadimg(finimg, imageHorizontal);
+                },1000);
+            }
+
+			if (storage == "image") {
+                renderImage();
+					
+            } else {
+				console.log("download video");
+                renderGif();
+            };
 
 			$("#btn-download").click(function() {
 				var image_link = $("#imageShareSocialNetwork").val();
 				if( image_link !== "") {
 					$('#btn-download').attr("download", "<?php echo $post_title; ?>");
 				}else{
-					alert('Không tạo được ảnh nhân vật')
+					alert('Chờ chút! Ảnh nhân vật đang được tạo')
 				}
 			});
 
-			function uploadimg(image) {
-				var nameUser = "<?php  echo $post_title;; ?>";
-				var contentImage = "<?php echo $post_content; ?>";
+			function uploadimg(image,imageHorizontal) {
 				$('#btn-download').attr('href', image);
 				var host = '<?php echo URL_ROOT_PROJECT; ?>';
 				$.ajax({
 					url: host+'src/module/post.php?token=<?php echo $new_token; ?>',
 					type: "POST",
-					data: { image: image, myMessage: '<?php echo $randomString; ?>'},
+					data: { image: image,imageHorizontal: imageHorizontal, myMessage: '<?php echo $randomString; ?>'},
 					success: function (result) 
 					{
 						result = JSON.parse(result);
@@ -331,7 +343,6 @@ else
 			//share image
 			$("#share-fb").click(function() {
                 var idShare = $('#idShare').val();
-                console.log(idShare)
 				var image_link = $("#imageShareSocialNetwork").val();
 				if( image_link !== "")
 				{
@@ -339,12 +350,13 @@ else
 						display: 'popup',
 						method: 'share_open_graph',
 						action_type: 'og.likes',
+						hashtag: '#CreativeStudio_Athena',
 						action_properties: JSON.stringify({
 							object:{
 								'og:url': `<?php echo URL_ROOT_PROJECT; ?>sharefb.php?idShare=${idShare}`,
 								// 'og:url': `http://game.local/sharefb.php?idShare=${idShare}`,
 								'og:title': "Game Bóc phốt công sở",
-								'og:description': "Game Bóc phốt công sở được phát triển bởi Creative Studio Athena",
+								'og:description': "Thử tài nhanh tay - tinh mắt “bóc phốt” đồng nghiệp xung quanh bạn. Game được phát triển bởi Creative Studio Athena.",
 								'og:type':"article",
 								'og:locale':"vi_VN",
 								'og:image': image_link
@@ -362,10 +374,11 @@ else
 			});
 
 			$("#share-mess").click(function() {
-
+				var idShare = $('#idShare').val();
 				FB.ui({
 					display: 'popup',
 					method: 'share',
+					hashtag: '#CreativeStudio_Athena',
 					href: `<?php echo URL_ROOT_PROJECT; ?>sharefb.php?idShare=${idShare}`,
 				}, function(response){});
 

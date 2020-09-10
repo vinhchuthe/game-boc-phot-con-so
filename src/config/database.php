@@ -6,7 +6,7 @@ function db_connect()
 		
 		// set the PDO error mode to exception
 		// chi dung cho development - khong dung khi day len server that
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		// $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		return $conn;
 	}
 	catch(PDOException $e)

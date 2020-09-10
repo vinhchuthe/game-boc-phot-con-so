@@ -37,12 +37,12 @@ if($idShare){
     <meta property="og:type" content="article">
     <meta property="og:title" content="Game Bóc phốt công sở">
     <meta property="og:description"
-          content="Game Bóc phốt công sở được phát triển bởi Creative Studio Athena">
+          content="Thử tài nhanh tay - tinh mắt “bóc phốt” đồng nghiệp xung quanh bạn. Game được phát triển bởi Creative Studio Athena.">
     <meta property="og:url" content="<?php echo URL_ROOT_PROJECT; ?>sharefb.php?idShare=<?php echo $idShare ?>">
     <meta property="og:site_name" content="Game Bóc phốt công sở">
-    <meta property="og:image" content="<?php  echo CLOUD_IMG_DOMAIN. $infoData['image']; ?>">
-    <meta property="og:image:width" content="300"/>
-    <meta property="og:image:height" content="442"/>
+    <meta property="og:image" content="<?php  if(empty($infoData['image_horizontal'])) { echo CLOUD_IMG_DOMAIN. $infoData['image']; } else { echo CLOUD_IMG_DOMAIN. $infoData['image_horizontal'];}  ?>">
+    <meta property="og:image:width" content="500"/>
+    <meta property="og:image:height" content="250"/>
 
 </head>
 
@@ -61,7 +61,7 @@ if($idShare){
         <div class="sharefb section-right">
             <h1>"Bóc phốt" công sở</h1>
             <h3>Share luôn với 500 anh em thôi chứ đợi gì nữa!</h3>
-            <h4><a href="https://creativestudioa.admicro.vn" target="_blank">Tham khảo các dịch vụ của Creative Studio
+            <h4><a href="https://creativestudioa.admicro.vn" target="_blank">Tham khảo 4 dịch vụ của Creative Studio
                     Athena</a></h4>
         </div>
     </section>

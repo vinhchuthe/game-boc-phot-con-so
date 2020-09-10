@@ -130,6 +130,13 @@ body {
           cursor: url(../image/icon/icon-mouse.png), auto;
           color: $green-text;
         }
+
+        &:hover {
+          border-bottom: 1px solid #ffa500;
+          a {
+            color: #ffa500;
+          }
+        }
       }
     }
 
@@ -174,6 +181,11 @@ body {
           }
         }
       }
+    }
+  }
+  .sharefb {
+    .section-image {
+      padding: 0;
     }
   }
 }
