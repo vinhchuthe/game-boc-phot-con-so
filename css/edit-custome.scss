@@ -26,7 +26,7 @@
 }
 
 .txt-rand {
-	display: none;
+	display: none; 
 	position: absolute;
 	top: 0;
 
@@ -511,10 +511,16 @@ span#clc-submit {
 
 .img-share {
 	display: flex;
-	width: 500px;
-	background: #ededed;
-	padding: 25px;
-
+    width: 600px;
+    background: #ededed;
+    padding: 25px;
+    height: 315px;
+    align-items: center;
+    .i-top {
+    	img { 
+    		width: 310px;
+    	}
+    }
 	.right {
 		flex: 0 0 200px;
 	}

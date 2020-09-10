@@ -224,11 +224,11 @@ else
 			const originalCanvas = document.querySelector('#img-canvas');
 			async function renderImage(){
 				const imageHorizontalCanvas = await html2canvas(original, {
-					backgroundColor: "#d7d7d7",
+					backgroundColor: "#ededed",
 					useCORS: true, 
 					scale: 1, 
-					width: 500,
-					height: 250,
+					width: 600,
+					height: 315,
 				});
 				const imageVerticalCanvas = await html2canvas(originalCanvas, {
 						backgroundColor: "#d7d7d7",
