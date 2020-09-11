@@ -701,7 +701,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 										$('#urlResultMsg').prepend(strpreappend);
 									});
 								}
-							});
+							}); 
 						}
 						else
 						{

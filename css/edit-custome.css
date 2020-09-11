@@ -358,10 +358,10 @@ span#clc-submit {
 
 .img-share {
   display: flex;
-  width: 600px;
+  width: 560px;
   background: #ededed;
   padding: 25px;
-  height: 315px;
+  height: 292px;
   align-items: center; }
   .img-share .i-top img {
     width: 310px; }

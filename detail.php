@@ -227,8 +227,8 @@ else
 					backgroundColor: "#ededed",
 					useCORS: true, 
 					scale: 1, 
-					width: 600,
-					height: 315,
+					width: 560,
+					height: 292,
 				});
 				const imageVerticalCanvas = await html2canvas(originalCanvas, {
 						backgroundColor: "#d7d7d7",

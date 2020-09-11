@@ -28,15 +28,15 @@
 .txt-rand {
 	display: none; 
 	position: absolute;
-	top: 0;
+	top: 0; 
 
 	&.active_rand {
 		display: block;
 	}
-
+ 
 	img {
 		max-width: inherit;
-	}
+	} 
 
 	span {
 		position: absolute;
@@ -511,10 +511,10 @@ span#clc-submit {
 
 .img-share {
 	display: flex;
-    width: 600px;
+    width: 560px;
     background: #ededed;
     padding: 25px;
-    height: 315px;
+    height: 292px;
     align-items: center;
     .i-top {
     	img { 
@@ -570,6 +570,9 @@ span#clc-submit {
 	position: absolute;
 	z-index: -1;
 	left: -999999px;
+	// z-index: 10;
+	// left: 100px;
+	// top: 100px;
 }
 
 @media (max-width: 4096px) and (max-height: 2160px) {
