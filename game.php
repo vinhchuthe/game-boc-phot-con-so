@@ -125,7 +125,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 			{
 				if(typeof(ssepushSource) == 'object')
 				{ 
-					// ssepushSource.close();
+					ssepushSource.close();
 				}
                 $('#form-frame5-submit').submit();
             } else if (name === '') {
@@ -691,7 +691,7 @@ $token = token::generate(PROJECT_KEY_NAME, TOKEN_KEY);
 							ssepushSource.addEventListener("message", function(event){
 								if(event.data == 'invalid_token')
 								{
-									// ssepushSource.close();
+									ssepushSource.close();
 								}
 								else
 								{

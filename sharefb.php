@@ -41,8 +41,8 @@ if($idShare){
     <meta property="og:url" content="<?php echo URL_ROOT_PROJECT; ?>sharefb.php?idShare=<?php echo $idShare ?>">
     <meta property="og:site_name" content="Game Bóc phốt công sở">
     <meta property="og:image" content="<?php  if(empty($infoData['image_horizontal'])) { echo CLOUD_IMG_DOMAIN. $infoData['image']; } else { echo CLOUD_IMG_DOMAIN. $infoData['image_horizontal'];}  ?>">
-    <meta property="og:image:width" content="500"/>
-    <meta property="og:image:height" content="250"/>
+    <meta property="og:image:width" content="600"/>
+    <meta property="og:image:height" content="315"/>
 
 </head>
 
