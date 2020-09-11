@@ -99,6 +99,16 @@ else
 	<html lang="vi">
 
 	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177402015-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-177402015-1');
+		</script>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link rel="icon" href="../wp-content/themes/creativestudio/dist/images/favicon.png">
 		<link rel="stylesheet" href="./css/detail.css">
@@ -108,6 +118,7 @@ else
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:description" content="Game Bóc phốt công sở được phát triển bởi Creative Studio Athena">
 		<meta name="twitter:title" content="Game bóc phốt công sở">
+		
 	</head>
 
 	<body>
@@ -224,7 +235,7 @@ else
 			const originalCanvas = document.querySelector('#img-canvas');
 			async function renderImage(){
 				const imageHorizontalCanvas = await html2canvas(original, {
-					backgroundColor: "#ededed",
+					backgroundColor: "#d7d7d7",
 					useCORS: true, 
 					scale: 1, 
 					width: 600,
@@ -254,8 +265,8 @@ else
                     backgroundColor: "#d7d7d7",
                     useCORS: true,
                     scale: 1,
-                    width: 500,
-                    height: 250,
+                    width: 600,
+                    height: 315,
                 });
                 const imageHorizontal = imageHorizontalCanvas.toDataURL("image/png");
                 var canvas = document.getElementById('bitmap');
